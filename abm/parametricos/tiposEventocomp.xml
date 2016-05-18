@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<evento_componente>
+    <dato id='P'>Propiedad</dato>
+    <dato id='U'>Empleado</dato>
+    <dato id='C'>Cliente</dato>
+    <dato id='A'>Asunto</dato>
+</evento_componente>

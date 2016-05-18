@@ -1,0 +1,26 @@
+<div class="relacionCP-content">
+    <div class="relacionCP-title">
+        Carga de Relacion de Clientes - Propiedades
+    </div>
+    <div class="relacionCP-form">
+        <form id='relacionCP' style="height: 100%;">
+            <div>
+                <label for='buscaProp' class='cd_celda_texto'>Buscador de Propiedad</label><br />
+                <input type='text' size='70' class="ui-autocomplete-input" name='buscaProp' id='buscaProp' value="Ingrese para buscar Zona, calle, numero..." onfocus="if(this.value == this.defaultValue){ this.value = ''; this.style.color = '#333';this.style.fontStyle='normal';}" onblur="if(this.value == '') {this.value = this.defaultValue; this.style.color='#CCC';this.style.fontStyle='italic';}" />
+                <input type="hidden" id="id_cli" name="id_cli" value="{ID_CLI}">
+            </div>
+            <div style="clear: both" ></div>
+            <div>
+                <label for='buscaProp' class='cd_celda_texto'>Relación</label><br />
+                {COMBORELACION}
+            </div>
+            {ID_CLI}
+            <input type="hidden" id="aux_prop" name="aux_prop" value="{AUX_PROP}">
+            <input type="hidden" id="tipo" name="tipo" value="CP">
+<!--            <input type="button" value="Grabar" id="bt_grabarelacionCP" name="bt_grabarelacionCP" onclick="javascript:grabaRelacion('CP');">  -->
+            <input type="button" value="Grabar" id="bt_grabarelacionCP" name="bt_grabarelacionCP" onclick="javascript:grabaRelacion('relacionCP');">
+            
+        </form>
+    </div>
+</div>
+            

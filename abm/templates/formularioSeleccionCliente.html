@@ -1,0 +1,70 @@
+<div style='text-align:center; margin:auto; width:550px; margin-top:30px;'>
+    <div class="seleccionClienteGrabacion-title">
+        Seleccion de Cliente para CRM
+    </div>
+    <form action="javascript: registrarSeleccionCrm(document.getElementById('aux_cli').value,0);" name='seleccionClienteGrabacion' id='seleccionClienteGrabacion' method='post' >
+        <table width='450'>
+            <tr>
+                <td width='20%'>Seleccione Cliente: 
+                </td>
+                <td width='80%'>
+                    <input type="text" size="50" name="buscaCli" id="buscaCli"  class="ui-autocomplete-input" value="Ingrese para buscar nombre, apellido, email, telefono, dirección..." onfocus="if (this.value == this.defaultValue) {
+                                this.value = '';
+                                this.style.color = '#333';
+                                this.style.fontStyle = 'normal';
+                            }" onblur="if (this.value == '') {
+                                        this.value = this.defaultValue;
+                                        this.style.color = '#CCC';
+                                        this.style.fontStyle = 'italic';
+                                    }" />
+
+                    <input type='hidden'  name='aux_cli' id='aux_cli'  value="0"/> 
+                </td>
+            </tr>
+            <tr>
+                <td colspan='2'>
+                    <input type='button' value='Cliente Nuevo ...' onclick="javascript: document.getElementById('bloque_nuevo').style.display='table-row'">
+                </td>
+            </tr>
+            <tr id="bloque_nuevo" style="display: none">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="NOMBRE" >Nombre</label><br />
+                                <input type="text" size="30" name="NOMBRE" id="NOMBRE" value=""/>
+                            </td>
+                            <td>
+                                <label for="APELLIDO" >Apellido</label><br />
+                                <input type="text" size="37" name="APELLIDO" id="APELLIDO" value=""/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="TELEFONO" >Telefono</label><br />
+                                <input type="text" size="30" name="TELEFONO" id="TELEFONO" value=""/>
+                            </td>
+                            <td>
+                                <label for="CELULAR" >Celular</label><br />
+                                <input type="text" size="30" name="CELULAR" id="CELULAR" value=""/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <label for="MAIL" >Mail</label>
+                                <input type="text" size="67" name="MAIL" id="MAIL" value=""/>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan='2'>
+                    <input type='submit' value='Enviar ...'>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

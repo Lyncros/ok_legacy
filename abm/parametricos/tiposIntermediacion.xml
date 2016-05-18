@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipo_operacion>
+    <dato id='Exclusiva'>Exclusiva</dato>
+    <dato id='Compartida'>Compartida</dato>
+    <dato id='Otra inmobiliaria'>Otra inmobiliaria</dato>
+</tipo_operacion>

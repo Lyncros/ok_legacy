@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<estadosCartel>
+    <dato id='Pedido Colocacion'>Pedido Colocacion</dato>
+    <dato id='Colocado'>Colocado</dato>
+    <dato id='Pedido Retiro'>Pedido Retiro</dato>
+    <dato id='Retirado'>Retirado</dato>
+</<estadosCartel>

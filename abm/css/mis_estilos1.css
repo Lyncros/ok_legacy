@@ -1,0 +1,53 @@
+/* CSS Document */
+
+.titulo{
+background-color:#9c9c9e;
+color:#FFEF00;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:14px;
+text-align:center;
+vertical-align:middle;
+height:30px;
+}
+
+.subtitulo{
+color:#000000;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+font-weight:bold;
+}
+
+.subtitulo1{
+color:#000000;
+text-align:center;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:14px;
+font-weight:bold;
+}
+
+.fecha-evento{
+color:#000000;
+text-align:right;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;
+font-weight:bold;
+}
+
+.texto-normal{
+color:#000000;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+line-height:20px;
+padding-left: 8px;
+padding-right: 8px;
+}
+
+.texto-espaciado{
+color:#000000;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+font-stretch:narrower;
+line-height:30px;
+padding-left: 8px;
+padding-right: 8px;
+}

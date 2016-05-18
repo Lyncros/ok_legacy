@@ -1,0 +1,58 @@
+<form name='formCargaReciborend' id='formCargaReciborend' method='post'>
+
+    <table width='700' align='center' bgcolor='#FFFFFF'>
+        <tr>
+            <td class='cd_celda_titulo' colspan="2">Carga de la Rendicion del Recibo</td>
+        </tr>
+        <tr>
+            <td class='cd_celda_texto' width='45%' style="text-align: left;">Nro Recibo a rendir
+                <span class='obligatorio'>&nbsp;&bull;</span><br />
+                <input class='campos' type='text' name='REC_NRO' id='REC_NRO' value='{REC_NRO}' maxlength='20' size='20' readonly="readonly">
+                <input type='hidden' name='ID_RENDICION' id='ID_RENDICION' value='{ID_RENDICION}'>
+                <input type='hidden' name='ID_RECIBO' id='ID_RECIBO' value='{ID_RECIBO}'>
+                <input type='hidden' name='ID_CONTRATO' id='ID_CONTRATO' value='{ID_CONTRATO}'>
+            </td>
+            <td class='cd_celda_texto' width='45%'>Fecha Emision
+                <span class='obligatorio'>&nbsp;&bull;</span><br />
+                <input class='campos' type='text' name='FEC_REND' id='FEC_REND' value='{FEC_REND}' maxlength='10' size='15'>
+            </td>
+        </tr>
+        <tr>
+            <td class='cd_celda_texto' >Importe del MES
+                <span class='obligatorio'>&nbsp;&bull;</span><br />
+                <input class='campos' type='text' name='TOTAL' id='TOTAL' value='{TOTAL}' maxlength='10' size='80' readonly="readonly">
+            </td>
+            <td class='cd_celda_texto' >% Honorarios
+                <span class='obligatorio'>&nbsp;&bull;</span><br />
+                <input class='campos' type='text' name='HONORARIOS' id='HONORARIOS' value='{HONORARIOS}' maxlength='10' size='80' readonly="readonly">
+            </td>
+        </tr>
+        <tr>
+            <td class='cd_celda_texto' width='45%'>Honorarios
+                <span class='obligatorio'>&nbsp;&bull;</span><br />
+                <input class='campos' type='text' name='COMISION' id='COMISION' value='{COMISION}' maxlength='250' size='80' onchange="javascript: recibosrend.recalcular();">
+            </td>
+            <td class='cd_celda_texto' >Total a rendir
+                <span class='obligatorio'>&nbsp;&bull;</span><br />
+                <input class='campos' type='text' name='TOTALREND' id='TOTALREND' value='{TOTALREND}' maxlength='10' size='80'  readonly="readonly">
+            </td>
+        </tr>
+        <tr>
+            <td colspan='2' align='center'>
+                <table >
+                    <tr>
+                        <td width='30%'>
+                            <input id="boton_enviar" class='boton_form' type='button' value='Grabar' onclick="javascript: recibosrend.grabar('formCargaReciborend');">
+                        </td>
+                        <td width='30%'>
+                            <input id="boton_borrar" class='boton_form' type='button' value='Borrar' onclick="javascript: recibosrend.borrar('{ID_RENDICION}');">
+                        </td>
+                        <td width='30%'>
+                            <input id="boton_imprimir" class='boton_form' type='button' value='Imprimir' onclick="javascript: recibosrend.imprimir();">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</form>

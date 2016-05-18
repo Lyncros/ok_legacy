@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipoAsignacion>
+    <dato id='3'>Cliente</dato>
+    <dato id='1'>Referido</dato>
+    <dato id='2'>Espontaneo</dato>
+    <dato id='4'>Amigo/Familiar</dato>
+    <dato id='5'>Otro</dato>
+</tipoAsignacion>

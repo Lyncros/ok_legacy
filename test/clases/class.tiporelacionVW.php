@@ -1,0 +1,133 @@
+<?php
+include_once ('generic_class/class.VW.php');
+//include_once("generic_class/class.menu.php");
+include_once("clases/class.tiporelacionBSN.php");
+include_once("clases/class.tiporelacion.php");
+include_once("inc/funciones.inc");
+
+class TiporelacionVW extends VW{
+	protected $clase="Tiporelacion";
+	protected $tiporelacion;
+	protected $nombreId="Id_tiporel";
+
+	public function __construct($_tiporelacion=0){
+		TiporelacionVW::creaObjeto();
+		if($_tiporelacion instanceof Tiporelacion )	{
+			TiporelacionVW::seteaVW($_tiporelacion);
+		}
+		if (is_numeric($_tiporelacion)){
+			if($_tiporelacion!=0){
+				TiporelacionVW::cargaVW($_tiporelacion);
+			}
+		}
+		TiporelacionVW::cargaDefinicionForm();
+	}
+
+
+	public function cargaDatosVW(){
+		$objBSN= new TiporelacionBSN();
+
+		print "<form action='carga_tiporelacion.php' name='carga' id='carga' method='post' onSubmit='javascript: return ValidaTiporelacion(this);'>\n";
+		print "<table width='90%' align='center' bgcolor='#FFFFFF'>\n";
+
+		print "<tr><td class='cd_celda_titulo'>Carga de Tipos de Relacion</td></tr>\n";
+
+		print "<tr><td align='center'>";
+		print "<table width='700' align='center' bgcolor='#FFFFFF'>\n";
+
+		print "<tr><td class='cd_celda_texto' width='20%'>Tipo<span class='obligatorio'>&nbsp;&bull;</span></td>";
+		print "<td width='80%'>";
+		$objBSN->comboTipoRelacion($this->arrayForm['tiporelacion']);
+		print "</td></tr>\n";
+
+		print "<tr><td class='cd_celda_texto' width='20%'>Relacion</td>";
+		print "<td width='80%'><input class='campos' type='text' name='relacion' id='relacion' value='".$this->arrayForm['relacion'] ."' maxlength='255' size='80'></td></tr>\n";
+
+		print "<tr><td class='cd_celda_texto' width='20%'>Grado de la Relacion</td>";
+		print "<td width='80%'><input class='campos' type='text' name='grado' id='grado' value='".$this->arrayForm['grado'] ."' maxlength='255' size='80'></td></tr>\n";
+
+		print "<tr><td class='cd_celda_texto' width='20%'>Observacion</td>";
+		print "<td width='80%'><input class='campos' type='text' name='observacion' id='observacion' value='".$this->arrayForm['observacion']. "'></td></tr>\n";
+
+		print "<input type='hidden' name='id_tiporel' id='id_tiporel' value='".$this->arrayForm['id_tiporel'] ."'>\n";
+
+		print "<br>";
+		print "<tr><td colspan='2' align='right'><input class='boton_form' type='submit' value='Enviar'><br /><br /><span class='obligatorio'>Los campos marcados con &bull; son obligatorios</span></td></tr>\n</table>\n";
+		print "</td></tr>\n</table>\n";
+		print "</form>\n";
+	}
+	
+
+	/**    OK
+	 * Muestra una tabla con los datos de los tiporelacions y una barra de herramientas o menu
+	 * conde se despliegan las opciones ingresables para cada item
+	 *
+	 */
+	public function vistaTablaVW(){
+		$tipoRelBSN = new TiporelacionBSN();
+		$fila=0;
+		print "<script type='text/javascript' language='javascript'>\n";
+		print "function envia(nameForm,opcion,id){\n";
+		print "     document.forms.lista.id_tiporel.value=id;\n";
+		print "   	submitform(nameForm,opcion);\n";
+		print "}\n";
+		print "</script>\n";
+
+		print "<div class='pg_titulo'>Listado de Tipos de Relaciones</div>\n";
+
+		print "<form name='lista' method='POST' action='respondeMenu.php'>";
+
+		print "  <table class='cd_tabla' width='100%'>\n";
+		print "    <tr>\n";
+		print "     <td class='cd_lista_titulo' colspan='2'>&nbsp;</td>\n";
+		print "     <td class='cd_lista_titulo'>Relacion</td>\n";
+		print "     <td class='cd_lista_titulo'>Grado</td>\n";
+		print "     <td class='cd_lista_titulo'>Observacion</td>\n";
+		print "	  </tr>\n";
+
+
+		$evenBSN=new TiporelacionBSN();
+
+		$arrayEven=$evenBSN->cargaColeccionForm();
+		$tipoAnt='';
+		if(sizeof($arrayEven)==0){
+			print "No existen datos para mostrar";
+		} else {
+			foreach ($arrayEven as $Even){
+				if($fila==0){
+					$fila=1;
+				} else {
+					$fila=0;
+				}
+				print "<tr>\n";
+				if($tipoAnt!=$Even['tiporelacion']){
+					print "	 <td class='cd_lista_titulo' colspan='5'>Relacion: ".$tipoRelBSN->getDescripcionTipo($Even['tiporelacion'])."</td>\n";
+					print "</tr>\n";
+					$tipoAnt=$Even['tiporelacion'];
+				}
+				print "<tr>\n";
+				print "	 <td class='row".$fila."' width='16'>";
+				print "    <a href='javascript:envia(\"lista\",172,".$Even['id_tiporel'].");' border='0'>";
+				print "       <img src='images/building_edit.png' alt='Editar' title='Editar' border=0></a></td>";
+				print "	 <td class='row".$fila."' width='16'>";
+				print "    <a href='javascript:envia(\"lista\",173,".$Even['id_tiporel'].");' border=0>";
+				print "       <img src='images/delete.png' alt='Borrar' title='Borrar' border=0></a>";
+				print "  </td>\n";
+
+				print "	 <td class='row".$fila."'>".$Even['relacion']."</td>\n";
+				print "	 <td class='row".$fila."'>".$Even['grado']."</td>\n";
+				print "	 <td class='row".$fila."'>".$Even['observacion']."</td>\n";
+				print "	</tr>\n";
+			}
+		}
+
+		print "  </table>\n";
+		print "<input type='hidden' name='id_tiporel' id='id_tiporel' value=''>";
+		print "<input type='hidden' name='opcion' id='opcion' value=''>";
+		print "</form>";
+	}
+
+} // fin clase
+
+
+?>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipoDomicilio>
+    <dato id='Particular'>Particular</dato>
+    <dato id='Laboral'>Laboral</dato>
+    <dato id='Familiar'>Familiar</dato>
+    <dato id='Mensages'>Mensages</dato>
+</tipoDomicilio> 

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formas_contacto>
+    <dato id='1'>Personalmente</dato>
+    <dato id='2'>Telefonicamente</dato>
+    <dato id='3'>Web</dato>
+    <dato id='4'>Mail</dato>
+</formas_contacto>

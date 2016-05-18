@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<globales>
+
+	<entorno>
+
+		<path>/www/cursos/</path>
+
+		<particular>cursos.senasa.gov.ar</particular>
+
+		<key>capacitacion</key>
+
+	</entorno>
+
+	<database>
+
+		<name>webdos</name>
+
+		<host>172.26.160.152</host>
+
+		<port>5432</port>
+
+		<user>web</user>
+
+		<dbpass>da61b969c3327f71994c6c66</dbpass>
+
+	</database>
+
+	<caracteres_especiales>
+
+		<pathschars>/inc</pathschars>
+
+		<fileschars>schars.php</fileschars>
+
+	</caracteres_especiales>
+
+</globales>

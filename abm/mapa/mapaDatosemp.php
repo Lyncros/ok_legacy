@@ -1,0 +1,11 @@
+<?php
+$mapaBase=array(array('form'=>"id_emp_carac",'objeto'=>"id_emp_carac",'tabla'=>"id_emp_carac"),
+			array('form'=>"id_emp",'objeto'=>"id_emp",'tabla'=>"id_emp"),				
+			array('form'=>"id_carac",'objeto'=>"id_carac",'tabla'=>"id_carac"),
+			array('form'=>"contenido",'objeto'=>"contenido",'tabla'=>"contenido"),
+			array('form'=>"comentario",'objeto'=>"comentario",'tabla'=>"comentario"),
+			array('form'=>"titulo",'objeto'=>"titulo",'tabla'=>"titulo"),
+			array('form'=>"orden",'objeto'=>"orden",'tabla'=>"orden"),
+			array('form'=>"activa",'objeto'=>"activa",'tabla'=>"activa")
+			);
+?>

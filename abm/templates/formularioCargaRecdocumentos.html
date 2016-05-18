@@ -1,0 +1,36 @@
+<form name='formCargaRecdocumentos' id='formCargaRecdocumentos' method='post'>
+    <div class='lista_titulo'>Descuentos del Recibo</div>
+
+    <table width='600' align='center' bgcolor='#FFFFFF'>
+
+        <tr>
+            <td class='cd_celda_texto' >
+                Impuesto<span class='obligatorio'>&nbsp;&bull;</span><br />
+                <select class='campos' name='ID_IMPUESTO' id='ID_IMPUESTO'>
+                </select>
+                <input type='hidden' name='ID_RECDOCS' id='ID_RECDOCS' value='{ID_RECDOCS}'>
+                <input type='hidden' name='INDICE' id='INDICE' value='{INDICE}'>
+            </td>
+            <td class='cd_celda_texto'>
+                Importe<span class='obligatorio'>&nbsp;&bull;</span><br />
+                <input class='campos' type='text' name='IMPORTE' id='IMPORTE' value='{IMPORTE}' maxlength='10' size='10'>
+            </td>
+            <td class='cd_celda_texto'>
+                Concepto<span class='obligatorio'>&nbsp;&bull;</span><br />
+                <input class='campos' type='text' name='CONCEPTO' id='CONCEPTO' value='{CONCEPTO}' maxlength='50' size='30'>
+            </td>
+        </tr>
+        <tr>
+            <td class='cd_celda_texto' colspan="3">
+                Observacion<br />
+                <input class='campos' type='text' name='OBSERVACION' id='OBSERVACION' value='{OBSERVACION}' maxlength='1000' size='70'>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='3' align='center'>
+                <input class='boton_form' type='button' value='Enviar' onclick="javascript:recdocumentos.grabar('formCargaRecdocumentos');">
+                <input class='boton_form' type='button' value='Cancelar' onclick="javascript:recdocumentos.cancelar();">
+            </td>
+        </tr>
+    </table>
+</form>

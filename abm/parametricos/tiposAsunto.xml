@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipoAsunto>
+    <dato id='1'>Busqueda Propiedad</dato>
+    <dato id='2'>Busqueda Emprendimiento</dato>
+    <dato id='3'>Busqueda Inversion</dato>
+</tipoAsunto>

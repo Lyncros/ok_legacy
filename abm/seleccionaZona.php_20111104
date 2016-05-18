@@ -1,0 +1,82 @@
+<?php
+include_once ("clases/class.ubicacionpropiedadBSN.php");
+
+$campoValor=$_GET['v'];
+$campoZona=$_GET['z'];
+if($campoZona==0){
+	$campoDestino='id_padre';
+}else{
+	$campoDestino='id_ubica';
+}
+
+print "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>";
+
+?>
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+<script type="text/javascript" language="JavaScript">
+	
+
+	function expandirLista(elem){
+		if(document.getElementById('dd_'+elem).style.display=='none'){
+			document.getElementById('dd_'+elem).style.display='block';
+			document.getElementById('sp_'+elem).src='images/table_delete.png';
+		}else{
+			document.getElementById('dd_'+elem).style.display='none';
+			document.getElementById('sp_'+elem).src='images/table_add.png';
+
+		}
+	}
+
+	function enviarSeleccion(f){
+		retorno=leeCheckbox(f);
+		window.opener.document.getElementById('<?php echo $campoDestino; ?>').value=retorno[0];
+		window.opener.document.getElementById('txtUbica').innerHTML=retorno[1];
+
+		window.close();
+	}
+
+	function leeCheckbox(f) {
+		seleccion='';
+		campos='';
+		retorno=new Array(2);
+		elementos=f.elements.length;
+		for ( var n= 0 ; n < elementos; n++ ) {
+			largo=f.elements[n].name.length;
+			pref=f.elements[n].name.substring(0,2);
+			pid=f.elements[n].name.substring(3,largo);
+		    if(f.elements[n].checked && pref=='sz'){
+				if(seleccion.length>0){
+					seleccion+=',';
+					campos+=', ';
+				}
+				seleccion+=pid;
+				campos+=f.elements[n].title;
+			}
+		}
+ 		retorno[0]=seleccion;
+		retorno[1]=campos;
+		return retorno;
+	}
+
+	</script>
+</head>
+<body>
+	<form name="listaSubZonas" id="listaSubZonas">
+<?php
+$ubiBSN = new UbicacionpropiedadBSN();
+$ubiBSN->checkboxUbicacionpropiedad($campoValor, $campoZona)
+?>
+
+		<input type='button' value='Seleccionar...'
+			onclick='enviarSeleccion(this.form);' />
+	</form>
+</body>
+</html>

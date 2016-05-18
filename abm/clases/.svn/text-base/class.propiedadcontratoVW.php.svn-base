@@ -1,0 +1,192 @@
+<?php
+
+include_once("generic_class/class.menu.php");
+include_once("clases/class.propiedadcontratoBSN.php");
+include_once("clases/class.propiedadcontrato.php");
+include_once("clases/class.propiedadVW.php");
+include_once("inc/funciones.inc");
+
+class PropiedadcontratoVW extends VW {
+
+    protected $clase = "Propiedadcontrato";
+    protected $propiedadcontrato;
+    protected $nombreId = "Id_contrato";
+
+    public function __construct($_propiedadcontrato=0) {
+        PropiedadcontratoVW::creaObjeto();
+        if ($_propiedadcontrato instanceof Propiedadcontrato) {
+            PropiedadcontratoVW::seteaVW($_propiedadcontrato);
+        }
+        if (is_numeric($_propiedadcontrato)) {
+            if ($_propiedadcontrato != 0) {
+                PropiedadcontratoVW::cargaVW($_propiedadcontrato);
+            }
+        }
+        PropiedadcontratoVW::cargaDefinicionForm();
+    }
+
+    public function setIdPropiedad($_prop) {
+        $this->propiedadcontrato->setId_prop($_prop);
+        $this->arrayForm['id_prop'] = $_prop;
+    }
+
+    public function getIdPropiedad() {
+        return $this->propiedadcontrato->getId_prop();
+    }
+
+    public function cargaDatosVW() {
+        $propVW = new PropiedadVW($this->arrayForm['id_prop']);
+        $propCont = new PropiedadcontratoBSN();
+        print "<script type='text/javascript' language='javascript'>\n";
+        print "function envia(nameForm,opcion,id){\n";
+        print "     document.forms.lista.id_foto.value=id;\n";
+        print "   	submitform(nameForm,opcion);\n";
+        print "}\n";
+        print "function muestraCargaData(){\n";
+        print "   document.getElementById('cargaData').style.display='block';\n";
+        print "}\n";
+        print "</script>\n";
+
+        print "<div id='cargaData' name='cargaData' style='display:none;'>";
+
+        print "<form action='carga_Propiedadcontrato.php' name='carga' id='carga' method='post' onSubmit='javascript: return ValidaPropiedadcontrato(this);'>\n";
+
+        print "<div class='pg_titulo'>Carga del Contrato de la Propiedad</div>\n";
+
+        print "<table width='700' align='center' bgcolor='#FFFFFF'>\n";
+
+        print "<tr><td class='cd_celda_texto' width='15%'>Fecha de Frima</td>";
+        print "<td width='85%'><input class='campos' type='text' name='fec_firma' id='fec_firma' value='" . $this->arrayForm['fec_firma'] . "' maxlength='10' size='80'></td><td><span class='obligatorio'>&nbsp;&bull;</span></td></tr>\n";
+        print "	<script type=\"text/javascript\">\n";
+        print "jQuery(\"#fec_firma\").datepicker({showButtonPanel: true,dateFormat: \"dd-mm-yy\"});\n";
+        print "</script>\n";
+
+        print "<tr><td class='cd_celda_texto' width='15%'>Fecha Inicio</td>";
+        print "<td width='85%'><input class='campos' type='text' name='fec_ini' id='fec_ini' value='" . $this->arrayForm['fec_ini'] . "' maxlength='10' size='80'></td><td><span class='obligatorio'>&nbsp;&bull;</span></td></tr>\n";
+        print "	<script type=\"text/javascript\">\n";
+        print "jQuery(\"#fec_ini\").datepicker({showButtonPanel: true,dateFormat: \"dd-mm-yy\"});\n";
+        print "</script>\n";
+
+        print "<tr><td class='cd_celda_texto' width='15%'>Fecha Finalizacion</td>";
+        print "<td width='85%'><input class='campos' type='text' name='fec_fin' id='fec_fin' value='" . $this->arrayForm['fec_fin'] . "' maxlength='10' size='80'></td><td><span class='obligatorio'>&nbsp;&bull;</span></td></tr>\n";
+        print "	<script type=\"text/javascript\">\n";
+        print "jQuery(\"#fec_fin\").datepicker({showButtonPanel: true,dateFormat: \"dd-mm-yy\"});\n";
+        print "</script>\n";
+
+        print "<tr>";
+        print "<td class='cd_celda_texto' width='15%'>Tipo Contrato</td>";
+        print "<td width='85%'>";
+        $propCont->comboTipocontrato($this->arrayForm['tipo_contrato']);
+        print "</td><td><span class='obligatorio'>&nbsp;&bull;</span></td></tr>\n";
+
+        print "<tr>";
+        print "<td class='cd_celda_texto' width='15%'>Nro Contrato</td>";
+        print "<td width='85%'><input class='campos' type='text' name='cont_nro' id='cont_nro' value='" . $this->arrayForm['cont_nro'] . "' maxlength='250' size='80'></td><td><span class='obligatorio'>&nbsp;&bull;</span></td></tr>\n";
+
+        print "<tr>";
+        print "<td class='cd_celda_texto' width='15%'>Observacion</td>";
+        print "<td width='85%'><input class='campos' type='text' name='observacion' id='observacion' value='" . $this->arrayForm['observacion'] . "' maxlength='250' size='80'></td><td><span class='obligatorio'>&nbsp;&bull;</span></td></tr>\n";
+
+        print "<input type='hidden' name='id_contrato' id='id_contrato' value='" . $this->arrayForm['id_contrato'] . "'>\n";
+        print "<input type='hidden' name='id_prop' id='id_prop' value='" . $this->arrayForm['id_prop'] . "'>\n";
+
+        print "<br>";
+        print "<tr><td colspan='3' align='right'><input class='boton_form' type='submit' value='Enviar'><br /><br /><span class='obligatorio'>Los campos marcados con &bull; son obligatorios</span></td></tr>\n</table>\n";
+        print "</td></tr>\n</table>\n";
+        print "</form>\n";
+        print "</div>";
+    }
+
+    /**
+     * Muestra una tabla con los datos de los propiedadcontratos y una barra de herramientas o menu
+     * conde se despliegan las opciones ingresables para cada item
+     *
+     */
+    public function vistaTablaVW($id_prop=0) {
+        $propVW = new PropiedadVW($id_prop);
+        $tipoCont = new PropiedadcontratoBSN();
+        $arrayTipocont=$tipoCont->getArrayTiposContrato();
+        $fila = 0;
+
+        if ($id_prop == 0 || is_nan($id_prop)) {
+            echo "Debe seleccionar un Propiedad para poder verificar sus Fotos";
+        } else {
+            print "<form name='lista' method='POST' action='respondeMenu.php'>";
+
+            print "<script type='text/javascript' language='javascript'>\n";
+            print "function envia(nameForm,opcion,id){\n";
+            print "     document.forms.lista.id_contrato.value=id;\n";
+            print "   	submitform(nameForm,opcion);\n";
+            print "}\n";
+            print "function modifica(prop,propiedadcontrato){\n";
+            print "     document.getElementById('opcion').value='m';\n";
+            print "     document.location.href='carga_Propiedadcontrato.php?i='+prop+'&cnt='+propiedadcontrato;\n";
+            print "}\n";
+            print "function borra(prop,propiedadcontrato){\n";
+            print "     document.getElementById('opcion').value='b';\n";
+            print "     document.location.href='carga_Propiedadcontrato.php?i='+prop+'&cnt='+propiedadcontrato+'&b=b';\n";
+            print "}\n";
+
+            print "</script>\n";
+
+            print "<div class='pg_titulo'>Listado de Contratos de la propiedad</div>\n";
+            $propVW->muestraDomicilio();
+
+            $arrayTools = array(array('Nuevo', 'images/building_edit.png', 'muestraCargaData()'), array('Regresar', 'images/ui-button-navigation-back.png', 'KillMe()'));
+            $menu = new Menu();
+            $menu->barraHerramientas($arrayTools);
+
+            print "  <table class='cd_tabla' width='100%'>\n";
+            print "    <tr>\n";
+            print "     <td class='cd_lista_titulo'>&nbsp;</td>\n";
+            print "     <td class='cd_lista_titulo'>Tipo</td>\n";
+            print "     <td class='cd_lista_titulo'>Nro Contrato</td>\n";
+            print "     <td class='cd_lista_titulo'>Firmado</td>\n";
+            print "     <td class='cd_lista_titulo'>Validez</td>\n";
+            print "     <td class='cd_lista_titulo'>Observacion</td>\n";
+            print "	  </tr>\n";
+
+
+            $evenBSN = new PropiedadcontratoBSN();
+
+            $arrayEven = $evenBSN->cargaColeccionFormByPropiedad($id_prop);
+
+            if (sizeof($arrayEven) == 0) {
+                print "No existen datos para mostrar";
+            } else {
+                foreach ($arrayEven as $Even) {
+                    if ($fila == 0) {
+                        $fila = 1;
+                    } else {
+                        $fila = 0;
+                    }
+
+                    print "<tr>\n";
+                    print "	 <td class='row" . $fila . "'>";
+                    print "    <a href=\"javascript:borra($id_prop," . $Even['id_contrato'] . ");\" border=0>";
+                    print "       <img src='images/delete.png' alt='Borrar' title='Borrar' border=0></a>";
+
+//					print "    <a href='javascript:envia(\"lista\",273,".$Even['id_contrato'].");' border=0 onclick=\"return confirm('Esta seguro que quiere eliminar este registro?');\">";
+//					print "       <img src='images/delete.png' alt='Borrar' title='Borrar' border=0></a>";
+                    print "  </td>\n";
+                    print "	 <td class='row" . $fila . "'>" . $arrayTipocont[$Even['tipo_contrato']] . "</td>\n";
+                    print "	 <td class='row" . $fila . "'>" . $Even['cont_nro'] . "</td>\n";
+                    print "	 <td class='row" . $fila . "'>" . $Even['fec_firma'] . "</td>\n";
+                    print "	 <td class='row" . $fila . "'>" . $Even['fec_ini'] . " al " . $Even['fec_fin'] . "</td>\n";
+                    print "	 <td class='row" . $fila . "'>" . $Even['observacion'] . "</td>\n";
+                    print "	</tr>\n";
+                }
+            }
+
+            print "  </table>\n";
+            print "<input type='hidden' name='id_contrato' id='id_contrato' value=''>";
+            print "<input type='hidden' name='id_prop' id='id_prop' value='" . $id_prop . "'>";
+            print "<input type='hidden' name='opcion' id='opcion' value=''>";
+            print "</form>";
+        }
+    }
+
+}
+
+// fin clase
+?>

@@ -1,0 +1,16 @@
+User-agent: *
+Crawl-delay: 10
+# Directories
+Disallow: /abm/
+Disallow: /NO/
+Disallow: /includes/
+Disallow: /js/
+Disallow: /lib-nusoap/
+Disallow: /medios/
+Disallow: /OLD/
+Disallow: /tcpdf/
+Disallow: /admin/
+Disallow: /Connections/
+Disallow: /test/
+Disallow: /new/
+# Files

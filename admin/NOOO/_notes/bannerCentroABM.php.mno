@@ -1,0 +1,1 @@
+﻿<?xml version="1.0" encoding="utf-8" ?><info>	<infoitem key="UD_Recordset1" value="name:area;datatype:string,name:id_area;datatype:int" />	<infoitem key="UD_rshome1" value="name:id_area;datatype:string,name:foto;datatype:string,name:link;datatype:string,name:activo;datatype:int,name:id_home;datatype:int,name:orden;datatype:int" /></info>

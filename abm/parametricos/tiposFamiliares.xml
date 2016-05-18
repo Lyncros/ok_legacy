@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipos_familiares>
+    <dato id='1'>Conyuge</dato>
+    <dato id='2'>Hijo/a</dato>
+    <dato id='3'>Padre</dato>
+    <dato id='98'>Otro</dato>
+    <dato id='99'>Sin definir</dato>
+</tipos_familiares>

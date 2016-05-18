@@ -1,0 +1,9 @@
+#RewriteCond %{ENV:REDIRECT_STATUS} 400
+
+php_value session.cookie_lifetime 3600
+php_value session.gc_maxlifetime 86400
+
+<IfModule mod_rewrite.c>
+  	RewriteEngine on
+	RewriteRule .* - [L]
+</IfModule>

@@ -1,0 +1,112 @@
+<?php
+/**
+ * Clase Propia para la definicion de la logica de negocios.
+ * Utiliza dos variables propias de la clase que las hereda llamadas
+ * 		"clase" que define la base del nombre, debe tener la Primer letra en Mayuscula y responder a la base de los nombres
+ * 					de los metodos propios.
+ * 		"objeto" que define el nombre del objeto tipo de la clase, cuyo nombre debe ser igual al de la 
+ * 					clase pero todo en minuscula
+ * 
+ * En la clase derivada se deben definir metodos que ejecuten
+ * 		getId		-> Retorna el Id de la clase
+ * 		getClave	-> Retorna la Clave de la clase
+ * 
+ *
+ * Ejemplo del uso del retorno de la clase para el armado de un metodo de la clase derivada. 
+ * 	public function muestra(){
+ *		$var='muestra'.$this->getClase();
+ *		$this->{$var}();
+ *	}
+ */
+include_once("generic_class/class.PGDAO.php");
+include_once("generic_class/class.BSN.php");
+include_once("generic_class/class.maper.php");
+include_once("clases/class.perfiles.php");
+include_once("clases/class.perfilesPGDAO.php");
+
+
+class PerfilesBSN extends BSN {
+	
+	protected $clase = "Perfiles";
+	protected $nombreId = "perfil";
+	protected $perfiles;
+
+	
+	public function __construct($_perfil='',$_desc=''){
+		PerfilesBSN::seteaMapa();
+		if ($_perfil  instanceof Perfiles ){
+			PerfilesBSN::creaObjeto();
+			PerfilesBSN::seteaBSN($_perfil);
+		} else {
+			if (!is_numeric($_perfil)){
+				PerfilesBSN::creaObjeto();
+				if($_perfil!=''){
+					PerfilesBSN::cargaById($_perfil);
+				}
+			}
+		}	
+
+	}
+	
+/**
+ * retorna el ID del objeto 
+ *
+ * @return id del objeto
+ */
+	public function getId(){
+		return $this->perfiles->getPerfil();
+	}
+	
+/**
+ * Setea e ID del objeto
+ *
+ * @param unknown_type $id
+ */
+	public function setId($id){
+		
+		$this->perfiles->setPerfil($id);
+	}
+	
+	public function grupoPerfil($perfil){
+		$retorno='';
+		if($perfil=='SUPERUSER' || $perfil=='LECTURA' || $perfil=='admin'){
+			$retorno=$perfil;
+		}else{
+			$array=split('_',$perfil);
+			$retorno=$array[2];
+		}	
+		return $retorno;
+	}
+
+	public function sucursalPerfil($perfil){
+		$retorno='';
+		if($perfil=='SUPERUSER' || $perfil=='LECTURA' || $perfil=='admin'){
+			$retorno='Todas';
+		}else{
+			$array=split('_',$perfil);
+			$retorno=$array[0];
+		}	
+		return $retorno;
+	}
+	
+	public function comboPerfiles($valor='',$campo="perfil",$class="campos_btn"){
+		$perfil=$this->cargaColeccionForm();
+		print "<select name='".$campo."' id='".$campo."' class='".$class."'>\n";
+		print "<option value='0'";
+		if ($valor==''){
+			print " SELECTED ";
+		}
+		print ">Seleccione una opcion</option>\n";
+		
+		for ($pos=0;$pos<sizeof($perfil);$pos++){
+			print "<option value='".$perfil[$pos]['perfil']."'";
+			if ($perfil[$pos]['perfil']==$valor){
+				print " SELECTED ";
+			}
+			print ">".$perfil[$pos]['perfil']." - ".$perfil[$pos]['descripcion']."</option>\n";
+		}
+		print "</select>\n";
+	}	
+}
+
+?>

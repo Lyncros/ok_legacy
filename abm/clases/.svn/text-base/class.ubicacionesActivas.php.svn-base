@@ -1,0 +1,224 @@
+<?php
+
+include_once ("clases/class.propiedadBSN.php");
+include_once ("clases/class.ubicacionpropiedadBSN.php");
+include_once ("clases/class.tipo_propBSN.php");
+
+/**
+ * Clase Unica para manejo de Zonas activas y con propiedades definidas dentro de las mismas
+ * Utiliza patron Singleton para asegurar una unica conexion para toda la aplicacion.
+ * 
+ * Estructura del array de Activas
+ * 
+ * array(<id_ubica>=>array( 'nombre_ubicacion'=><nombre>,
+ *                          'id_padre'=><id_padre>,
+ *                          'Total'=>    array('octotal'=><total x operacion>,<id_tipo_prop1>=<cant>,.....,<id_tipo_propN>=><cant>)
+ *                          <operacion>=>array('octotal'=><total x operacion>,<id_tipo_prop1>=<cant>,.....,<id_tipo_propN>=><cant>)
+ *                        )
+ *      )
+ * con tantos id_tipo_prop como tipos de propiedad hayan definidos.
+ * en OCTOTAL se define el total acumulado para la zona
+ */
+class UbicacionesActivas {
+
+    private $arrayActivas;
+    private static $_instance;
+    private $registroBase;
+
+    private function __construct() {
+        UbicacionesActivas::cargaUbicacionesActivas();
+    }
+
+    static public function getInstance() {
+        if (is_null(self::$_instance)) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
+
+    protected function setArrayActivas($array) {
+        $this->arrayActivas = $array;
+    }
+
+    public function getArrayActivas() {
+        return $this->arrayActivas;
+    }
+
+    protected function cargaUbicacionesActivas() {
+        $propBSN = new PropiedadBSN(0, '');
+        $tpropBSN = new Tipo_propBSN(0, '');
+        $arrayTP = $tpropBSN->cargaColeccionForm();
+        $arrayZA = $propBSN->cargaColeccionZonasActivas();
+        $this->seteaRegistroBase($arrayTP);
+        foreach ($arrayZA as $activa) {
+            $this->seteaColeccion($activa['id_ubica'], $activa['operacion'], $activa['id_tipo_prop'], $activa['id_prop']);
+        }
+    }
+
+    public function reseteo() {
+        $this->cargaUbicacionesActivas();
+    }
+
+    protected function seteaRegistroBase($array) {
+        $this->registroBase = array('nombre_ubicacion' => '', 'id_padre' => 0, 'octotal' => 0);
+        $this->registroBase['Total']['octotal'] = 0;
+        $this->registroBase['Venta']['octotal'] = 0;
+        $this->registroBase['Alquiler']['octotal'] = 0;
+        foreach ($array as $tipoProp) {
+            $this->registroBase['Total'][$tipoProp['id_tipo_prop']] = 0;
+            $this->registroBase['Venta'][$tipoProp['id_tipo_prop']] = 0;
+            $this->registroBase['Alquiler'][$tipoProp['id_tipo_prop']] = 0;
+        }
+    }
+
+    /**
+     * Carga el array de acuerdo a los parametros pasados 
+     * @param int $id_ubica -> identificacion de la ubicacion para la cual se detecta la operacion 
+     * @param string $operacion -> identificacion de la óperacion de referencia 
+     * @param int $tipo_prop -> identificacion del tipo de porpiedad sobre la cua se recarga la operacion
+     * @param int $cant -> cantidad de propiedades con dicha operacion y tipo de propiedad
+     * Al efectuar la operacion se actualiza todo el arbol hasta la raiz de la ubicacion, en cada nodo se actualiza la cantidad 
+     * para el tipo de propiedad, el tipo de operacion y el total de la misma.
+     */
+    protected function seteaColeccion($id_ubica, $operacion, $tipo_prop, $cant) {
+        $ubiBSN = new UbicacionpropiedadBSN(0, 0, '');
+        $ubiBSN->cargaById($id_ubica);
+        $padre = $ubiBSN->getObjeto()->getId_padre();
+        if ($padre != 0) {
+            $this->seteaColeccion($padre, $operacion, $tipo_prop, $cant);
+        }
+
+        if (sizeof($this->arrayActivas) == 0 || !array_key_exists($id_ubica, $this->arrayActivas)) {
+            $this->arrayActivas[$id_ubica] = $this->registroBase;
+            $this->arrayActivas[$id_ubica]['nombre_ubicacion'] = $ubiBSN->getObjeto()->getNombre_ubicacion();
+            $this->arrayActivas[$id_ubica]['id_padre'] = $padre;
+        }
+
+        $this->arrayActivas[$id_ubica]['octotal']+=$cant;
+        $this->arrayActivas[$id_ubica]['Total']['octotal']+=$cant;
+        $this->arrayActivas[$id_ubica]['Total'][$tipo_prop]+=$cant;
+        switch ($operacion) {
+            case 'Venta':
+                $this->arrayActivas[$id_ubica]['Venta']['octotal']+=$cant;
+                $this->arrayActivas[$id_ubica]['Venta'][$tipo_prop]+=$cant;
+                break;
+            case 'Alquiler':
+            case 'Alquiler Temporario':
+                $this->arrayActivas[$id_ubica]['Alquiler']['octotal']+=$cant;
+                $this->arrayActivas[$id_ubica]['Alquiler'][$tipo_prop]+=$cant;
+                break;
+            case 'Alquiler o Venta':
+                $this->arrayActivas[$id_ubica]['Venta']['octotal']+=$cant;
+                $this->arrayActivas[$id_ubica]['Venta'][$tipo_prop]+=$cant;
+                $this->arrayActivas[$id_ubica]['Alquiler']['octotal']+=$cant;
+                $this->arrayActivas[$id_ubica]['Alquiler'][$tipo_prop]+=$cant;
+                break;
+        }
+    }
+
+    /**
+     * Actualiza el array de acuerdo a los parametros pasados 
+     * @param int $id_ubica -> identificacion de la ubicacion para la cual se detecta la operacion 
+     * @param string $operacion -> identificacion de la óperacion de referencia 
+     * @param int $tipo_prop -> identificacion del tipo de porpiedad sobre la cua se recarga la operacion
+     * @param char $movimiento -> identificacion de la operacion, a -> alta   b -> baja
+     * Al efectuar la operacion se actualiza todo el arbol hasta la raiz de la ubicacion, en cada nodo se actualiza la cantidad 
+     * para el tipo de propiedad, el tipo de operacion y el total de la misma.
+     */
+    public function actualizaColeccion($id_ubica, $operacion, $tipo_prop, $movimiento) {
+        if (!array_key_exists($id_ubica, $this->arrayActivas)) {
+            $this->arrayActivas[$id_ubica] = $this->registroBase;
+        }
+        if ($movimiento == 'a') {
+            $this->arrayActivas[$id_ubica]['octotal']++;
+            $this->arrayActivas[$id_ubica]['Total']['octotal']++;
+            $this->arrayActivas[$id_ubica]['Total'][$tipo_prop]++;
+        } else {
+            $this->arrayActivas[$id_ubica]['octotal']--;
+            $this->arrayActivas[$id_ubica]['Total']['octotal']--;
+            $this->arrayActivas[$id_ubica]['Total'][$tipo_prop]--;
+        }
+        switch ($operacion) {
+            case 'Venta':
+                if ($movimiento == 'a') {
+                    $this->arrayActivas[$id_ubica]['Venta']['octotal']++;
+                    $this->arrayActivas[$id_ubica]['Venta'][$tipo_prop]++;
+                } else {
+                    $this->arrayActivas[$id_ubica]['Venta']['octotal']--;
+                    $this->arrayActivas[$id_ubica]['Venta'][$tipo_prop]--;
+                }
+                break;
+            case 'Alquiler':
+            case 'Alquiler Temporario':
+                if ($movimiento == 'a') {
+                    $this->arrayActivas[$id_ubica]['Alquiler']['octotal']++;
+                    $this->arrayActivas[$id_ubica]['Alquiler'][$tipo_prop]++;
+                } else {
+                    $this->arrayActivas[$id_ubica]['Alquiler']['octotal']--;
+                    $this->arrayActivas[$id_ubica]['Alquiler'][$tipo_prop]--;
+                }
+                break;
+            case 'Alquiler o Venta':
+                if ($movimiento == 'a') {
+                    $this->arrayActivas[$id_ubica]['Venta']['octotal']++;
+                    $this->arrayActivas[$id_ubica]['Venta'][$tipo_prop]++;
+                    $this->arrayActivas[$id_ubica]['Alquiler']['octotal']++;
+                    $this->arrayActivas[$id_ubica]['Alquiler'][$tipo_prop]++;
+                } else {
+                    $this->arrayActivas[$id_ubica]['Venta']['octotal']--;
+                    $this->arrayActivas[$id_ubica]['Venta'][$tipo_prop]--;
+                    $this->arrayActivas[$id_ubica]['Alquiler']['octotal']--;
+                    $this->arrayActivas[$id_ubica]['Alquiler'][$tipo_prop]--;
+                }
+                break;
+        }
+    }
+
+    public function cargaColeccionPrincipalActivas($operacion, $tipo_prop) {
+        $arrayRet = array();
+        $arrayKeys = array_keys($this->arrayActivas);
+        $arrayNombre=array();
+        for ($x = 0; $x < sizeof($this->arrayActivas); $x++) {
+            $activas = $this->arrayActivas[$arrayKeys[$x]];
+            if ($activas['id_padre'] == 0) {
+                if ($operacion != 'Venta' && $operacion != 'Alquiler' && $operacion != 'Alquiler Temporario') {
+                    $operacion = 'Total';
+                }
+                if ($tipo_prop == 0) {
+                    $tipo_prop = 'octotal';
+                }
+                if ($activas[$operacion][$tipo_prop] != 0) {
+                    $arrayRet[] = array('id_ubica' => $arrayKeys[$x], 'id_padre' => $activas['id_padre'],'nombre_ubicacion' => $activas['nombre_ubicacion']);
+                }
+            }
+        }
+        return $arrayRet;
+    }
+    
+    public function cargaColeccionHijosActivas($id_padre,$operacion, $tipo_prop){
+        $arrayRet = array();
+        $arrayKeys = array_keys($this->arrayActivas);
+        $arrayNombre=array();
+        for ($x = 0; $x < sizeof($this->arrayActivas); $x++) {
+            $activas = $this->arrayActivas[$arrayKeys[$x]];
+            if ($activas['id_padre'] == $id_padre) {
+                if ($operacion != 'Venta' && $operacion != 'Alquiler' && $operacion != 'Alquiler Temporario') {
+                    $operacion = 'Total';
+                }
+                if ($tipo_prop == 0) {
+                    $tipo_prop = 'octotal';
+                }
+                if ($activas[$operacion][$tipo_prop] != 0) {
+                    $arrayRet[] = array('id_ubica' => $arrayKeys[$x], 'id_padre' => $activas['id_padre'],'nombre_ubicacion' => $activas['nombre_ubicacion']);
+                }
+            }
+        }
+        return $arrayRet;
+        
+    }
+    
+
+}
+
+// Fin Clase de Conexion con Postgres
+?>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipos_contratos>
+    <dato id='Inscripto'>Inscripto</dato>
+    <dato id='No Inscripto'>No Inscripto</dato>
+    <dato id='Excento'>Excento</dato>
+    <dato id='Monotributo'>Monotributo</dato>
+</tipos_contratos>

@@ -1,0 +1,315 @@
+#vistaDatosCli {
+	float: left;
+	width: 250px;
+	height: auto;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+#vistaDatosRel {
+	float: left;
+	width: 250px;
+	height: auto;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.vistaTabla {
+	font-size: 1em;
+}
+.vistaTabla img {
+	vertical-align:middle;
+}
+.vistaTabla ul {
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+.vistaTabla ul li {
+	float: left;
+	list-style: none;
+	padding: 5px 10px;
+	min-height: 20px;
+	height: auto;
+	font-size: 0.8em;
+	font-size: 0.8em;
+}
+.vistaTabla ul li.li_lista_titulo {
+	font-weight: bold;
+	background: #333;
+	color: #fff;
+	height: 20px;
+	vertical-align: middle;
+}
+.vistaTabla ul li.li_lista_0 {
+	background: #FFF;
+}
+.vistaTabla ul li.li_lista_1 {
+	background: #f1f1f1;
+}
+.vistaTabla ul li.li_lista_Destacado {
+	background-color: #caf9ca;
+	color: #333333;
+	border-bottom: thin solid #FFF;
+}
+.vistaTabla ul li.li_lista_Destacado a {
+	color: #333333;
+	text-decoration: none;
+}
+.vistaTabla ul li.li_lista_Oportunidad {
+	background-color: #ffcccc;
+	color: #333333;
+	border-bottom: thin solid #FFF;
+}
+.tituloNombreCli {
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 1em;
+	color: #00491b;
+	vertical-align: middle;
+}
+.tituloVistaCli {
+	text-decoration: none;
+	font-weight: bold;
+	border-top: thin solid #00491b;
+	color: #333;
+	vertical-align: middle;
+}
+.detalleVistaCli {
+	text-decoration: none;
+	padding-left: 0px;
+	font-weight: normal;
+}
+.tituloVistaRel {
+	text-decoration: none;
+	font-weight: bold;
+	border-top: thin solid #00491b;
+	color: #333;
+	vertical-align: middle;
+	list-style: none;
+	list-style-position: inside;
+}
+.datoVistaRel {
+	text-decoration: none;
+	border-top: thin solid #00491b;
+	color: #333;
+	vertical-align: middle;
+	list-style: none;
+	list-style-position: inside;
+}
+.detalleVistaRel {
+	text-decoration: none;
+	padding-left: 0px;
+	font-style: italic;
+	font-weight: normal;
+	;
+}
+/*
+Defino los anchos de columnas
+*/
+/* RELACIONES */
+#relAcc {
+	width: 45px;
+}
+#relParte {
+	width: 400px;
+}
+#relRel {
+	width: 150px;
+}
+/* COMENTARIO */
+#vistaTablaCom {
+	width: 950px;
+}
+#comAcc {
+	width: 45px;
+}
+#comFec {
+	width: 65px;
+}
+#comCon {
+	width: 75px;
+}
+#comDet {
+	width: 95px;
+}
+#comCom {
+	width: 400px;
+}
+#comUsu {
+	width: 150px;
+}
+/* CLIENTES */
+#datosCli li {
+	list-style: none;
+	list-style-position: inside;
+	width: 230px;
+	padding: 2px;
+}
+#vistaTablaCli {
+	width: 690px;
+/*	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none; */
+}
+#cliAcc {
+	width: 45px;
+	float: left;
+        min-height: 20px;
+        padding: 0px 3px;
+}
+#cliNom {
+	width: 195px;
+	cursor: pointer;
+	float: left;
+	display: block;
+        padding: 0px 3px;
+        min-height: 20px;
+}
+#cliMail {
+	width: 200px;
+	cursor: pointer;
+	float: left;
+	display: block;
+        padding: 0px 3px;
+        text-transform: lowercase;
+        min-height: 20px;
+        overflow: hidden;
+}
+#cliTel {
+	width: 209px;
+	cursor: pointer;
+	float: left;
+	display: block;
+        padding: 0px 3px;
+        min-height: 20px;
+}
+/* PROPIEDAD */
+#propAcc {
+	width: 70px;
+	float: left;
+	vertical-align: middle;
+}
+#propCod {
+	width: 70px;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	display: block;
+}
+#propZona {
+	width: 185px;
+	float: left;
+	cursor: pointer;
+	display: block;
+	vertical-align: middle;
+}
+#propDir {
+	/*width: 215px;*/
+	width: 180px;
+	float: left;
+	cursor: pointer;
+	display: block;
+	vertical-align: middle;
+}
+#propTipo {
+	width: 46px;
+	text-align:center;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	display: block;
+	vertical-align: middle;
+}
+#propSup {
+	width: 45px;
+	text-align:center;
+	float: left;
+	text-align: right;
+	cursor: pointer;
+	display: block;
+	vertical-align: middle;
+}
+#propAmb {
+	width: 50px;
+	text-align:center;
+	float: left;
+	cursor: pointer;
+	display: block;
+	vertical-align: middle;
+}
+#propVal {
+	width: 95px;
+	/*text-align:right;*/
+	text-align:left;
+	float: left;
+	display: block;
+	vertical-align: middle;
+}
+/* CARACTERISTICAS */
+#caracAcc {
+	width: 95px;
+	padding: 5px 0px;
+}
+#caracTCar {
+	width: 160px;
+}
+#caracTitu {
+	width: 150px;
+}
+#caracIng {
+	width: 80px;
+}
+#caracMax {
+	width: 30px;
+}
+#caracCom {
+	width: 55px;
+	text-align: center;
+}
+#caracVal {
+	width: 265px;
+}
+#caracOrd {
+	width: 25px;
+	text-align: center;
+}
+#caracPub {
+	width: 25px;
+	text-align: center;
+}
+#caracTas {
+	width: 25px;
+	text-align: center;
+}
+/*-----NEW------*/
+.vistaTabla .div_lista_titulo {
+	font-weight: bold;
+	background: #333;
+	color: #fff;
+	line-height: 130%;
+	height: 20px;
+	padding-top: 3px;
+}
+.vistaTabla .div_lista_0 {
+	background: #FFF;
+	padding-top: 3px;
+	line-height: 100%;
+}
+.vistaTabla .div_lista_1 {
+	background: #F1F1F1;
+	padding-top: 3px;
+	/* [disabled]line-height: 100%; */
+}
+.vistaTabla .div_lista_Oportunidad {
+	background: #ffcccc;
+	padding-top: 3px;
+	line-height: 130%;
+	border-bottom: thin solid #FFF;
+}
+.vistaTabla .div_lista_Destacado {
+	background: #caf9ca;
+	padding-top: 3px;
+	line-height: 130%;
+	border-bottom: thin solid #FFF;
+}

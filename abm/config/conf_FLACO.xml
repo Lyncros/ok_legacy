@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<globales>
+
+	<entorno>
+
+		<path>/</path>
+
+		<particular>abstracto.com</particular>
+
+		<key>capacitacion</key>
+
+		<mapas>mapa</mapas>
+
+		<clases>clases</clases>
+
+	</entorno>
+
+	<database>
+
+		<tipodb>my</tipodb>
+
+		<name>agenda</name>
+
+		<host>localhost</host>
+
+		<port>3306</port>
+
+		<user>root</user>
+
+		<dbpass>bd61bb69d332bd71dc4c896682639154</dbpass>
+
+	</database>
+
+	<administracion>
+
+		<admusr>usr_cec</admusr>
+
+		<admpass>d361c769d832b171cc4c9c66</admpass>
+
+	</administracion>
+
+	<caracteres_especiales>
+
+		<pathschars>/inc</pathschars>
+
+		<fileschars>schars.php</fileschars>
+
+	</caracteres_especiales>
+
+	<noticias>
+
+		<col_noticias>2</col_noticias>
+
+		<ancho_tabla_noticias>540</ancho_tabla_noticias>
+
+		<path_fotos>fotos</path_fotos>
+
+		<rel_foto_txt>0.3</rel_foto_txt>
+
+	</noticias>
+
+</globales>

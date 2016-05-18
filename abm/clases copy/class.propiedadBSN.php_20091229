@@ -1,0 +1,91 @@
+<?php
+/**
+ * Clase Propia para la definicion de la logica de negocios.
+ * Utiliza dos variables propias de la clase que las hereda llamadas
+ * 		"clase" que define la base del nombre, debe tener la Primer letra en Mayuscula y responder a la base de los nombres
+ * 					de los metodos propios.
+ * 		"objeto" que define el nombre del objeto tipo de la clase, cuyo nombre debe ser igual al de la 
+ * 					clase pero todo en minuscula
+ * 
+ * En la clase derivada se deben definir metodos que ejecuten
+ * 		getId		-> Retorna el Id de la clase
+ * 		getClave	-> Retorna la Clave de la clase
+ * 
+ *
+ * Ejemplo del uso del retorno de la clase para el armado de un metodo de la clase derivada. 
+ * 	public function muestra(){
+ *		$var='muestra'.$this->getClase();
+ *		$this->{$var}();
+ *	}
+ */
+include_once("generic_class/class.PGDAO.php");
+include_once("generic_class/class.BSN.php");
+include_once("generic_class/class.maper.php");
+include_once("clases/class.propiedad.php");
+include_once("clases/class.propiedadPGDAO.php");
+include_once("clases/class.auxiliaresPGDAO.php");
+
+
+class PropiedadBSN extends BSN {
+	
+	protected $clase = "Propiedad";
+	protected $nombreId = "id_prop";
+	protected $propiedad;
+
+	
+	public function __construct($_id_prop=0,$_propiedad=''){
+		PropiedadBSN::seteaMapa();
+		if ($_id_prop  instanceof Propiedad ){
+			PropiedadBSN::creaObjeto();
+			PropiedadBSN::seteaBSN($_id_prop);
+		} else {
+			if (is_numeric($_id_prop)){
+				PropiedadBSN::creaObjeto();
+				if($_id_prop!=0){
+					PropiedadBSN::cargaById($_id_prop);
+				}
+			}
+		}	
+
+	}
+	
+/**
+ * retorna el ID del objeto 
+ *
+ * @return id del objeto
+ */
+	public function getId(){
+		return $this->propiedad->getId_prop();
+	}
+	
+/**
+ * Setea e ID del objeto
+ *
+ * @param unknown_type $id
+ */
+	public function setId($id){
+		$this->propiedad->setId_prop($id);
+	}
+
+	public function cargaColeccionFiltro($zona,$localidad,$tipo_prop,$operacion){
+//		$localclass=$this->getClase().'PGDAO';
+		$array=array();
+		$prop=new Propiedad();
+		$prop->setId_zona($zona);		
+		$prop->setId_loca($localidad);
+		$prop->setId_tipo_prop($tipo_prop);
+		$prop->setOperacion($operacion);
+		$arrayTabla=$this->mapa->objTOtabla($prop);
+		$datoDB = new PropiedadPGDAO($arrayTabla);
+		$array = $this->leeDBArray($datoDB->coleccionByFiltro($zona,$localidad,$tipo_prop,$operacion));
+		$arrayform=array();
+		foreach ($array as $registro){
+			$arrayform[]=$this->mapa->tablaTOform($registro);
+		}
+		return $arrayform;
+	}
+	
+	
+}
+
+?>

@@ -1,0 +1,93 @@
+@charset "UTF-8";
+/* theme x Victoria Elizabeth Reguera. El Dodo - estudio de diseño y desarrollo web. www.eldodo.com.ar */
+
+@font-face { font-family: "Neutra Text"; src: url('../fonts/132690430-neutratextbold.eot'); src: url('../fonts/132690430-neutratextbold.eot?#iefix') format('embedded-opentype'), url('../fonts/132690430-neutratextbold.svg#Neutra Text') format('svg'), url('../fonts/132690430-neutratextbold.woff') format('woff'), url('../fonts/132690430-neutratextbold.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'NeutraTextBook'; src: url('../fonts/neutratextbook.eot'); src: url('../fonts/neutratextbook.eot') format('embedded-opentype'), url('../fonts/neutratextbook.svg#NeutraTextBook') format('svg'), url('../fonts/neutratextbook.woff2') format('woff2'), url('../fonts/neutratextbook.woff') format('woff'), url('../fonts/neutratextbook.ttf') format('truetype');}
+i, em{font-family:'NeutraTextBook'; font-style:normal}
+body{ font-family:'NeutraTextBook'; color:#1b1b1d;background:#e0e0e0}
+b, strong{font-family:"Neutra Text"; font-weight:normal}
+
+section.main .container{  position:relative; padding:0 15px; background-color:#fff; webkit-box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.25); box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.25); } 
+
+header{height:auto; padding:0; position:relative; margin:10px auto}
+header .title{ margin-top:15px; border-left:1px solid #fff}
+header h1 { text-align:left;font-family:"Neutra Text"; color:#fff; font-size:28px}
+header h1 strong{ letter-spacing:1px; text-transform:uppercase}
+header a.brand{ text-indent:-9999px; background: url(../img/logoOk.png) no-repeat left center; width:100%; height:80px; display:block; }
+
+
+.naranja_bg{ background-color:#f36f31}
+.gris_bg{ background-color:#353535; padding:0}
+.naranja_bg, .gris_bg{ height:475px; overflow:hidden}
+.naranja_bg h1, .naranja_bg p{ color:#fff; position:relative}
+ .naranja_bg p{ font-size:1.15em; margin-top:-30px}
+ 
+ .naranja_bg h1{font-family:"Neutra Text";text-shadow: 3px 3px 10px #000000;}
+ h4{font-family:"Neutra Text";color:#f36f31; font-size:2em}
+
+.form{ padding:40px 0}
+
+footer .claim{ background-color:#1b1b1d; padding:10px 40px; margin-top:25px}
+footer .claim p{ margin:0; color:#fff}
+div.issuuembed div div:last-child{ display:none !important}
+.gris_bg a{ color:transparent !important}
+
+/*form*/
+.form input{ background-color:#f1f1f1; border:1px solid #ccc; border-radius:0; }
+.form .form-group{ margin-bottom:10px}
+.form input.btn, a.btn{ background-color:#f36f31; color:#fff; display:block; width:100%; border:none; border-color:#f36f31; height:34px;text-transform:uppercase; line-height:30px;border-radius:0}
+.btn:hover, .btn:active, .btn:focus{ background-color:#000; color:#fff}
+a.btn{ display:inline-block; width:auto }
+::-webkit-input-placeholder {text-transform:uppercase; color:#000 !important; line-height:30px}:-moz-placeholder {text-transform:uppercase; color:#000; line-height:30px}::-moz-placeholder {text-transform:uppercase; color:#000; line-height:30px}:-ms-input-placeholder {text-transform:uppercase; color:#000; line-height:30px}
+.form .row{ margin:0 -2px}
+.form .row .form-group{ padding:0 2px}
+/*login*/
+body.login-form, body.login-form .container-fluid, body.login-form .container-fluid .row{ height:100vh; width:100wh; padding:0; margin:auto}
+.login{position:relative;top:50%;width:350px;display:table;margin:-150px auto 0 auto;background:#fff;border-radius:4px}.legend{position:relative;width:100%;display:block;background:#E9580C;padding:15px;color:#fff;font-size:20px;}
+.login .form-group{ padding:0 20px}
+.submit{width: 45px;height: 45px;display: block;margin: 0 auto -15px auto;background: #fff;border-radius: 100%;border: 1px solid #FF7052;color: #FF7052;font-size: 20px;cursor: pointer;box-shadow: 0px 0px 0px 7px #fff;transition: 0.2s ease-out;}
+.submit{ }
+.submit:hover, .submit:focus{ background: #FF7052; color: #fff; outline: 0;}
+.feedback{ position: absolute;bottom: -70px;width: 100%;text-align: center;color: #fff;background: #007B3C;padding: 10px 0;font-size: 12px;display: none;opacity: 0;}
+.feedback:before{bottom: 100%;left: 50%;border: solid transparent;content: "";height: 0;width: 0;position: absolute;pointer-events: none;border-color: rgba(46, 204, 113, 0);
+border-bottom-color: #007B3C;border-width: 10px;margin-left: -10px;}
+.login .form-control{ border:1px solid #ddd}
+@media (max-width:1024px){
+	footer article{ padding:0 20px}
+	.carousel img{ width:auto !important; height:100% !important; max-width:inherit !important}
+}
+
+@media (max-width:800px){
+*{white-space:normal !important;}
+body{ background:none; background-color:#ffffff; overflow-x:hidden}
+.panel, .carousel{ height:auto; margin-bottom:20px;}
+.col-md-8, .col-md-4{ padding:0}
+section.main{ padding:10px;}
+section.main .row{ margin:0 !important}section.main .form{ padding:0 !important}
+section.main .container{-webkit-box-shadow:none; box-shadow:none; max-width:100% !important; padding:0;}
+section.main{ background-size:cover}
+section.main header.main{ margin-bottom:10px;}
+section.main header.main h1.brand{ width:100%; height:125px; background-size:contain; display:block;}section.main header.main span.claim{ display:none;}
+section.main .form{ padding:0 15px; text-align:center;}
+.panel{ width:100%; margin:0 auto 20px auto; }
+.amenities{ display:block; width:100%; position:relative !important; bottom:auto !important; }
+section.main article.amenities ul{ width:auto;}
+section.main article.amenities ul li{ display:block; width:100% !important; margin:0 0 10px 0 !important; }
+.form header figure{ display:block;}
+.form header h3{color:#1E396A;margin:0 0 20px 0;}.form header h3 strong{color:#FF5000;}
+footer{ padding:20px 0; text-align:center;}
+footer article{ display:block; padding:20px 0 0 0; border:none;}
+footer article.social p{ display:inline-block; padding-top:20px;}
+header .title{ border-left:none; border-top:1px solid #fff; background-color:#ffffff; padding-bottom:10px }
+header .title h1{ text-align:center; color:#1E3968}
+.video-form article .panel{ border:none; background:none; height:auto}
+.panel p small{ color:#1E3968}
+.video-form article.col-md-4{background-color:#1E3968}
+.video-form article.col-md-4 h4, .video-form article.col-md-4 p{ color:#fff}
+.form-control{ background-color:#fff}
+.video-form article.col-md-4 form figure{ padding:10px 0;background-color:#fff}
+.video-form article.col-md-4 form p small{color:#fff}
+.info h3, .info p{color:#1E3968 !important}
+footer{ padding-bottom:0}
+footer h4.foot_brand, footer a.foot_brand{ background-position:center center; width:200px; height:100px; margin:auto; background-size:contain
+}

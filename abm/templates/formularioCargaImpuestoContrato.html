@@ -1,0 +1,30 @@
+<form name='formCargaImpuestoContrato' id='formCargaImpuestoContrato' method='post'>
+    <div class='lista_titulo'>Impuestos del Alquiler</div>
+
+    <table width='600' align='center' bgcolor='#FFFFFF'>
+
+        <tr>
+            <td class='cd_celda_texto' >
+                Impuesto<span class='obligatorio'>&nbsp;&bull;</span><br />
+                <select class='campos' name='IMPUESTO' id='IMPUESTO'>
+                </select>
+                <input type='hidden' name='ID_IMPCONT' id='ID_IMPCONT' value='{ID_IMPCONT}'>
+                <input type='hidden' name='INDICE' id='INDICE' value='{INDICE}'>
+            </td>
+            <td class='cd_celda_texto'>
+                Porcentaje<span class='obligatorio'>&nbsp;&bull;</span><br />
+                <input class='campos' type='text' name='PORCENTAJE' id='PORCENTAJE' value='{PORCENTAJE}' maxlength='3' size='10'>
+            </td>
+            <td class='cd_celda_texto'>
+                Primer Vencimieno<span class='obligatorio'>&nbsp;&bull;</span><br />
+                <input class='campos' type='text' name='VENCIMIENTO' id='VENCIMIENTO' value='{VENCIMIENTO}' maxlength='10' size='10'>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='3' align='center'>
+                <input class='boton_form' type='button' value='Enviar' onclick="javascript:impuestoscont.grabar('formCargaImpuestoContrato');">
+                <input class='boton_form' type='button' value='Cancelar' onclick="javascript:impuestoscont.cancelar();">
+            </td>
+        </tr>
+    </table>
+</form>

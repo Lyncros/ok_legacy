@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipos_contratos>
+    <dato id='alquiler'>Alquiler</dato>
+    <dato id='boleto'>Boleto Compra-Venta</dato>
+    <dato id='fideicomiso'>Fideicomiso</dato>
+</tipos_contratos>

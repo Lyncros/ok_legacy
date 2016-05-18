@@ -1,0 +1,12 @@
+<?php
+include_once ("generic_class/class.PGDAO.php");
+class LocalidadPGDAO extends PGDAO {
+	protected $INSERT = "INSERT INTO achaval.localidad (id_zona, nombre_loca) values (#id_zona#, '#nombre_loca#')";
+	protected $DELETE = "DELETE FROM achaval.localidad WHERE id_loca=#id_loca#";
+	protected $UPDATE = "UPDATE achaval.localidad SET id_zona=#id_zona#, nombre_loca='#nombre_loca#' WHERE id_loca=#id_loca# ";
+	protected $FINDBYID = "SELECT id_loca, id_zona, nombre_loca FROM achaval.localidad WHERE id_loca=#id_loca#";
+	protected $FINDBYCLAVE = "SELECT id_loca, id_zona, nombre_loca FROM achaval.localidad WHERE nombre_loca LIKE  '#nombre_loca#'";
+	protected $COLECCION = "SELECT id_loca, id_zona, nombre_loca FROM achaval.localidad ORDER BY nombre_loca";
+}
+ // Fin clase DAO
+ ?>

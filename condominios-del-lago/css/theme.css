@@ -1,0 +1,116 @@
+@charset "UTF-8";
+/* theme x Victoria Elizabeth Reguera. El Dodo - estudio de diseño y desarrollo web. www.eldodo.com.ar */
+body, html{ height:100%;}
+@font-face {font-family:'ScalaSans-Regular';src: url('../fonts/ScalaSans-Regular_gdi.eot');src: url('../fonts/ScalaSans-Regular_gdi.eot?#iefix') format('embedded-opentype'),url('../fonts/ScalaSans-Regular_gdi.svg#ScalaSans-Regular') format('svg'),url('../fonts/ScalaSans-Regular_gdi.woff') format('woff'),url('../fonts/ScalaSans-Regular_gdi.ttf') format('truetype'),url('../fonts/ScalaSans-Regular_gdi.otf') format('opentype');font-weight: 500;font-style: normal;font-stretch: normal;unicode-range: U+0020-2212;}
+@font-face {font-family:'ScalaSans-Italic';src: url('../fonts/ScalaSans-Italic_gdi.eot');src: url('../fonts/ScalaSans-Italic_gdi.eot?#iefix') format('embedded-opentype'),url('../fonts/ScalaSans-Italic_gdi.svg#ScalaSans-Italic') format('svg'),url('../fonts/ScalaSans-Italic_gdi.woff') format('woff'),url('../fonts/ScalaSans-Italic_gdi.ttf') format('truetype'),url('../fonts/ScalaSans-Italic_gdi.otf') format('opentype');font-weight: normal;font-style: italic;font-stretch: normal;unicode-range: U+0020-2265;}
+i, em{font-family:'ScalaSans-Italic';}
+body{ font-family:'ScalaSans-Regular'; background-color:#ddd; color:#1b1b1d}
+a{ color:inherit}
+a:hover, a:focus{ color:#E85B10}
+div.container{-webkit-box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.25); box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.25); padding:0; position:relative; z-index:999; height:auto; display:table}
+section.main{padding:0 40px 40px 40px; display:block; height:745px}
+section.main header.main{margin:0 0 20px 0; height:auto; padding:20px 0; position:relative; background:url(../img/logoOk.png) no-repeat right center; position:relative; height:150px; background-size:auto 100px;}
+section.main header.main h1.brand{ text-indent:-9999px; background: #fff url(../img/logo.png) no-repeat center 30px; width:150px; height:140px;display:block; border-radius:2px; margin:0; position:absolute; background-size:130px; top:0; padding:0 10px}
+section.main .form{ padding-left:50px;}
+section.main h2{font-family:'ScalaSans-Regular';margin:0 0 10px 0}
+section.main h3{ color:#ffffff; margin:0}
+.gracias{padding:40px; background-color:rgba(255,255,255,0.8)}
+section.main article.amenities{ padding:40px 0;height:500px; border:1px solid #4141C2; }
+section.main article.amenities h2{ color:#00733b; text-transform:uppercase; letter-spacing:4px; font-size:36px; line-height:42px;}
+section.main article.amenities h2 small{ text-transform:none; letter-spacing:0; color:#4141C2;font-family:'ScalaSans-Italic'; display:inline-block; margin:20px 0; padding:20px; line-height:36px;border:1px solid #4141C2;}
+section.main article.amenities h3{ font-size:30px; margin-bottom:20px;color:##;font-family:'ScalaSans-Italic';text-transform:uppercase; letter-spacing:4px; }
+section.main article.amenities figure{ display:none;}
+section.main article.amenities ul{ width:100%; display:block; text-align:center; margin:0; padding:10px 0}
+section.main article.amenities ul li{ display:inline;list-style:none; background:rgba(65,65,194,0.5); padding:15px; border-radius:1px; color:#ffffff; text-align:center; width:25%; margin:0 10px; font-size:16px; height:6em;} 
+section.main article.amenities p{ color:#00733b; font-family:'ScalaSans-Italic'; margin:20px 0 0 0}
+footer{ height:225px;background:#ffffff; padding:60px 0 30px 0;}
+footer h4.foot_brand, footer a.foot_brand{ text-indent:-9999px; display:block; width:100%; height:100px; background:url(../img/logoOk.png) no-repeat center 20px; background-size:55%;}
+footer article{ display:inline-block; padding:0 50px 0 50px; border-right:1px solid #ddd;} footer article:last-child{ border:none; padding:0 25px}
+footer h6{font-family:'ScalaSans-Regular'; font-weight:bold; margin:0 0 5px 0; font-size:14px; letter-spacing:2px;}
+footer p{ line-height:22px;}footer span{color:#E85B10; font-size:110%;}
+footer article.social a{ display:block; width:40px; height:40px; border-radius:100%; background-color:#999999; text-align:center; line-height:42px; color:#fff; font-size:16px;-webkit-transition: all 0.5s ease-in-out;-moz-transition: all 0.5s ease-in-out;-ms-transition: all 0.5s ease-in-out;-o-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;}
+footer.home{ height:auto; padding:25px 25px 10px 0}footer.home article{ display:block}footer.home article p{font-family:'ScalaSans-Italic'; padding-top:50px; color:#444; font-size:22px;}
+footer article.social p:first-child a:hover{ background-color:#3A5795}footer article.social p:last-child a:hover{ background-color:#CC181E}
+.carousel{ position:absolute; width:100%; height:100%; z-index:0; overflow:hidden; height:745px; margin:0 -40px;}
+.carousel img{ width:auto; height:745px !important; max-width:inherit}
+.carousel.fade {opacity: 1;}
+.carousel.fade .item {-moz-transition: opacity ease-in-out .7s;-o-transition: opacity ease-in-out .7s;-webkit-transition: opacity ease-in-out .7s;
+transition: opacity ease-in-out .7s;left: 0 !important;opacity: 0;top:0;position:absolute;width: 100%;display:block !important;z-index:1;}
+.carousel.fade .item:first-child {top:auto;position:relative;}
+.carousel.fade .item.active {opacity: 1;-moz-transition: opacity ease-in-out .7s;-o-transition: opacity ease-in-out .7s;-webkit-transition: opacity ease-in-out .7s;transition: opacity ease-in-out .7s;z-index:2;}
+
+rder:none;}.white h4{ text-transform:uppercase;}
+/*form*/
+
+.panel{ height:auto; background:rgba(255,255,255,0.8); border-radius:2px}
+.panel.gracias{ height:auto !important; padding:20px;}
+.panel-heading{ padding:15px 10px 0 10px; text-align:center; color:#ffffff;}
+.panel-heading h4{font-family:'ScalaSans-Italic'; font-size:26px; color:#00733b }
+.panel p{ color:#666; text-align:center; margin-bottom:0; line-height:16px; font-size:14px;}.panel p small{ color:#00733b; margin-top:10px;}
+.form header figure{ display:none;}
+.form.gracias p{ margin-bottom:10px;}
+.form-group{margin-bottom:5px !important;}
+.form-control{border:1px solid #666;color:#666; height:40px; margin-bottom:0 !important; background:none; border-radius:2px;}
+.btn{height:40px; margin:5px auto; color:#ffffff; font-size:16px;background:#ff5700; border:none; border-radius:0;}.btn:hover{ color:#ddd;}
+::-webkit-input-placeholder {color:#00733b !important;font-size:14px;}:-moz-placeholder {color:#00733b !important;font-size:14px; }::-moz-placeholder {color:#00733b !important;font-size:14px;  }:-ms-input-placeholder { color:#00733b!important; font-size:14px; }
+figure.mobile{ display:none;}
+.white{background:white; padding:20px 0; border-bottom:1px solid #ddd; overflow:hidden}.white div.row{ padding:0 50px;}.white div.row:first-child{ padding:0} .white header{ margin-top:-40px;}
+.white h2{ color:#fff; background-color:#00733b; text-transform:uppercase;font-family:'ScalaSans-Italic'; padding:10px 0}
+.white ul{ display:table; border:2px solid #00733b; padding:0; margin:20px auto} .white ul li{ display:table-cell; position:relative; text-align:center; padding:20px; border-right:2px solid ##; font-size:115%; color:#333; vertical-align:middle}.white ul li:last-child{ border:none;}.white h4{ text-transform:uppercase;}.white ul li:first-child:after{ content:'-'; display:block; float:right; position:absolute; right:0; top:25%}
+
+.carousel {
+    height:745px;
+    overflow: hidden;
+}
+.carousel .item {
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+.carousel .active.left, .carousel .active.right {
+    left:0;
+    opacity:0;
+    z-index:2;
+}
+.carousel .next, .carousel .prev {
+    left:0;
+    opacity:1;
+    z-index:1;
+}
+@media (max-width:1366px){footer h4.foot_brand, footer a.foot_brand{ text-indent:-9999px; display:block; width:100%; height:100px; background:url(../img/logoOk.png) no-repeat center 0; background-size:50%;}footer.home article p{padding-top:40px}}
+@media (max-width:1024px){
+ div.container, footer{ height:auto;}
+ footer article{ padding:0 25px;}
+ .carousel-inner > .item > a > img, .carousel-inner > .item > img{ height:746px; max-width:inherit; width:auto;}
+ section.main article.amenities h3{ margin:0;}
+ section.main article.amenities ul li{ height:75px; display:inline-block; vertical-align:top; line-height:16px;}
+ 
+}
+@media (max-width:800px){
+*{white-space:normal !important;} .row{ margin:0}
+div.container{ box-shadow:none; background-color:white}
+section.main{ height:auto; padding:0; margin:0}
+.carousel{ display:none}
+section.main header.main{ background-position:550px 50px; background-size:25%; height:120px;}section.main header.main h1.brand{ background-size:40%; height:120px; background-position:20px}
+figure.mobile{ display:block; width:100%; max-width:768px !important; position:relative; margin:auto}
+.white{ position:relative; width:100%; max-width:768px; margin:auto} .white figure{ padding:20px 0}
+footer.home{ padding:0; text-align:center} footer.home p{ padding:0 !important; text-align:center;}
+footer h4.foot_brand, footer a.foot_brand{ background-size:200px;}
+}
+
+@media (max-width:400px){
+*{white-space:normal !important;} .row{ margin:0}
+div.container{ box-shadow:none; background-color:white}
+section.main{ height:auto; padding:0; margin:0}
+.carousel{ display:none}
+section.main header.main{ background-position:right 10px; background-size:auto 75px; height:100px; border-bottom:1px solid #ddd}
+section.main header.main h1.brand{ background-size:auto 90px; background-position:20px 5px; height:100px;}
+figure.mobile{ display:block; width:100%; max-width:320px !important; position:relative; margin:auto}
+.white{ position:relative; width:100%; max-width:320px; margin:auto} .white figure{ padding:20px 0}
+footer.home{ padding:0; text-align:center} footer.home p{ padding:0 !important; text-align:center;}
+.white ul{ display:block;} .white ul li{ display:block; border-bottom:2px solid #00733b; border-right:none}
+}
+
+

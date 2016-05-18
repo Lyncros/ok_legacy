@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipo_operacion>
+    <dato id='Venta'>Venta</dato>
+    <dato id='Alquiler'>Alquiler</dato>
+    <dato id='Alquiler Temporario'>Alquiler Temporario</dato>
+    <dato id='Alquiler o Venta'>Alquiler o Venta</dato>
+    <dato id='Tasacion'>Tasacion</dato>
+    <dato id='Alquilado'>Alquilado</dato>
+    <dato id='Reservado'>Reservado</dato>
+    <dato id='Vendido'>Vendido</dato>
+    <dato id='Suspendido'>Suspendido</dato>
+    <dato id='Retirado'>Retirado</dato>
+    <dato id='No Ingresado'>No Ingresado</dato>
+    <dato id='Tasado'>Tasado</dato>
+</tipo_operacion>
+

@@ -1,0 +1,121 @@
+<!--
+<script type='text/javascript' language='javascript'>
+    function mostrarDetalle(elem) {
+        est = document.getElementById(elem).style.display;
+        if (est == 'none') {
+            document.getElementById(elem).style.display = 'block';
+        } else {
+            document.getElementById(elem).style.display = 'none';
+        }
+    }
+</script>
+<div class='pg_subtitulo'>Datos asociados a la tarea</div>
+No existen datos para mostrar
+<input type='hidden' name='id_evencomp' id='id_evencomp' value=''><input type='hidden' name='opcion' id='opcion' value=''><div class="tareasCli-content">
+    <div class="tareasCli-title">
+        Carga de Tareas
+    </div>
+    <div class="tareasCli-form">
+        <script type='text/javascript' language='javascript'>
+            function concatena_fecha() {
+                var anio = document.getElementById('auxFecha').value;
+                var hora = document.getElementById('hora_ev').value;
+                var minuto = document.getElementById('min_ev').value;
+                var fecha = anio + ' ' + hora + ':' + minuto;
+                document.getElementById('fecha_even').value = fecha;
+                return true;
+            }
+            function componente(id, div) {
+                window.open('carga_EventoComponente.php?c=0&tc=C&ev=' + id + '&div=' + div, 'ventcomp', 'menubar=1,resizable=1,width=1000,height=550');
+            }
+        </script>  -->
+        <div id='cargaData' style='display:block;'>
+            <form action='carga_Evento.php' name='carga' id='carga' method='post' onSubmit='javascript: return ValidaEvento(this);'>
+                <div class='pg_titulo'>Registro de tareas a programar</div>
+                <table width='700' align='center' bgcolor='#FFFFFF'>
+                    <tr><td class='cd_celda_texto' width='15%'>Tipo Tarea<span class='obligatorio'>&nbsp;&bull;</span></td><td width='85%'><select name='id_tipoevento' id='id_tipoevento' class='campos_btn'>
+    <option value='0' SELECTED >Seleccione una opcion</option>
+    <option value='1'>Reunion</option>
+    <option value='2'>Tasacion</option>
+    <option value='3'>Visita</option>
+    <option value='4'>Firma Contrato</option>
+    <option value='5'>Firma Escritura</option>
+    <option value='6'>Llamada</option>
+    <option value='7'>Tarea Programada</option>
+    <option value='8'>Busqueda Informacion</option>
+    <option value='9'>Envio Mail</option>
+    <option value='10'>Muestra Ficha</option>
+    <option value='11'>Impresion Ficha</option>
+    <option value='95'>Revision Busqueda</option>
+    <option value='96'>Descarte Propiedad</option>
+    <option value='97'>Personal</option>
+    <option value='98'>Otro</option>
+    <option value='99'>Sin definir</option>
+</select>
+ </td></tr>
+                    <tr><td class='cd_celda_texto' width='15%'>Asunto</td><td width='85%'><input class='campos' type='text' name='tarea' id='tarea' value='' maxlength='250' size='80'></td><td><span class='obligatorio'>&nbsp;&bull;</span></td></tr>
+                    <tr><td class='cd_celda_texto' width='15%'>Detalle</td><td width='85%'><input class='campos' type='text' name='detalle' id='detalle' value='' maxlength='250' size='80'></td><td><span class='obligatorio'>&nbsp;&bull;</span></td></tr>
+                    <tr><td class='cd_celda_texto' width='15%'>Activa</td><td><input type='checkbox' name='activa' id='activa' ></td>
+                    </tr>
+                    <tr><td class='cd_celda_texto' width='15%'>Fecha</td><td width='85%'><input class='campos' type='text' name='auxFecha' id='auxFecha' value='' maxlength='10' size='80'></td><td><span class='obligatorio'>&nbsp;&bull;</span></td></tr>
+                    <script type="text/javascript">
+                        jQuery("#auxFecha").datepicker({changeMonth: true, changeYear: true, regional: 'es', showButtonPanel: true, dateFormat: "dd-mm-yy"});</script>
+                    <tr><td class='cd_celda_texto' width='15%'>Hora</td><td width='85%'><select class="campos_fecha" name='hora_ev' id='hora_ev' onchange='javascript:concatena_fecha();'>
+                                <option value="07" class="campoDato">07</option>
+                                <option value="08" class="campoDato">08</option>
+                                <option value="09" class="campoDato">09</option>
+                                <option value="10" class="campoDato">10</option>
+                                <option value="11" class="campoDato">11</option>
+                                <option value="12" class="campoDato">12</option>
+                                <option value="13" class="campoDato">13</option>
+                                <option value="14" class="campoDato">14</option>
+                                <option value="15" class="campoDato">15</option>
+                                <option value="16" class="campoDato">16</option>
+                                <option value="17" class="campoDato">17</option>
+                                <option value="18" class="campoDato">18</option>
+                                <option value="19" class="campoDato">19</option>
+                                <option value="20" class="campoDato">20</option>
+                                <option value="21" class="campoDato">21</option>
+                                <option value="22" class="campoDato">22</option>
+                            </select>
+                            :
+                            <select class="campos_fecha" name='min_ev' id='min_ev' onchange='javascript:concatena_fecha();'>
+                                <option value="00" class="campoDato">00</option>
+                                <option value="05" class="campoDato">05</option>
+                                <option value="10" class="campoDato">10</option>
+                                <option value="15" class="campoDato">15</option>
+                                <option value="20" class="campoDato">20</option>
+                                <option value="25" class="campoDato">25</option>
+                                <option value="30" class="campoDato">30</option>
+                                <option value="35" class="campoDato">35</option>
+                                <option value="40" class="campoDato">40</option>
+                                <option value="45" class="campoDato">45</option>
+                                <option value="50" class="campoDato">50</option>
+                                <option value="55" class="campoDato">55</option>
+                            </select>
+                        </td></tr>
+                    <tr>
+                        <td class='cd_celda_texto' width='15%'>Componentes</td>
+                        <td>
+                            <div id='div_comp'></div>
+                            <br />
+                            <input class='boton_form' type='button' value='Cargar Componente' onclick="javascript:componente(0, 'div_comp');"><br />
+                        </td>
+                    </tr>
+                    <br>
+                    <tr>
+                        <td colspan='3' align='right'><input class='boton_form' type='submit' value='Enviar'><br /><br /><span class='obligatorio'>Los campos marcados con &bull; son obligatorios</span></td></tr>
+                </table>
+                </td></tr>
+                </table>
+                    <input type='hidden' name='id_evento' id='id_evento' value='0' />
+                    <input type='hidden' name='operacion' id='operacion' value='n' />
+                    <input type='hidden' name='fecha_even' id='fecha_even' value='' />
+                    <input type='hidden' name='div' id='div' value='' />
+                    <input type='hidden' name='id_comp' id='id_comp' value='20140216023940' />
+                    <input type='hidden' name='tipocomp' id='tipocomp' value='' />
+                    <input type='hidden' name='user' id='user' value='' />
+            </form>
+        </div>
+    </div>
+</div>

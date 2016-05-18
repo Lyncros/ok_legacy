@@ -1,0 +1,39 @@
+<?php
+include_once ("generic_class/class.PGDAO.php");
+class Tipo_caracPGDAO extends PGDAO {
+	protected $INSERT = "INSERT INTO achaval.tipocarac (tipo_carac,orden) values ('#tipo_carac#',#orden#)";
+	protected $DELETE = "DELETE FROM achaval.tipocarac WHERE id_tipo_carac=#id_tipo_carac#";
+	protected $UPDATE = "UPDATE achaval.tipocarac SET tipo_carac='#tipo_carac#',orden=#orden# WHERE id_tipo_carac=#id_tipo_carac# ";
+	protected $FINDBYID = "SELECT id_tipo_carac,tipo_carac,orden FROM achaval.tipocarac WHERE id_tipo_carac=#id_tipo_carac#";
+	protected $FINDBYCLAVE = "SELECT id_tipo_carac, tipo_carac, orden 							FROM achaval.tipocarac							WHERE tipo_carac LIKE  '#tipo_carac#'";
+	protected $COLECCION = "SELECT id_tipo_carac,tipo_carac,orden FROM achaval.tipocarac ORDER BY orden";
+	protected $SUBIR = "UPDATE achaval.tipocarac SET orden=orden-1 WHERE id_tipo_carac=#id_tipo_carac#";
+	protected $BAJAR = "UPDATE achaval.tipocarac SET orden=orden+1 WHERE id_tipo_carac=#id_tipo_carac#";
+	protected $COLECCIONBYPOSICION = "SELECT id_tipo_carac FROM achaval.tipocarac WHERE orden=#orden#";
+	public function subirTipoCarac() {
+		$parametro = func_get_args ();
+		$resultado = $this->execSql ( $this->SUBIR, $parametro );
+		if (! $resultado) {
+			$this->onError ( $COD_UPDATE, "SUBIR ORDEN" );
+		}
+		return $resultado;
+	}
+	public function bajarTipoCarac() {
+		$parametro = func_get_args ();
+		$resultado = $this->execSql ( $this->BAJAR, $parametro );
+		if (! $resultado) {
+			$this->onError ( $COD_UPDATE, "BAJAR ORDEN" );
+		}
+		return $resultado;
+	}
+	public function coleccionByPosicion() {
+		$parametro = func_get_args ();
+		$resultado = $this->execSql ( $this->COLECCIONBYPOSICION, $parametro );
+		if (! $resultado) {
+			$this->onError ( $COD_COLLECION, "NOTICIAS POR POSICION" );
+		}
+		return $resultado;
+	}
+}
+// Fin clase DAO
+?>

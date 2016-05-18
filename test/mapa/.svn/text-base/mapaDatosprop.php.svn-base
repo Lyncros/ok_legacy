@@ -1,0 +1,13 @@
+<?php
+$mapaBase=array(array('form'=>"id_prop_carac",'objeto'=>"id_prop_carac",'tabla'=>"id_prop_carac"),
+			array('form'=>"id_prop",'objeto'=>"id_prop",'tabla'=>"id_prop"),				
+			array('form'=>"id_carac",'objeto'=>"id_carac",'tabla'=>"id_carac"),
+			array('form'=>"contenido",'objeto'=>"contenido",'tabla'=>"contenido"),
+			array('form'=>"comentario",'objeto'=>"comentario",'tabla'=>"comentario"),
+			array('form'=>"tipo",'objeto'=>"tipo",'tabla'=>"tipo"),
+			array('form'=>"titulo",'objeto'=>"titulo",'tabla'=>"titulo"),
+			array('form'=>"tipo_carac",'objeto'=>"tipo_carac",'tabla'=>"tipo_carac"),
+			array('form'=>"orden_tipo",'objeto'=>"orden_tipo",'tabla'=>"orden_tipo"),				
+			array('form'=>"orden",'objeto'=>"orden",'tabla'=>"orden")				
+			);
+?>

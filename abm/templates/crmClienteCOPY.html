@@ -1,0 +1,125 @@
+<div class="cajablanca">
+<!--    <div class="header"></div>  -->
+
+<!--    <div class="buscador">
+        <div style="float: right;border-left: thick solid #FFF; padding: 2px 5px; width:215px; background-color: #F16221;"><a href="javascript: limpiaFormCliente();" style="color: #ffffff;"><img src="images/icono_ir2.png" width="22" height="22"> Nuevo Cliente</a></div>
+        <div>
+            <label for="buscaCli" >Buscador rápido</label><br />
+            <input type="text" size="100" name="buscaCli" id="buscaCli"  class="ui-autocomplete-input" value="Ingrese para buscar nombre, apellido, email, telefono, dirección..." onfocus="if(this.value == this.defaultValue){ this.value = ''; this.style.color = '#333';this.style.fontStyle='normal';}" onblur="if(this.value == '') {this.value = this.defaultValue; this.style.color='#CCC';this.style.fontStyle='italic';}" />
+            <input type="hidden" id="ID_CLI" name="ID_CLI">
+        </div>
+    </div>  -->
+
+    <div class="contenedor_75">
+        <div class="caja_75_especial4 caja_75_alto_1">
+            <div class="top">Contacto</div>
+            <!--FILA 1-->
+            <div style="padding: 10px;">
+                <div id="div_nombre" class="celda celda_300">
+                    <label for="nombre" class="datoResaltado">Nombre</label><br />
+                    <span id="NOMBRE" class="datoResaltado"></span>
+                </div>
+                <div class="celda celda_300" id="div_apellido">
+                    <label for="apellido" class="datoResaltado">Apellido</label><br />
+                    <span id="APELLIDO" class="datoResaltado"></span>
+                </div>
+                <br /><br />
+                <div id="div_telefono" class="celda celda_300">
+                    <label for="telefono" class="datoResaltado">Teléfono</label><br />
+                    <div id="divTablaTels" class="scrolable celda50_350"></div>
+                </div>
+                <div class="celda celda_300" id="div_email">
+                    <label for="email" class="datoResaltado">e-mail</label><br />
+                    <div id="divTablaMedios" class="scrolable celda50_350"></div>
+                </div>
+                <div id="div_empresa" class="celda celda_25">
+                    <label for="empresa" class="datoResaltado">Empresa</label><br />
+                    <span id="EMPRESA"></span>
+                </div>
+                <div class="celda celda_25" id="div_categoria">
+                    <label for="categoria" class="datoResaltado">Categoría</label><br />
+                    <span id="DESC_CATEGORIA" class="datoResaltado"></span>
+
+                </div>
+
+                <div id="div_tipocon" class="celda celda_25">
+                    <label for="tipocon" class="datoResaltado">Tipo de Contacto</label><br />
+                    <span id="DESC_TIPOCONT" class="datoResaltado"></span>
+                </div>
+                <div id="div_asignacion" class="celda celda_25">
+                    <label for="asignacion" class="datoResaltado">Asignación</label><br />
+                    <span id="DESC_ASIGNACION" class="datoResaltado"></span>
+                </div>
+                <div class="celda celda_25" id="div_ennews">
+                    <label for="ennews" class="datoResaltado">Envio News</label>
+                    <br />
+                    <input type="checkbox" id="NEWS" name="NEWS" disabled="disabled">
+                </div>
+
+                <div id="div_ejecutivo" class="celda celda_25">
+                    <label for="ejecutivo" class="datoResaltado">Ejecutivo</label>
+                    <br />
+                    <div id="divTablaEjec"class="scrolable celda50_350"></div>
+                </div>
+                <div class="celda celda_100" style="text-align: right;">
+                    <input type="button" value="Editar" onclick="javascript: cargaInfoCliente('e');" >
+                </div>
+            </div>
+        </div>
+        <div class="caja_75_especial4 caja_75_alto_2">
+            <div class="top">Consultas</div>
+            <div class="contenedor_75_75">
+                <div id="div_AsuntoAbierto" class="alto80"></div>
+
+                <div id="div_PropiedadesAbierto" class="alto80"></div>
+                
+<!--                <div class="celda celda_50"> <input align="absmiddle" class="boton_derecha"  value="Editar" name="" type="button" /></div>  -->
+
+                <div id="div_EventosAbierto" class="alto80"></div>
+                <div id="div_AsuntoCerrado" class="alto80"></div>
+                <div id="div_PropiedadesCerrados" class="alto80"></div>
+
+            </div>
+            <div class="contenedor_75_25">
+                <br />
+                <div class="celdaboton"><input class="botonequal" type="submit" name="buscadorButton" id="buscadorButton" value="Nueva Actividad" /></div>
+                <br />
+                <div class="celdaboton"><input class="botonequal" type="submit" name="cerrarAstoButton" id="cerrarAstoButton" value="Cerrar Actividad" /></div>
+                <br /><br /><br />
+                <div class="celdaboton"><input class="botonequal" type="submit" name="eventoButton" id="eventoButton" value="Nueva Tarea" /></div>
+                <br />
+                <div class="celdaboton"><input class="botonequal" type="submit" name="cerrarProductoButton" id="cerrarProductoButton" value="Cerrar Producto" /></div>
+                <br />
+            </div>
+
+
+        </div>
+    </div>
+    <div class="contenedor_25_r">
+        <div class="caja_25 caja_25_alto">
+            <div class="top">Contactos Asociados</div>
+            <div id="divTablaContactosAsoc" class="">
+
+            </div>
+
+            <div class="data" id="botonvertodos">
+<!--                <div class="celdaboton"><input type="submit" name="Boton" id="Boton" value="Ver todos" /></div>  -->
+                <div class="celdaboton"><input type="submit" name="relacionCCButton" id="relacionCCButton" value="Asociar Contacto" /></div>
+            </div>
+        </div>
+
+        <div class="caja_25 caja_25_alto">
+            <div class="top">Inmuebles Asociados</div>
+            <div id="divTablaPropsAsoc">
+
+            </div>
+
+            <div class="data" id="botonvertodos">
+<!--                <div class="celdaboton"><input type="submit" name="Boton" id="Boton" value="Ver todos" /></div> -->
+                <div class="celdaboton"><input type="submit" name="relacionCPButton" id="relacionCPButton" value="Asociar Propiedad" /></div>
+            </div>
+        </div>
+
+    </div>  
+</div>               
+<!-- <div id='popup-conteiner'></div> -->

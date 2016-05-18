@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<estadoAsunto>
+    <dato id='Activo'>Activo</dato>
+    <dato id='Suspendido'>Suspendido</dato>
+    <dato id='Cerrado'>Cerrado</dato>
+</estadoAsunto>

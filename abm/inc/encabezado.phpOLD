@@ -1,0 +1,56 @@
+<?php
+/*
+ANTERIOR
+session_start();
+ob_start();
+//include_once("inc/controlAcceso.php");
+
+$comienzo=1;
+
+*/
+
+session_start();
+ob_start();
+
+include_once("generic_class/class.controlAccesos.php");
+include_once("generic_class/class.menu.php");
+include_once("./inc/funciones.inc");
+
+parserURL();
+
+$comienzo=1;
+//include_once("auth.php");
+//include_once "./config/config_gral.php";
+
+$acceso=new Acceso();
+
+if(!isset($_SESSION['opcionMenu']) && $_SESSION['opcionMenu']==""){
+	$_SESSION['opcionMenu']=0;
+}
+$padre=$_SESSION['opcionMenu'];
+
+if(!isset($_SESSION['UserId']) && !isset($_GET['u'])){
+	$_SESSION['UserId']=1; // Se debera recuperar del CRM
+}else{
+	if(isset($_GET['u'])){
+		$_SESSION['UserId']=$_GET['u'];
+	}
+}
+
+if(!isset($_SESSION['Userrole']) && !isset($_GET['p'])){
+	// cambiar y poner perfil = "" 
+	$perfil="admin";
+	$_SESSION['Userrole']=$perfil;
+}else{
+	if(isset($_GET['p'])){
+		$perfil=$_GET['p'];
+		$_SESSION['Userrole']=$perfil;
+	}else{
+		$perfil=$_SESSION['Userrole'];
+	}
+}
+if (!$acceso->validaAcceso($perfil)){ 
+	die("**No posee permisos para ingresar en esta aplicacion");
+}
+
+?>

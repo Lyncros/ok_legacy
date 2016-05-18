@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipoContacto>
+    <dato id='1'>Inversor Renta</dato>
+    <dato id='2'>Inversor Capitalización</dato>
+    <dato id='6'>Inversor Capitalización+Renta</dato>
+    <dato id='3'>Comprador</dato>
+    <dato id='4'>Propietario</dato>
+    <dato id='5'>Inquilino</dato>
+</tipoContacto>

@@ -1,0 +1,6 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+# This allows you to redirect your entire website to any other domain
+Redirect 301 / http://www.kloverplaza.com.ar/
+

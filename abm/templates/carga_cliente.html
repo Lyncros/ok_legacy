@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Carga de Clientes</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/agenda.css" rel="stylesheet" type="text/css"/>
+<link href="css/carga_clientes.css" rel="stylesheet" type="text/css"/>
+<script src="inc/funciones.js"></script>
+</head>
+<body>
+<div class="contenido">
+  <form id="datos_clientes" action="#" name="datos_clientes">
+    <div id="datos1">
+      <div id="col1">
+        <li>
+          <div>Nombre</div>
+          <input class="rounded-corners" id="NOMBRE" name="NOMBRE" type="text" />
+          <input id="ID_CLI" name="ID_CLI" type="hidden" value='0' />
+        </li>
+        <li>
+          <div>Apellido</div>
+          <input class="rounded-corners" id="APELLIDO" name="APELLIDO" type="text" />
+        </li>
+        <li>
+          <div>Celular</div>
+          <input class="rounded-corners" id="CELULAR" name="CELULAR" type="text" />
+        </li>
+        <li>
+          <div>Telefono</div>
+          <input class="rounded-corners" id="TELEFONO" name="TELEFONO" type="text" />
+        </li>
+        <li>
+          <div>Mail</div>
+          <input class="rounded-corners" id="MAIL" name="MAIL" type="text" />
+        </li>
+        <li>
+          <div>Sexo</div>
+          <span>
+          <input type="radio" name="SEXO" value="f" id="SEXO_0" style="width:50px;" />
+          F</span> <span>
+          <input type="radio" name="SEXO" value="m" id="SEXO_1" style="width:50px;"  />
+          M</span> </li>
+        <li>
+          <div style="width:130px;">Tipo de Cliente</div>
+          <select id="TIPOCONT" name="TIPOCONT" class="selector">
+          </select>
+        </li>
+      </div>
+      <div id="col2">
+        <li>
+          <div>Categoria</div>
+          <select id="CATEGORIA" name="CATEGORIA" class="selector">
+          </select>
+        </li>
+        <li>
+          <div>Capacidad de Compra</div>
+          <select id="CAPCOMPRA" name="CAPCOMPRA" class="selector">
+          </select>
+        </li>
+        <li>
+          <div>¿Como llego?</div>
+          <select id="ID_FINGRESO" name="ID_FINGRESO" class="selector">
+          </select>
+        </li>
+        <li>
+          <div>Medio de contacto</div>
+          <select id="ID_FCONTACTO" name="ID_FCONTACTO" class="selector">
+          </select>
+        </li>
+        <li>
+          <div>Cliente de</div>
+          <select id="EJECUTIVO" name="EJECUTIVO" class="selector">
+          </select>
+        </li>
+        <li>
+          <div>Asignado a</div>
+          <select id="ASIGNACION" name="ASIGNACION" class="selector">
+          </select>
+        </li>
+        <li>
+          <div>Envío de NEWS</div>
+          <input type="checkbox" id="NEWS" name="NEWS" style="width:290px;" />
+        </li>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+    <div id="datos_comentario">
+      <div style="float:left; width:115px; font-weight:bold;" class="btn_naranja rounded-corners">Asignar<br />
+        Comentarios</div>
+      <div style="float:right; width:810px;">
+        <textarea name="COMENTARIOS" id="COMENTARIOS" style="width:100%; height:100px; resize:vertical"></textarea>
+      </div>
+      <div class="clearfix"></div>
+      <div style="padding:10px 0px;">
+<!--        <div class="btn_naranja rounded-corners" id="buscadorButton" style="width:120px; float:left"><a href="javascript: seleccionBuscador.init();seleccionBuscador.open();" style="color: #ffffff;">Cargar Tareas</a></div>
+        <div class="btn_naranja rounded-corners" id="buscadorButton" style="width:120px; float:left">Cargar Tareas</div>  -->
+        <div class="btn_naranja rounded-corners" style="width:120px; float: right; margin-left:20px;"><a href="javascript: grabarCliente('datos_clientes');" style="color: #ffffff;">Guardar</a></div>
+        <div class="btn_naranja rounded-corners" style="width:120px; float: right; cursor:pointer;" onClick="visible('datos2')">+ Información</div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+    <div id="datos2" style="display:none;">
+      <li>
+        <div style="float:left; width:300px;">Tipo Doc.
+          <select id="TIPO_DOC" name="TIPO_DOC" class="selector" style="width:150px;">
+          </select>
+        </div>
+        <div style="float:left; width:320px;">Nro.
+          <input type="text" name="NRO_DOC" id="NRO_DOC" />
+        </div>
+        <div style="float:left; width:320px;">F.Nacimiento
+          <input class="calendario" type="text" name="FECHA_NAC" id="FECHA_NAC" />
+        </div>
+        <div class="clearfix"></div>
+      </li>
+      <li>
+        <div style="float:left; width:320px;">Estado Civil
+          <select id="ID_ESTCIV" name="ID_ESTCIV" class="selector" style="width:200px;">
+          </select>
+        </div>
+        <div style="float:left; width:220px;">Hijos
+          <select id="GRUPOFAM" name="GRUPOFAM" class="selector" style="width:150px;">
+            <option value="-1" selected="selected">Cantidad de hijos</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="+9">mas de 9</option>
+          </select>
+        </div>
+      </li>
+      <li>
+        <div style="float:left; width:600px;">Domicilio
+          <input type="hidden" name="ID_DOM" id="ID_DOM" />  
+          <input type="text" name="CALLE" id="CALLE" style="width:310px;" />
+          &nbsp; Nro
+          <input type="text" name="NRO" id="NRO" style="width:70px;" />
+        </div>
+        <div style="float:left; width:170px;">Piso.
+          <input type="text" name="PISO" id="PISO" size="10"/>
+        </div>
+        <div style="float:left; width:170px;">Depto.
+          <input type="text" name="DPTO" id="DPTO" size="10"/>
+        </div>
+        <div class="clearfix"></div>
+      </li>
+      <li>
+        <div style="float:left; width:460px;">Localidad
+          <input type="text" name="UBICA" id="UBICA" style="width:360px;" />
+          <input type="hidden" name="ID_UBICA" id="ID_UBICA"  />
+        </div>
+        <div style="float:left; width:200px;">C.P.
+          <input type="text" name="CP" id="CP" style="width:147px;" />
+        </div>
+        <div class="clearfix"></div>
+      </li>
+      <li>
+        <div style="float:left; width:433px;">Empresa
+          <input type="text" name="EMPRESA" id="EMPRESA" style="width:330px;" />
+        </div>
+        <div style="float:left; width:300px;">CUIT / CUIL
+          <input type="text" name="CUIT" id="CUIT" />
+        </div>
+        <div style="float:right; width:80px; padding-right:10px;" class="btn_naranja rounded-corners"><a href="javascript: grabarCliente('datos_clientes');" style="color: #ffffff;">Guardar</a></div>
+        <div class="clearfix"></div>
+      </li>
+      <div></div>
+      <input type="hidden" id='OPERACION' name='OPERACION' value='n' />
+    </div>
+  </form>
+</div>
+</body>
+</html>

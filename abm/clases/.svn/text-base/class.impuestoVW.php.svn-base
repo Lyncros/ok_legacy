@@ -1,0 +1,156 @@
+<?php
+
+include_once("generic_class/class.VW.php");
+include_once ("generic_class/class.menu.php");
+include_once ("clases/class.impuestoBSN.php");
+include_once ("clases/class.impuesto.php");
+include_once ("inc/funciones.inc");
+
+class ImpuestoVW extends VW {
+
+    protected $clase = "Impuesto";
+    protected $impuesto;
+    protected $nombreId = "Id_impuesto";
+
+//    private $arrayForm;
+
+    public function __construct($_impuesto = 0) {
+        ImpuestoVW::creaObjeto();
+        if ($_impuesto instanceof Impuesto) {
+            ImpuestoVW::seteaVW($_impuesto);
+        }
+        if (is_numeric($_impuesto)) {
+            if ($_impuesto != 0) {
+                ImpuestoVW::cargaVW($_impuesto);
+            }
+        }
+        ImpuestoVW::cargaDefinicionForm();
+    }
+
+    public function cargaDatosVW($origen='n') {
+        if ($origen == 'n') {
+            $accion = 'carga_impuesto.php';
+        } else {
+            $accion = 'popupCargaImpuesto.php';
+        }
+        print "<form action='" . $accion . "' name='carga' id='carga' method='post' onSubmit='javascript: return ValidaImpuesto(this);'>\n";
+        print "<table width='90%' align='center' bgcolor='#FFFFFF'>\n";
+        print "<tr><td class='cd_celda_titulo'>Carga de Tipos de Impuestos de Propiedades</td></tr>\n";
+        print "<tr><td align='center'>";
+        print "<table width='700' align='center' bgcolor='#FFFFFF'>\n";
+        print "<tr><td class='cd_celda_texto' width='15%'>Denominacion<span class='obligatorio'>&nbsp;&bull;</span></td>";
+        print "<td width='85%'><input class='campos' type='text' name='denominacion' id='denominacion' value='" . $this->arrayForm ['denominacion'] . "' maxlength='250' size='80'></td></tr>\n";
+        print "<tr><td class='cd_celda_texto' width='15%'>Detalle</td>";
+        print "<td width='85%'><input class='campos' type='text' name='detalle' id='detalle' value='" . $this->arrayForm ['detalle'] . "' maxlength='1000' size='80'></td></tr>\n";
+        print "<input type='hidden' name='id_impuesto' id='id_impuesto' value='" . $this->arrayForm ['id_impuesto'] . "'>\n";
+        print "<br>";
+        if ($origen != 'n') {
+            print "<tr><td align='right'><input type='button' class='boton_form' value='Regresar' onclick='KillMe();'></td>";
+        } else {
+            print "<tr><td align='right'>&nbsp;</td>";
+        }
+        print "<td align='right'><input class='boton_form' type='submit' value='Enviar'><br /><br /><span class='obligatorio'>Los campos marcados con &bull; son obligatorios</span></td></tr>\n</table>\n";
+        print "</td></tr>\n</table>\n";
+        print "</form>\n";
+    }
+
+    /**    OK * Muestra una tabla con los datos de los impuestos y una barra de herramientas o menu * conde se despliegan las opciones ingresables para cada item * */
+    public function vistaTablaVW() {
+        $fila = 0;
+        print "<script type='text/javascript' language='javascript'>\n";
+        print "function envia(nameForm,opcion,id){\n";
+        print "     document.forms.lista.id_impuesto.value=id;\n";
+        print "   	submitform(nameForm,opcion);\n";
+        print "}\n";
+        print "</script>\n";
+        print "<div class='pg_titulo'>Listado de Tipos de Impuestos de Propiedades</div>\n";
+        print "<form name='lista' method='POST' action='respondeMenu.php'>";
+        print "  <table class='cd_tabla' width='100%'>\n";
+        print "    <tr>\n";
+        print "     <td class='cd_lista_titulo' colspan='2'>&nbsp;</td>\n";
+        print "     <td class='cd_lista_titulo'>Denominacion</td>\n";
+        print "     <td class='cd_lista_titulo'>Detalle</td>\n";
+        print "	  </tr>\n";
+        $evenBSN = new ImpuestoBSN ( );
+        $arrayEven = $evenBSN->cargaColeccionForm();
+        if (sizeof($arrayEven) == 0) {
+            print "No existen datos para mostrar";
+        } else {
+            foreach ($arrayEven as $Even) {
+                if ($fila == 0) {
+                    $fila = 1;
+                } else {
+                    $fila = 0;
+                }
+                print "<tr>\n";
+                print "	 <td align='center' width='25' class='row" . $fila . "'>";
+                print "    <a href='javascript:envia(\"lista\",10002," . $Even ['id_impuesto'] . ");' border='0'>";
+                print "       <img src='images/building_edit.png' alt='Editar' title='Editar' border=0></a></td>";
+                print "	 <td align='center' width='25' class='row" . $fila . "'>";
+                print "    <a href='javascript:envia(\"lista\",10003," . $Even ['id_impuesto'] . ");' border=0 onclick=\"return confirm('Esta seguro que quiere eliminar este registro?');\">";
+                print "       <img src='images/delete.png' alt='Borrar' title='Borrar' border=0></a>";
+                print "  </td>\n";
+                print "	 <td class='row" . $fila . "'>" . $Even ['denominacion'] . "</td>\n";
+                print "	 <td class='row" . $fila . "'>" . $Even ['detalle'] . "</td>\n";
+                print "	</tr>\n";
+            }
+        }
+        print "  </table>\n";
+        print "<input type='hidden' name='id_impuesto' id='id_impuesto' value=''>";
+        print "<input type='hidden' name='opcion' id='opcion' value=''>";
+        print "</form>";
+    }
+
+    /**
+     * Arma una coleccion de checkbox para definir los impuestos a aplicar y los porcentajes de los mismos
+     * @param int id_prop ->id de la propiedad sobre la cual se definen los impuestos
+     * @param boolean $muestraPorc -> indicador de despliegue de porcentajes
+     * 
+     * @todo tomar le id de propiedad y recorrer la tabla de asignacion de propiedades - impuesto y levantar de la misma los % para
+     * armar la lista para modificacion
+     */
+    public function selectorImpuestos($id_prop, $muestraPorc=false) {
+        $impBSN = new ImpuestoBSN();
+        $arrayImp = $impBSN->armaArrays();
+        $arrayId = array_keys($arrayImp);
+        print "<form action='determinaImpuesto.php' name='carga' id='carga' method='post'>\n";
+        print "<table width='90%' align='center' bgcolor='#FFFFFF'>\n";
+        print "<tr><td class='cd_celda_titulo'>Definicion de Tipos de Impuestos de la Propiedad</td></tr>\n";
+        print "<tr><td align='center'>";
+        print "<table width='500' align='center' bgcolor='#FFFFFF'>\n";
+        print "<tr><td class='cd_celda_texto' width='50%'>Denominacion</td>";
+        if ($muestraPorc) {
+            print "<td width='50%' class='cd_celda_texto' >%</td>";
+        }
+        print "</tr>\n";
+
+        foreach ($arrayId as $clave) {
+            print "<tr><td class='cd_celda_texto' width='50%'>";
+                print "<td width='50%'><input class='campos' type='checkbox' name='imp_$clave' id='imp_$clave' >&nbsp;".$arrayImp[$clave]." </td>\n";
+            // poner el checkbox con el nombre del impuesto
+            print "</td>";
+            if ($muestraPorc) {
+                print "<td width='50%'><input class='campos' type='text' name='porc_$clave' id='porc_$clave' value='100%' maxlength='10' size='10'></td>\n";
+            }
+            print "</tr>\n";
+        }
+
+        print "<tr><td align='right'>&nbsp;</td>";
+        print "<td align='right'><input class='boton_form' type='submit' value='Enviar'><br /><br /><span class='obligatorio'>Los campos marcados con &bull; son obligatorios</span></td></tr>\n</table>\n";
+        print "</td></tr>\n</table>\n";
+        print "</form>\n";
+    }
+
+    public function leeSelectorImpuestos(){
+        $id_prop=0;
+        $id_impuesto=0;
+        $poc='';
+        foreach ($array as $key => $value) {
+            
+        }
+    }
+    
+}
+
+// fin clase
+?>

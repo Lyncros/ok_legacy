@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipos_medioelectronico>
+    <dato id='1'>eMail</dato>
+    <dato id='2'>Skype</dato>
+    <dato id='3'>Facebook</dato>
+    <dato id='4'>Twiter</dato>
+    <dato id='5'>LinkedIn</dato>
+    <dato id='6'>WhatsApp</dato>
+    <dato id='7'>Google Talk</dato>
+    <dato id='99'>Sin definir</dato>
+</tipos_medioelectronico>

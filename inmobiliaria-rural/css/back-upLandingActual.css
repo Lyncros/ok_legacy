@@ -1,0 +1,89 @@
+//css
+/*Altura de la Landing*/
+#landing-body{  height:1114px; width: 1200px; }
+
+#divContenido{
+	width:1200px;
+	height: 114px;
+	min-height: 1114px;
+	position:absolute;
+        margin: 0px auto;
+}
+#rural{
+	width:1200px;
+	height: 642px;
+       background: url(/sites/default/files/landings/okeefe_rural.jpg) no-repeat top center;
+}
+.ancho{
+   width: 1200px;
+}
+/*Presentación del Formulario. Ojo que el form tiene clases seteadas en cada campo para verse bien*/
+.webform-client-form { position: relative; top: 275px; margin-left:883px; width: 249px; height: 212px; }
+
+.webform-component-textfield input, 
+.webform-component-email input
+{background: transparent; padding: 6px; border: none; height: auto; font-size: 16px; width:100%;}
+.option.checkbox.control-label { font-size: 10px; padding-left:20px;}
+
+#edit-submit { width: 249px; height: 53px; margin-top: -10px; background: transparent; text-indent: -900000px; border:none; padding: 0px;}
+#edit-submit:hover {background: rgba(255,255,255,0.1);}
+
+
+  /*Responsive*/
+@media (min-width: 992px){
+  #divContenido{
+	width:992px;
+	height: 1277px;
+	min-height: 1277px;
+	position:absolute;
+        margin: 0px auto;
+  }
+  #rural{
+	width:992px;
+	height: 518px;
+       background: url(/sites/default/files/landings/klover_patagonia_0.jpg) no-repeat top center;
+       background-size: 992px;
+  }
+  .ancho{
+   width: 992px;
+  }
+
+   /*Presentación del Formulario. Ojo que el form tiene clases seteadas en cada campo para verse bien*/
+  .webform-client-form { position: relative; top: 237px; margin-left:730px; width: 206px; height: 212px; }
+
+  .webform-component-textfield input, 
+  .webform-component-email input
+  {background: transparent; padding: 3px; border: none; height: auto; font-size: 16px; width:100%;}
+  .option.checkbox.control-label { font-size: 9px; padding-left:20px;}
+
+  #edit-submit { width: 208px; height: 40px; margin-top: -13px; background: transparent; text-indent: -900000px; border:none; padding: 0px;}
+  #edit-submit:hover {background: rgba(255,255,255,0.1);}
+}
+
+@media (min-width: 1200px){
+  #divContenido{
+	width:1200px;
+	height: 1114px;
+	min-height: 1114px;
+	position:absolute;
+        margin: 0px auto;
+  }
+  #rural{
+	width:1200px;
+	height: 642px;
+       background: url(/sites/default/files/landings/okeefe_rural.jpg) no-repeat top center;
+  }
+  .ancho{
+   width: 1200px;
+  }
+   /*Presentación del Formulario. Ojo que el form tiene clases seteadas en cada campo para verse bien*/
+  .webform-client-form { position: relative; top: 275px; margin-left:883px; width: 249px; height: 212px; }
+
+  .webform-component-textfield input, 
+  .webform-component-email input
+  {background: transparent; padding: 6px; border: none; height: auto; font-size: 16px; width:100%;}
+  .option.checkbox.control-label { font-size: 10px; padding-left:20px;}
+
+  #edit-submit { width: 249px; height: 53px; margin-top: -10px; background: transparent; text-indent: -900000px; border:none; padding: 0px;}
+  #edit-submit:hover {background: rgba(255,255,255,0.1);}
+}

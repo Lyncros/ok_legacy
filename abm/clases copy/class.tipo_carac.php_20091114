@@ -1,0 +1,55 @@
+<?php
+
+class Tipo_carac {
+
+	
+ 
+	private $id_tipo_carac;
+	private $tipo_carac;
+	private $orden;
+	
+	public function __construct($id_tipo_carac=0,
+								$tipo_carac='',
+								$orden=0
+								){
+								
+		Tipo_carac::setId_tipo_carac($id_tipo_carac);
+		Tipo_carac::setTipo_carac($tipo_carac);
+		Tipo_carac::setOrden($orden);
+	}
+
+	
+	public function seteaTipo_carac($_tipo_carac){
+		$this->setId_tipo_carac($_tipo_carac->getId_tipo_carac());
+		$this->setTipo_carac($_tipo_carac->getTipo_carac());
+		$this->setOrden($_tipo_carac->getOrden());
+	}
+	
+	
+	public function setId_tipo_carac($_id_tipo_carac){
+		$this->id_tipo_carac = $_id_tipo_carac;
+	}
+	
+	public function setTipo_carac($_tipo_carac){
+		$this->tipo_carac = $_tipo_carac;
+	}
+	
+	public function setOrden($orden){
+		$this->orden=$orden;
+	}
+
+
+	public function getId_tipo_carac(){
+		return $this->id_tipo_carac;
+	}
+	
+	public function getTipo_carac(){
+		return $this->tipo_carac;
+	}
+
+	public function getOrden(){
+		return $this->orden;
+	}
+}
+
+?>

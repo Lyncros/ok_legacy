@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<estadosEmprendimiento>
+    <dato id='En obra'>En obra</dato>
+    <dato id='A estrenar'>A estrenar</dato>
+    <dato id='En proyecto'>En proyecto</dato>
+</estadosEmprendimiento>

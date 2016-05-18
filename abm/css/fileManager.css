@@ -1,0 +1,78 @@
+@charset "UTF-8";
+a:hover {
+	text-decoration: none;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+.directorios {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align:left;
+	width:200px;
+}
+.archivos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align:left;
+	width:500px;
+}
+.mensajes {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align:left;
+	border-color:#FFFF33;
+	background-color:#FFFFCC;
+}
+.mensajes_error {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align:left;
+	border-color:#FFFF33;
+	background-color:#FF3333;
+}
+.titulopath {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align:left;
+	border-color:#FFFF33;
+	background-color:#FFFFCC;
+}
+.path {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align:left;
+	border-color:#FFFF33;
+	background-color:#FFFFCC;
+}
+.tools {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align:left;
+	border-color:#FFFF33;
+	background-color:#FFFF99;
+}
+.tdmenu {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align:center;
+	padding-left:2px;
+}
+.tdlista {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align:left;
+	background-color:#FFFFFF;
+}
+.tdlistaselected {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align:left;
+	background-color:#FFFF99;
+}

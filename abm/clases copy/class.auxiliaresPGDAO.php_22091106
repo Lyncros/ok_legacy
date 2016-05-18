@@ -1,0 +1,78 @@
+<?php
+include_once("generic_class/class.PGDAO.php");
+
+class AuxiliaresPGDAO extends PGDAO {
+	
+
+	protected $COLECCIONTIPOPROPASIGNADA = "SELECT t.id_tipo_prop, t.tipo_prop FROM achaval.tipoprop as t 
+												INNER JOIN achaval.caracteristica_tipoprop as c ON t.id_tipo_prop=c.id_tipo_prop WHERE c.id_carac=";
+	
+	protected $COLECCIONTIPOPROPSINASIGNAR = "SELECT id_tipo_prop, tipo_prop FROM achaval.tipoprop a t 
+													WHERE id_tipo_prop NOT IN (SELECT id_tipo_prop FROM achaval.caracteristica_tipoprop WHERE id_carac=";
+	
+	protected $INSERTATIPOPROPASIGNADA = "INSERT INTO achaval.caracteristica_tipoprop (id_carac,id_tipo_prop) values (";
+	
+	protected $BORRATIPOPROPASIGNADA = "DELETE FROM achaval.caracteristica_tipoprop  WHERE id_carac=";
+	
+//	Fallo la aplicacion con codigo COD_COLECCION en SELECT t.id_tipo_prop, t.tipo_prop FROM achaval.tipoprop as t INNER JOIN achaval.caracteristica_tipoprop as c ON t.id_tipo_prop=c.id_tipo_prop WHERE c.id_carac=
+	
+	public function coleccionTipopropSinAsignar($_id_carac=0){
+		if(!is_numeric($_id_carac)){
+			$_id_carac=0;
+		}
+		return  $this->coleccionAux($this->COLECCIONTIPOPROPSINASIGNAR.$_id_carac);
+	}
+	
+	public function coleccionTipopropAsignada($_id_carac=0){
+		if(!is_numeric($_id_carac)){
+			$_id_carac=0;
+		}
+		return  $this->coleccionAux($this->COLECCIONTIPOPROPASIGNADA.$_id_carac);
+	}
+
+	public  function insertaTipopropAsignada($id_carac,$id_tipo_prop){
+		$col=$this->INSERTATIPOPROPASIGNADA.$id_carac.",".$id_tipo_prop.")";
+		$resultado=$this->execSql($col);
+		if (!$resultado){
+			$this->onError("COD_INSERT",$col);
+		}
+				
+	}
+	
+	public function borraTipopropAsignada($id_carac){
+		if(!is_numeric($id_carac)){
+			$id_carac=0;
+		}
+		$resultado=$this->execSql($this->BORRATIPOPROPASIGNADA.$id_carac);
+		if (!$resultado){
+			$this->onError("COD_DELETE",$this->BORRATIPOPROPASIGNADA.$id_carac);
+		}
+		
+	}
+	
+	protected function coleccionAux($col){
+		$resultado=$this->execSql($col);
+		if (!$resultado){
+			$this->onError("COD_COLECCION",$col);
+		}
+		$array=$this->armaArray($resultado);
+		return $array;
+	}
+
+	protected function armaArray($result) {
+		$array=array();
+		$conf=new CargaConfiguracion();
+		$tipoDB=$conf->leeParametro("tipodb");
+		if($tipoDB=="my"){
+			$fetch="mysql_fetch_array";
+		} else {
+			$fetch="pg_fetch_array";
+		}
+		while($row=$fetch($result)) {
+			$array[]=array($row[0],$row[1]);
+		}
+		return $array;
+	}
+
+} // Fin clase auxiliares
+?>

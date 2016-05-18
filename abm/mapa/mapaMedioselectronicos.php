@@ -1,0 +1,10 @@
+<?php
+$mapaBase=array(array('form'=>"id_medio",'objeto'=>"id_medio",'tabla'=>"id_medio"),
+                        array('form'=>"id_cli",'objeto'=>"id_cli",'tabla'=>"id_cli"),
+			array('form'=>"id_tipomed",'objeto'=>"id_tipomed",'tabla'=>"id_tipomed"),
+			array('form'=>"contacto",'objeto'=>"contacto",'tabla'=>"contacto"),				
+			array('form'=>"comentario",'objeto'=>"comentario",'tabla'=>"comentario"),
+			array('form'=>"principal",'objeto'=>"principal",'tabla'=>"principal"),
+			array('form'=>"tipocont",'objeto'=>"tipocont",'tabla'=>"tipocont")
+		);
+?>

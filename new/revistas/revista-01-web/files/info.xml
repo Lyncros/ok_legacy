@@ -1,0 +1,36 @@
+<Info>
+  <Pages>
+    <Page Number="1" Width="751" Height="935">
+      <Images>
+        <Normal Path="images/page1.swf" FileSize="262" />
+        <Thumbnail Path="images/page1_thumbnail.jpg" FileSize="20" />
+        <Zoomed Path="images/page1.swf" FileSize="262" />
+      </Images>
+      <Buttons />
+    </Page>
+    <Page Number="2" Width="751" Height="935">
+      <Images>
+        <Normal Path="images/page2.swf" FileSize="480" />
+        <Thumbnail Path="images/page2_thumbnail.jpg" FileSize="29" />
+        <Zoomed Path="images/page2.swf" FileSize="480" />
+      </Images>
+      <Buttons />
+    </Page>
+    <Page Number="3" Width="751" Height="935">
+      <Images>
+        <Normal Path="images/page3.swf" FileSize="401" />
+        <Thumbnail Path="images/page3_thumbnail.jpg" FileSize="26" />
+        <Zoomed Path="images/page3.swf" FileSize="401" />
+      </Images>
+      <Buttons />
+    </Page>
+    <Page Number="4" Width="751" Height="935">
+      <Images>
+        <Normal Path="images/page4.swf" FileSize="469" />
+        <Thumbnail Path="images/page4_thumbnail.jpg" FileSize="33" />
+        <Zoomed Path="images/page4.swf" FileSize="469" />
+      </Images>
+      <Buttons />
+    </Page>
+  </Pages>
+</Info>

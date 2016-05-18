@@ -1,0 +1,95 @@
+<form name='formCargaReciboalq' id='formCargaReciboalq' method='post'>
+
+    <table width='700' align='center' bgcolor='#FFFFFF'>
+        <tr>
+            <td class='cd_celda_titulo' colspan="3">Carga del Recibo del Contrato</td>
+        </tr>
+        <tr>
+            <td colspan='3' align='left'>
+                <table>
+                    <tr>
+                        <td class='cd_celda_texto' width='45%' style="text-align: left;">Nro Recibo
+                            <span class='obligatorio'>&nbsp;&bull;</span><br />
+                            <input class='campos' type='text' name='REC_NRO' id='REC_NRO' value='{REC_NRO}' maxlength='20' size='20' readonly="readonly">
+                            <input type='hidden' name='ID_RECIBO' id='ID_RECIBO' value='{ID_RECIBO}'>
+                            <input type='hidden' name='ID_CONTRATO' id='ID_CONTRATO' value='{ID_CONTRATO}'>
+                        </td>
+                        <td class='cd_celda_texto' width='15%'>Fecha Emision
+                            <span class='obligatorio'>&nbsp;&bull;</span><br />
+                            <input class='campos' type='text' name='FEC_RECIBO' id='FEC_RECIBO' value='{FEC_RECIBO}' maxlength='10' size='80'>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='3' align='right'>
+                <table>
+                    <tr>
+                        <td class='cd_celda_texto' >Periodo
+                            <span class='obligatorio'>&nbsp;&bull;</span><br />
+                            <select class='campos' id="ID_VENC" name="ID_VENC" onchange="javascript: recibosalq.cargaMonto();"></select>
+                        </td>
+                        <td class='cd_celda_texto' >Importe del MES
+                            <span class='obligatorio'>&nbsp;&bull;</span><br />
+                            <input class='campos' type='text' name='MONTOMES' id='MONTOMES' value='{MONTOMES}' maxlength='10' size='80' readonly="readonly">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='3' align='right'>
+                <table>
+                    <tr>
+                        <td class='cd_celda_texto' >Dias Retraso
+                            <span class='obligatorio'>&nbsp;&bull;</span><br />
+                            <input class='campos' type='text' name='DIASRET' id='DIASRET' value='{DIASRET}' maxlength='10' size='80'>
+                        </td>
+                        <td class='cd_celda_texto' >Intereses
+                            <span class='obligatorio'>&nbsp;&bull;</span><br />
+                            <input class='campos' type='text' name='INTERESES' id='INTERESES' value='{INTERESES}' maxlength='10' size='80' onblur="javascript: recibosalq.totalizar();">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td class='cd_celda_texto' width='15%'>Observacion</td>
+            <td width='85%'>
+                <input class='campos' type='text' name='OBSERVACION' id='OBSERVACION' value='{OBSERVACION}' maxlength='250' size='80'></td>
+            <td><span class='obligatorio'>&nbsp;&bull;</span></td>
+        </tr>
+        <tr>
+            <td colspan='3' align='right'>
+                <div id="detalleRecdocumentos" class="sublista_div">
+                </div>
+                <div id="detalleRecdescuentos" class="sublista_div">
+                </div>
+                <div id='popup-cargadetalle' ></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='3' align='right'>
+                <table>
+                    <tr>
+                        <td class='cd_celda_texto' >Total Descuentos
+                            <span class='obligatorio'>&nbsp;&bull;</span><br />
+                            <input class='campos' type='text' name='TOTALDESC' id='TOTALDESC' value='{TOTALDESC}' maxlength='10' size='80'  readonly="readonly">
+                        </td>
+                        <td class='cd_celda_texto' >Total a recibir
+                            <span class='obligatorio'>&nbsp;&bull;</span><br />
+                            <input class='campos' type='text' name='TOTAL' id='TOTAL' value='{TOTAL}' maxlength='10' size='80'  readonly="readonly">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='3' align='right'>
+                <input id="boton_enviar" class='boton_form' type='button' value='Enviar' onclick="javascript: recibosalq.grabar('formCargaReciboalq');"><br /><br /><span class='obligatorio'>Los campos marcados con &bull; son obligatorios</span>
+            </td>
+        </tr>
+    </table>
+</form>

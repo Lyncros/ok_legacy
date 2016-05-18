@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Carga de Clientes</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/agenda.css" rel="stylesheet" type="text/css"/>
+<link href="css/vista_clientes.css" rel="stylesheet" type="text/css"/>
+<script src="inc/funciones.js"></script>
+<link rel="stylesheet" href="jquery1.9/themes/base/jquery.ui.all.css">
+<script type="text/javascript" src="jquery1.9/ui/jquery.ui.autocomplete.js"></script>
+<link rel="stylesheet" href="jquery1.9/css/ui-lightness/jquey.ui.datepicker.css">
+<script type="text/javascript" src="jquery1.9/ui/jquery.ui.tooltip.js"></script>
+<style>
+.ui-autocomplete {
+	max-height: 100px;
+	overflow-y: auto;
+	/* prevent horizontal scrollbar */
+	overflow-x: hidden;
+}
+/* IE 6 doesn't support max-height
+                     * we use height instead, but this forces the menu to always be this tall
+                    */
+* html .ui-autocomplete {
+	height: 100px;
+}
+</style>
+<script language="javascript" type="text/javascript">
+$(function() {
+	$( "#buscaCli" ).autocomplete({
+		source: "autocompletarClientes.php",
+		minLength: 2,
+		select: function( event, ui ) {
+			window.location.href='cargarapida_cliente.php?c='+ui.item.id;
+			//document.getElementById('id_promo').value=ui.item.id;
+		}
+	});
+	$( "#buscaPromoCli" ).autocomplete({
+		source: "autocompletarClientes.php",
+		minLength: 2,
+		select: function( event, ui ) {
+			//                                window.location.href='cargarapida_cliente.php?c='+ui.item.id;
+			document.getElementById('id_promo').value=ui.item.id;
+		}
+	});
+	$( "#buscaProp" ).autocomplete({
+		source: "autocompletarPropiedades.php",
+		minLength: 2,
+		select: function( event, ui ) {
+			document.getElementById('aux_prop').value=ui.item.id;
+		}
+	});
+	$( document ).tooltip();
+
+});
+</script>
+</head>
+<body>
+<div id="buscador_rapido">
+  <div class="placa_verde rounded-corners" style="float:left; width:150px; text-align:center;">Búsqueda de Cliente</div>
+  <input id="buscaCli" class="ui-autocomplete-input" type="text" onblur="if(this.value == '') {this.value = this.defaultValue; this.style.color='#CCC';this.style.fontStyle='italic';}" onfocus="if(this.value == this.defaultValue){ this.value = ''; this.style.color = '#333';this.style.fontStyle='normal';}" value="Ingrese para buscar nombre, apellido, email, telefono, dirección..." name="buscaCli" autocomplete="off" />
+  <div class="rounded-corners btn_naranja" style="float: right; width:150px;">Registrar nuevo cliente</div>
+</div>
+<div class="contenido">
+  <div id="datos_cliente">
+    <div class="rounded-corners datos">
+      <div style="float:left; width:440px;">Nombre y apellido</div>
+      <div style="float:left; width:200px;">Categoría</div>
+      <div style="float:left; width:100px;">Sexo</div>
+      <div style="float:left; width:100px;">Envío News</div>
+      <div class="clearfix"></div>
+      <div style="float:left; width:250px;">Celular</div>
+      <div style="float:left; width:250px;">Teléfono</div>
+      <div style="float:left; width:300px;">Mail</div>
+      <div class="clearfix"></div>
+      <div style="float:left; width:280px;">Tipo de Cliente</div>
+      <div style="float:left; width:280px;">Cliente de</div>
+      <div style="float:left; width:280px;">Asignado a</div>
+      <div class="clearfix"></div>
+      <div style="float:left; width:250px;">Medio de contacto</div>
+      <div style="float:left; width:300px;">Cómo llego?</div>
+      <div style="float:left; width:300px;">Cap. de compra</div>
+      <div class="clearfix"></div>
+    </div>
+    <div style="float:right; width:55px;">
+      <div class="ver_lapiz rounded-corners"><img src="../images/lapiz.png" width="36" height="36" alt="Ver"></div>
+      <div class="ver_ver rounded-corners" onClick="visible('mas_datos_cliente')">VER +</div>
+    </div>
+  </div>
+  <div id="mas_datos_cliente" style="display:none;">
+    <div style="float:left; width:440px;">Tipo y nro documento</div>
+    <div style="float:left; width:200px;">Fecha de Nacimiento</div>
+    <div style="float:left; width:100px;">Estado Civil</div>
+    <div style="float:left; width:100px;">Hijos</div>
+    <div class="clearfix"></div>
+    <div style="float:left; width:250px;">Domicilio</div>
+    <div style="float:left; width:250px;">Piso/Depto.</div>
+    <div style="float:left; width:300px;">Localidad</div>
+    <div class="clearfix"></div>
+    <div style="float:left; width:280px;">C.P.</div>
+    <div style="float:left; width:280px;">Provincia</div>
+    <div style="float:left; width:280px;">País</div>
+    <div class="clearfix"></div>
+    <div style="float:left; width:450px;">Empresa</div>
+    <div style="float:left; width:300px;">CUIT</div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="vinculos">
+    <div style="margin-bottom:10px;">
+      <div style="float:left; width:100px;" class="placa_verde rounded-corners">ULTIMAS <br>
+        TAREAS</div>
+      <div class="datos_vinculos rounded-corners"></div>
+      <div style="float:right; width:55px;">
+        <div class="ver_lapiz rounded-corners sombra"><img src="../images/lapiz.png" width="36" height="36" alt="Ver"></div>
+        <div class="ver_ver rounded-corners sombra" onClick="visible('mas_datos_cliente')">VER +</div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div style="margin-bottom:10px;">
+      <div style="float:left; width:100px;" class="placa_verde rounded-corners">ID<br>
+        ASOCIADOS</div>
+      <div class="datos_vinculos rounded-corners"></div>
+      <div style="float:right; width:55px;">
+        <div class="ver_lapiz rounded-corners sombra"><img src="../images/lapiz.png" width="36" height="36" alt="Ver"></div>
+        <div class="ver_ver rounded-corners sombra" onClick="visible('mas_datos_cliente')">VER +</div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div style="margin-bottom:10px;">
+      <div style="float:left; width:100px;" class="placa_verde rounded-corners">CONTACTOS<br>
+        ASOCIADOS</div>
+      <div class="datos_vinculos rounded-corners"></div>
+      <div style="float:right; width:55px;">
+        <div class="ver_lapiz rounded-corners sombra"><img src="../images/lapiz.png" width="36" height="36" alt="Ver"></div>
+        <div class="ver_ver rounded-corners sombra" onClick="visible('mas_datos_cliente')">VER +</div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

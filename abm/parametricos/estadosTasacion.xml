@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<estadosTasacion>
+    <dato id='Pendiente'>Pendiente</dato>
+    <dato id='Tasado'>Tasado</dato>
+    <dato id='Retirado'>Retirado</dato>
+</estadosTasacion>

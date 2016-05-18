@@ -1,0 +1,99 @@
+// Documento JavaScript
+// Esta función cargará las paginas
+
+function llamarasincrono(url, id_contenedor){
+	var pagina_requerida = false
+	if (window.XMLHttpRequest) {// Si es Mozilla, Safari etc
+		pagina_requerida = new XMLHttpRequest()
+	} else if (window.ActiveXObject){ // pero si es IE
+		try {
+			pagina_requerida = new ActiveXObject("Msxml2.XMLHTTP")
+		} 
+		catch (e){ // en caso que sea una versión antigua
+			try{
+				pagina_requerida = new ActiveXObject("Microsoft.XMLHTTP")
+			}
+			catch (e){}
+		}
+	}
+	else
+		return false
+	pagina_requerida.onreadystatechange=function(){ // función de respuesta
+		cargarpagina(pagina_requerida, id_contenedor)
+	}
+
+	pagina_requerida.open('GET', url, true) // asignamos los métodos open y send
+	pagina_requerida.send(null)
+}
+
+
+// todo es correcto y ha llegado el momento de poner la información requerida
+// en su sitio en la pagina xhtml
+function cargarpagina(pagina_requerida, id_contenedor){
+//	alert(pagina_requerida+' -- '+id_contenedor);
+	if (pagina_requerida.readyState == 4 && (pagina_requerida.status==200 || window.location.href.indexOf("http")==-1)){
+//		alert(pagina_requerida+' -- '+id_contenedor);
+		document.getElementById(id_contenedor).innerHTML=pagina_requerida.responseText
+	} else {
+//		document.getElementById(id_contenedor).innerHTML="Fallo la carga."
+	}
+}
+
+
+function comboLocalidad(campo,destino,actual,campoloc,campoemp){
+	valor=document.getElementById(campo).value;
+//	alert(campoemp+' * '+destino+' * '+valor);	
+	url='llenaComboLocalidad.php?p='+valor+'&a='+actual+'&c='+campoloc+'&e='+campoemp;
+	llamarasincrono(url,destino);
+}
+
+function comboEmprendimiento(campo,zona,destino,actual,campoemp){
+	valor=document.getElementById(campo).value;
+//	alert(campo+' * '+destino+' * '+valor);	
+	url='llenaComboEmprendimiento.php?l='+valor+'&z='+zona+'&a='+actual+'&c='+campoemp;
+	llamarasincrono(url,destino);
+}
+
+function comboSubtipo_prop(campo,destino,actual,campoloc){
+	valor=document.getElementById(campo).value;
+//	alert(campo+' * '+destino+' * '+valor);	
+	url='llenaComboSubtipo_prop.php?p='+valor+'&a='+actual+'&c='+campoloc;
+	llamarasincrono(url,destino);
+}
+
+
+function comboTipoCarac(campo,destino){
+	valor=document.getElementById(campo).value;
+//	alert(campo+' * '+destino+' * '+valor);	
+	url='llenaOrdenTipoCarac.php?p='+valor+'&c='+destino;
+	llamarasincrono(url,destino);
+}
+
+function muestraCalendario(dia,mes,anio,destino,cdia,cmes,canio){
+
+	if(dia!=''){
+		tdia='&dia='+dia;
+	}else{
+		tdia='';
+	}
+	if(mes!=''){
+		tmes='&mes='+mes;
+	}else{
+		tmes='';
+	}
+	if(anio!=''){
+		tanio='&anio='+anio;
+	}else{
+		tanio='';
+	}
+	url='llenaCalendario.php?p=0'+tdia+tmes+tanio;
+	llamarasincrono(url,destino);
+	
+}
+
+function armaFiltro(campo,destino){
+	valor=document.getElementById(campo).value;
+//	alert(campo+"++"+valor+"++"+destino);
+	url='llenaFiltro.php?p='+valor;
+	llamarasincrono(url,destino);
+}

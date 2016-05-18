@@ -1,0 +1,17 @@
+<?php
+$mapaBase=array(array('form'=>"id_cli",'objeto'=>"id_cli",'tabla'=>"id_cli"),
+			array('form'=>"usuario",'objeto'=>"usuario",'tabla'=>"usuario"),
+			array('form'=>"nombre",'objeto'=>"nombre",'tabla'=>"nombre"),
+			array('form'=>"apellido",'objeto'=>"apellido",'tabla'=>"apellido"),				
+			array('form'=>"email",'objeto'=>"email",'tabla'=>"email"),
+			array('form'=>"observacion",'objeto'=>"observacion",'tabla'=>"observacion"),
+			array('form'=>"clave",'objeto'=>"clave",'tabla'=>"clave"),
+			array('form'=>"fecha_base",'objeto'=>"fecha_base",'tabla'=>"fecha_base"),
+			array('form'=>"nueva_clave",'objeto'=>"nueva_clave",'tabla'=>"nueva_clave"),
+			array('form'=>"fecha_nueva",'objeto'=>"fecha_nueva",'tabla'=>"fecha_nueva"),
+			array('form'=>"errores",'objeto'=>"errores",'tabla'=>"errores"),
+			array('form'=>"tipo_doc",'objeto'=>"tipo_doc",'tabla'=>"tipo_doc"),
+			array('form'=>"nro_doc",'objeto'=>"nro_doc",'tabla'=>"nro_doc"),
+			array('form'=>"activa",'objeto'=>"activa",'tabla'=>"activa")
+		);
+?>

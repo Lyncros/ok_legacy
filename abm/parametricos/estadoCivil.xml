@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<estadoCivil>
+    <dato id='1'>Soltero/a</dato>
+    <dato id='2'>Casado/a</dato>
+    <dato id='3'>Viudo/a</dato>
+    <dato id='4'>Divorciado/a</dato>
+    <dato id='99'>Sin definir</dato>
+</estadoCivil>

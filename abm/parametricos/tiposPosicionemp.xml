@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipos_posicionempresa>
+    <dato id='1'>Presidente</dato>
+    <dato id='2'>Directivo</dato>
+    <dato id='3'>CEO</dato>
+    <dato id='4'>Gerente</dato>
+    <dato id='5'>Mando medio</dato>
+    <dato id='6'>Secretaria-o</dato>
+    <dato id='7'>Dueño</dato>
+    <dato id='8'>Empleado</dato>
+    <dato id='9'>Otro</dato>
+    <dato id='999'>Sin definir</dato>
+</tipos_posicionempresa>

@@ -1,0 +1,56 @@
+<?php
+include_once ("generic_class/class.PGDAO.php");
+class CaracteristicaPGDAO extends PGDAO {
+	protected $INSERT = "INSERT INTO achaval.caracteristica (id_tipo_carac,titulo, tipo,maximo,comentario,lista,orden) values (#id_tipo_carac#,'#titulo#','#tipo#',#maximo#,'#comentario#','#lista#',#orden#)";
+	protected $DELETE = "DELETE FROM achaval.caracteristica WHERE id_carac=#id_carac#";
+	protected $UPDATE = "UPDATE achaval.caracteristica SET id_tipo_carac=#id_tipo_carac#, titulo='#titulo#', tipo='#tipo#',maximo=#maximo#,comentario='#comentario#',lista='#lista#',orden=#orden# WHERE id_carac=#id_carac# ";
+	protected $FINDBYID = "SELECT id_carac,id_tipo_carac,titulo, tipo,maximo,comentario,lista,orden FROM achaval.caracteristica WHERE id_carac=#id_carac#";
+	protected $FINDBYCLAVE = "SELECT id_carac,id_tipo_carac,titulo, tipo,maximo,comentario,lista,orden FROM achaval.caracteristica WHERE titulo LIKE  '#titulo#'";
+	protected $COLECCIONBYTIPO = "SELECT id_carac,id_tipo_carac,titulo, tipo,maximo,comentario,lista,orden FROM achaval.caracteristica WHERE id_tipo_carac=#id_tipo_carac# ORDER BY id_tipo_carac,orden'";
+	protected $COLECCION = "SELECT id_carac,id_tipo_carac,titulo, tipo,maximo,comentario,lista,orden  FROM achaval.caracteristica ORDER BY id_tipo_carac,orden";
+	protected $SUBIR = "UPDATE achaval.caracteristica SET orden=orden-1 WHERE id_carac=#id_carac#";
+	protected $BAJAR = "UPDATE achaval.caracteristica SET orden=orden+1 WHERE id_carac=#id_carac#";
+	protected $COLECCIONBYPOSICION = "SELECT id_carac FROM achaval.caracteristica WHERE orden=#orden# and id_tipo_carac=#id_tipo_carac#";
+	
+	public function subirCarac() {
+		$parametro = func_get_args ();
+		$resultado = $this->execSql ( $this->SUBIR, $parametro );
+		if (! $resultado) {
+			$this->onError ( $COD_UPDATE, "SUBIR ORDEN" );
+		}
+		return $resultado;
+	}
+	public function bajarCarac() {
+		$parametro = func_get_args ();
+		$resultado = $this->execSql ( $this->BAJAR, $parametro );
+		if (! $resultado) {
+			$this->onError ( $COD_UPDATE, "BAJAR ORDEN" );
+		}
+		return $resultado;
+	}
+	public function coleccionByPosicion() {
+		$parametro = func_get_args ();
+		$resultado = $this->execSql ( $this->COLECCIONBYPOSICION, $parametro );
+		if (! $resultado) {
+			$this->onError ( $COD_COLLECION, "NOTICIAS POR POSICION" );
+		}
+		return $resultado;
+	}
+	
+	public function cargaColeccionTipoCarac(){
+		$localclass=$this->getClase().'PGDAO';
+		$datoDB = new $localclass($this->getArrayTabla());
+		$this->seteaArray($datoDB->coleccionByTipo());
+	}
+	
+	public function coleccionByTipo(){
+		$parametro = func_get_args();
+		$resultado=$this->execSql($this->COLECCIONBYTIPO,$parametro);
+		if (!$resultado){
+			$this->onError("COD_COLLECION","CARACTERISTICAS x TIPO CARAC");
+		}
+		return $resultado;
+	}
+}
+// Fin clase DAO
+?>

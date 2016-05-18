@@ -1,0 +1,82 @@
+<?php
+include_once("generic_class/class.PGDAO.php");
+
+
+class TelefonosPGDAO extends PGDAO {
+
+	protected $INSERT="INSERT INTO #dbName#.telefonos (tipotel,codpais,codarea,numero,interno,tipocont,id_cont,principal) values ('#tipotel#','#codpais#','#codarea#','#numero#','#interno#','#tipocont#',#id_cont#,#principal#)";
+	protected $DELETE="DELETE FROM #dbName#.telefonos WHERE id_telefono=#id_telefono#";
+	protected $UPDATE="UPDATE #dbName#.telefonos SET tipotel='#tipotel#', codpais='#codpais#',codarea='#codarea#',numero='#numero#',interno='#interno#',tipocont='#tipocont#',id_cont=#id_cont#,principal=#principal# WHERE id_telefono=#id_telefono# ";
+
+	protected $FINDBYID="SELECT id_telefono,tipotel,codpais,codarea,numero,interno,tipocont,id_cont,principal FROM #dbName#.telefonos WHERE id_telefono=#id_telefono#";
+
+	protected $FINDBYCLAVE="SELECT id_telefono, tipotel,codpais, codarea ,numero,interno,tipocont,id_cont,principal
+							FROM #dbName#.telefonos
+							WHERE tipocont='#tipocont#' AND id_cont=#id_cont# AND tipotel='#tipotel#' AND codpais='#codpais#' AND codarea='#codarea#' AND numero like '#numero#'";
+
+	protected $COLECCION="SELECT id_telefono,tipotel,codpais,codarea,numero,interno,tipocont,id_cont,principal FROM #dbName#.telefonos ORDER BY codpais,codarea";
+
+	protected $COLECCIONBASE="SELECT id_telefono,tipotel,codpais,codarea,numero,interno,tipocont,id_cont,principal FROM #dbName#.telefonos ";
+
+	protected $SETPRINCIPAL = "UPDATE #dbName#.telefonos SET principal=1 WHERE id_telefono=#id_telefono#";
+
+	protected $UNSETPRINCIPAL = "UPDATE #dbName#.telefonos SET principal=0 WHERE id_telefono=#id_telefono#";
+
+	/**
+	 * Setea el telefono indicado como principal para ese contacto
+	 */
+	public function seteaPrincipal(){
+		$parametro = func_get_args();
+		$resultado=$this->execSql($this->SETPRINCIPAL,$parametro);
+		if (!$resultado){
+			$this->onError($COD_UPDATE,"SETEO PRINCIPAL ".$this->SETPRINCIPAL);
+		}
+		return $resultado;
+	}
+
+	/**
+	 * Elimina la marca de principal para el telefono indicado
+	 */
+	public function reseteaPrincipal(){
+		$parametro = func_get_args();
+		$resultado=$this->execSql($this->UNSETPRINCIPAL,$parametro);
+		if (!$resultado){
+			$this->onError($COD_UPDATE,"DESETEO PRINCIPAL ".$this->UNSETPRINCIPAL);
+		}
+		return $resultado;
+	}
+
+
+	/**
+	 *
+	 * Selecciona los telefonos que corresponden segun tres parametros posibles
+	 * @param char $_tipo -> tipo de contacto U: usario C: cliente
+	 * @param int $_id -> id del contacto a buscar
+	 * @param int $_principal -> definicion de si es telefono principal o no 1: principal
+	 */
+	public function coleccionByTipoId($_tipo,$_id,$_principal=0){
+		$parametro = func_get_args();
+		$resultado='';
+		$ordenprinc='';
+		// WHERE telefonos='#telefonos#' ORDER BY codarea,numero
+		if($_tipo!=''){
+			$where=" WHERE tipocont ='".$_tipo."' ";
+			if($_id!=0){
+				$where.=" AND id_cont=".$_id;
+			}
+			if($_principal==1){
+				$where.=" AND principal=1 ";
+				$ordenprinc=" principal DESC, ";
+			}
+			$order=" ORDER BY ".$ordenprinc."tipotel,codpais,codarea,numero ";
+			$resultado=$this->execSql($this->COLECCIONBASE.$where.$order,$parametro);
+			if (!$resultado){
+				$this->onError($COD_COLLECION,"TELEFONOS DE CONTACO ".$this->COLECCIONBASE.$where.$order);
+			}
+		}
+		return $resultado;
+	}
+
+
+} // Fin clase DAO
+?>

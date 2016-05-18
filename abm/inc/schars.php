@@ -1,0 +1,16 @@
+<?php
+$schars=array(
+		array("á","&aacute;"),
+		array("é","&eacute;"),
+		array("í","&iacute;"),
+		array("ó","&oacute;"),
+		array("ú","&uacute;"),
+		array("Á","&Aacute;"),
+		array("É","&Eacute;"),
+		array("Í","&Iacute;"),
+		array("Ó","&Oacute;"),
+		array("Ú","&Uacute;"),
+		array("Ñ","&Ntilde"),
+		array("ñ","&ntilde")
+		);
+?>

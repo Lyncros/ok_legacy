@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formas_promocion>
+    <dato id='1'>Carteleria Rural</dato>
+    <dato id='2'>Carteleria Urbana</dato>
+    <dato id='3'>Publicidad</dato>
+    <dato id='4'>Publicacion</dato>
+    <dato id='5'>Folleteria</dato>
+    <dato id='6'>Mailing</dato>
+</formas_promocion>

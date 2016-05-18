@@ -1,0 +1,319 @@
+<div id="caja" class="caja">
+    <div class="buscador">
+        <div style="float: right;border-left: thick solid #FFF; padding: 2px 5px; width:215px; background-color: #F16221;"><a href="javascript: limpiaFormCliente();" style="color: #ffffff;"><img src="images/icono_ir2.png" width="22" height="22"> Nuevo Cliente</a></div>
+        <div>
+            <label for="buscaCli" >Buscador rápido</label><br />
+            <input type="text" size="100" name="buscaCli" id="buscaCli"  class="ui-autocomplete-input" value="Ingrese para buscar nombre, apellido, email, telefono, dirección..." onfocus="if (this.value == this.defaultValue) {
+                        this.value = '';
+                        this.style.color = '#333';
+                        this.style.fontStyle = 'normal';
+                    }" onblur="if (this.value == '') {
+                                this.value = this.defaultValue;
+                                this.style.color = '#CCC';
+                                this.style.fontStyle = 'italic';
+                            }" />
+        </div>
+    </div>
+    <div class="top">CRM</div>
+    <form name="clienteCRM" id="clienteCRM" action="javascript: grabarCliente();">
+        <div class="buscador">
+            <input type="hidden" id="ID_CLI" name="ID_CLI" value="" />
+            <input type="hidden" id="OPERACION" name="OPERACION" value="n" />
+        </div>
+
+        <div class="intra">
+            <!--FILA 1-->
+            <div class="celda celda_50">
+                <label for="NOMBRE" >Nombre</label><br />
+                <input type="text" size="60" name="NOMBRE" id="NOMBRE"/>
+            </div>
+            <div class="celda celda_50">
+                <label for="APELLIDO" >Apellido</label><br />
+                <input type="text" size="67" name="APELLIDO" id="APELLIDO"/>
+            </div>
+
+            <!--FILA 2-->
+            <div class="celda_ajustable celda celda_50" id="div_telefono">
+                <label for="TIPOTEL" >Teléfono &nbsp;</label>
+                <a href="javascript: addField('t',new Array());"><img src="images/add.png" alt="agregar" width="12" height="12" border="0" align="absmiddle" /></a>
+                <br />
+                <div id="div_tel">
+                </div>
+            </div>
+
+            <div class="celda_ajustable celda celda_50" id="email">
+                <label for="CONTACTO" >Medio Contacto &nbsp;</label>
+                <a href="javascript: addField('m',new Array());"><img src="images/add.png" alt="agregar" width="12" height="12" border="0" align="absmiddle" /></a>
+                <br />
+                <div id='div_mail'>
+                </div>
+            </div>
+
+            <div class="celda celda_100" style="height: 30px;">
+                <input id="bot_infoExtra" align="absmiddle" class="boton_derecha"  value="+ Info" name="" type="button" onclick="javascript: showHideExtra();"/>
+            </div>
+            <div id="div_infoExtra" style="display: none;">
+                <!--FILA 3-->      
+                <div class="celda_ajustable celda_100">
+                    <div class="celda_fina celda_titulo celda_100">
+                        <label> Domicilio &nbsp;</label>
+                        <a href="javascript: addField('d',new Array());"><img src="images/add.png" alt="agregar" width="12" height="12" border="0" align="absmiddle" /></a>
+                    </div>
+                    <br />
+                    <div id='div_dom'>
+                    </div>
+                </div>
+                <!--FILA 5--> 
+                <div>
+                    <div id="div_empresa" class="celda celda_25" >
+                        <label for="EMPRESA">Empresa</label><br />
+                        <input type="text" size="25" id="EMPRESA" name="EMPRESA"/>
+                    </div>
+                    <div class="celda celda_min" id="tipodoc" >
+                        <label for="TIPO_DOC">Tipo de Doc.</label><br />
+                        <div class="celda_div_min div_select">
+                            <select  id="TIPO_DOC" name="TIPO_DOC"></select>
+                        </div>
+                    </div>
+                    <div class="celda celda_min" id="numedoc" >
+                        <label for="NRO_DOC">Número</label><br />
+                        <input type="text" size="10" id="NRO_DOC" name="NRO_DOC" />
+                    </div>
+                    <div class="celda celda_min" id="edad" >
+                        <label for="FECHA_NAC">Fecha Nac.</label><br />
+                        <input type="text" size="10" id="FECHA_NAC" name="FECHA_NAC" class="tb-date" />
+                    </div>
+                    <div id="estcivil" class="celda celda_25" >
+                        <label for="ID_ESTCIV">Estado Civil</label><br />
+                        <div class="celda_div_25 div_select">
+                            <select  id="ID_ESTCIV" name="ID_ESTCIV"></select>
+                        </div>
+                    </div>
+                    <div class="celda celda_min" id="hijos" >
+                        <label for="GRUPOFAM">Hijos</label><br />
+                        <div class="celda_div_min div_select">
+                            <select id="GRUPOFAM" name="GRUPOFAM">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 o mas</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!--FILA 6-->      
+<!--                <div class="celda celda_25" >
+                    <label for="TIPOCONT">Tipo de Contacto</label><br />
+                    <div class="celda_div_25 div_select">
+                        <select  id="TIPOCONT" name="TIPOCONT"></select>
+                    </div>
+                </div> -->
+                <div  class="celda celda_25" >
+                    <label for="ASIGNACION">Asignación</label><br />
+                    <div class="celda_div_25 div_select">
+                        <select name="ASIGNACION" id="ASIGNACION"></select>
+                    </div>
+                </div>
+                <div class="celda celda_25" >
+                    <label for="CATEGORIA">Categoría</label><br />
+                    <div class="celda_div_25 div_select">
+                        <select name="CATEGORIA" id="CATEGORIA"></select>
+                    </div>
+                </div>
+                <div class="celda celda_25" >
+                    <label for="CAPCOMPRA">Capacidad de Compra</label><br />
+                    <div class="celda_div_25 div_select">
+                        <select name="CAPCOMPRA" id="CAPCOMPRA"></select>
+                    </div>
+                </div>
+            </div>
+
+            <!--FILA 7-->    
+            <div class="celda celda_25">
+                <label for="ID_FINGRESO">Via de Ingreso</label><br />
+                <div class="celda_div_25 div_select">
+                    <select name='ID_FINGRESO' id='ID_FINGRESO' onclick="javascript:comboPromociones('ID_FINGRESO', 0, 'divComboPromocion');">
+                    </select>                       
+                </div>
+            </div>
+            <div class="celda celda_25">
+                <div id='divComboPromocion'></div>
+                <div id='divPromoCli' style='display:none'>
+                    <label for="ID_FINGRESO">Indique el Cliente</label><br />
+                    <div  class="celda_div_25">
+                        <input type='text' size='50' name='buscaPromoCli' id='buscaPromoCli' />
+                        <input type='hidden' size='50' name='AUX_PROMO' id='AUX_PROMO' />
+                    </div>
+                    * Pon al menos 3 letras para que salgan opciones.";
+                </div>
+            </div>
+            <div style="clear: both"></div>
+            <div id="news" class="celda celda_25" >
+                <label for="NEWS">Envio News</label><br />
+                <input type="checkbox" name="NEWS" id="NEWS" />
+            </div>
+            <div class="celda celda_25" >
+                <label for="TIPOCONT">Tipo de Contacto</label><br />
+                <div class="celda_div_25 div_select">
+                    <select  id="TIPOCONT" name="TIPOCONT"></select>
+                </div>
+            </div>
+
+            <div id="ejecutivo" class="celda celda_50 celda_ajustable" >
+                <label for="ejecutivo">Ejecutivo &nbsp;</label>
+                <a href="javascript: addField('r',new Array());"><img src="images/add.png" alt="agregar" width="12" height="12" border="0" align="absmiddle" /></a>
+                <br />
+                <div id='div_ejec'>
+                </div>
+            </div>
+            <div class="celda celda_50" id="nota">
+                <label for="OBSERVACION">Nota Breve</label><br />
+                <input type="text" size="67" name="OBSERVACION" id="OBSERVACION" />
+            </div>
+            <!--                        <div id="" class="celda celda_25" ></div>
+                                    <div id="" class="celda celda_50" ></div>
+            
+                                    <br /><br />
+            
+                                    <div class="celda celda_50"></div>
+            -->
+            <br />
+            <div id="div_guardar" class="celda ancho_completo"><input align="absmiddle" class="boton_derecha"  value="Guardar" name="" type="button" onclick="javascript:grabarCliente('clienteCRM');"/></div>
+        </div>
+    </form>
+</div>
+<form id='buscador'>
+    <div class="caja consulta">
+        <div class="top">CONSULTAS</div>
+        <div class="intra">
+            <!--
+            <div class="celda celda_25">
+                <label for="ID_FINGRESO2">Via de Ingreso</label><br />
+                <div class="celda_div_25 div_select">
+                    <select name='ID_FINGRESO2' id='ID_FINGRESO2' onclick="javascript:comboPromociones('ID_FINGRESO2', 0, 'divComboPromocion2');">
+                    </select>                       
+                </div>
+            </div>
+            <div class="celda celda_25">
+                <div id='divComboPromocion2'></div>
+                <div id='divPromoCli' style='display:none'>
+                    <label for="buscaPromoCli2">Indique el Cliente</label><br />
+                    <div  class="celda_div_25">
+                        <input type='text' size='50' name='buscaPromoCli2' id='buscaPromoCli2' />
+                        <input type='hidden' size='50' name='AUX_PROMO2' id='AUX_PROMO2' />
+                    </div>
+                    * Pon al menos 3 letras para que salgan opciones.";
+                </div>
+            </div>
+            -->
+            <div style="float: right;border-left: thick solid #FFF; padding: 2px 5px; width:120px; background-color: #F16221;"><a href="javascript: cargaNuevaPropiedad();" style="color: #ffffff;"><img src="images/icono_ir2.png" width="22" height="22"> Nueva Propiedad</a></div>
+            <div>
+                <label for='buscaProp'>Buscador r&aacute;pido</label><br />
+
+                <input type='text' size='120' name='buscaProp' id='buscaProp' value="Ingrese para buscar Zona, calle, numero..." onfocus="if (this.value == this.defaultValue) {
+                            this.value = '';
+                            this.style.color = '#333';
+                            this.style.fontStyle = 'normal';
+                        }" onblur="if (this.value == '') {
+                                    this.value = this.defaultValue;
+                                    this.style.color = '#CCC';
+                                    this.style.fontStyle = 'italic';
+                                }" />
+                <br /><br />
+                <input type='button'  class="boton_derecha" value="BUSQUEDA AVANZADA" onclick="javascript: visible('menuBuscadorPropiedad');">
+            </div>
+            <input type='hidden' size='50' name='aux_prop' id='aux_prop'> 
+        </div>
+    </div>
+    <div id='menuBuscadorPropiedad' style='display:none;' class="caja consulta avanzada">
+        <div class="intra">
+            <label>Filtrar por</label>
+            <div id="filaFiltrarpor" name="filaFiltrarpor" class='ancho_completo'>
+                <table class='cd_tabla' width='100%'>
+                    <tr>
+                        <td class='cd_celda_texto'>
+                            <label for="tipo_prop">Tipo de Propiedad</label><br />
+                            <input type='button' class='boton_form' value="Seleccione Tipo" id='tipo_prop' name='ver' onclick="javascript: popupTipoprop('div_selTipoprop', 'aux_Tprop', 'aux_selTprop');"><br />             
+                            <span id='div_selTipoprop' class='buscado'></span>     
+                            <input class='campos' name='aux_Tprop' id='aux_Tprop' type='hidden' value='0'>
+                            <input class='campos' name='aux_selTprop' id='aux_selTprop' type='hidden' value=''>
+                        </td>
+                        <td class='cd_celda_filtro2'>
+                            <label for="ID_UBICAPRINCIPAL">Zona</label><br />
+                            <div class="celda_div_25 div_select">
+                                <select name='ID_UBICAPRINCIPAL' id='ID_UBICAPRINCIPAL' onblur="javascript: document.getElementById('fid_ubica').value = document.getElementById('ID_UBICAPRINCIPAL').value;
+                                        document.getElementById('txtUbica').innerHTML = '';" onchange="javascript: document.getElementById('fid_ubica').value = document.getElementById('ID_UBICAPRINCIPAL').value;
+                                                document.getElementById('txtUbica').innerHTML = '';">
+                                    <option value='0' SELECTED >Todas</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td class='cd_celda_texto'>
+                            <label for="emprend">Emprendimientos</label><br />
+                            <input type='button' class='boton_form' value="Seleccione Emprendimiento" id='emprend' name='emprend' onclick="popupEmprendimiento('div_selEmprendimiento', 'aux_emp', 'aux_selemp', 'fid_ubica');"><br />
+                            <span id='div_selEmprendimiento' class='buscado'></span>
+                            <input class='campos' name='aux_emp' id='aux_emp' type='hidden' value='0'>
+                            <input class='campos' name='aux_selemp' id='aux_selemp' type='hidden' value=''>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='cd_celda_texto'>
+                            <label for="tipo_oper">Tipo de Operacion</label><br />
+                            <input type='button' class='boton_form' value="Seleccione Operaci&oacute;n" id='tipo_oper' name='tipo_oper' onclick="javascript: popupOperacion('div_selOperacion', 'aux_operacion', 'aux_seloperacion');"><br  />
+                            <span id='div_selOperacion' class='buscado'></span>
+                            <input class='campos' name='aux_operacion' id='aux_operacion' type='hidden' value=''>
+                            <input class='campos' name='aux_seloperacion' id='aux_seloperacion' type='hidden' value=''>
+                        </td>
+                        <td>
+                            <label for='fid_ubica'>Localidad</label><br />
+                            <input class='campos' name='fid_ubica' id='fid_ubica' type='hidden' value='0'>
+                            <input type='button' class='boton_form' value='Seleccione Subzonas' onclick="window.open('seleccionaZona2.php?v=' + document.getElementById('fid_ubica').value + '&z=' + document.getElementById('ID_UBICAPRINCIPAL').value + '&ncu=fid_ubica', 'ventanaEmp', 'menubar=1,resizable=1,width=700,height=550');"><br />
+                            <span id='txtUbica'></span>
+                        </td>
+
+                        <td  class='cd_celda_filtro2'>
+                            <label for="DORMITORIOS">Dormitorios</label><br />
+                            <div class="celda_div_min div_select">
+                                <select id="DORMITORIOS" name="DORMITORIOS">
+                                    <option value="0">Sin definir</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 o mas</option>
+                                </select>
+                        </td>
+                    </tr>
+                </table>
+                <div class="celda ancho_completo">
+                    <input class="boton_derecha" type='button' value='BUSCAR' onclick='javascript:buscadorCRM("buscador",1);'/>
+                </div>
+
+            </div>
+            <input type='hidden' name='opcion' id='opcion' value='' />
+            <input type='hidden' name='id_cli' id='id_cli' value='' />
+            <input type='hidden' name='activa' id='activa' value='' />
+            <input type='hidden' name='cpo' id='cpo' value='' />    
+
+        </div>
+    </div>
+</form>
+<div style="margin-left:20px;">
+    <div class='caja_chica'>
+        <div class="top">ACTIVIDADES</div>
+        <div class='data_content' id='ultimosEventos'>
+        </div>
+        <div class="celda ancho_completo">
+            <input class="boton_derecha" type='button' value='NUEVA' />
+        </div>
+    </div>
+    <div class='caja_chica caja_chica_right'>
+        <div class="top">CONTACTOS RECIENTES</div>
+        <div class='data_content' id='ultimosClientes'>
+        </div>
+        <div class="celda ancho_completo">
+            <input class="boton_derecha" type='button' value='NUEVO' />
+        </div>
+    </div>
+</div>

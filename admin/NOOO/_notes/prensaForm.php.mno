@@ -1,0 +1,1 @@
+﻿<?xml version="1.0" encoding="utf-8" ?><info>	<infoitem key="UD_rsprensa" value="name:id_medio;datatype:int,name:fecha_nota;datatype:int,name:titu_nota;datatype:int,name:img_nota;datatype:int,name:link_nota;datatype:int,name:id_prensa;datatype:int" />	<infoitem key="UD_medios" value="name:id_medio;datatype:int,name:nombre_medio;datatype:string" /></info>

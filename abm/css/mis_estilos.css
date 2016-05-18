@@ -1,0 +1,95 @@
+/* CSS Document */
+
+a.homos{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+text-decoration:none;
+color:#000000;
+}
+
+a.homos:link{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+text-decoration:none;
+color:#000000;
+}
+
+a.homos:visited{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+text-decoration:none;
+color:#000000;
+}
+
+a.homos:active{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+text-decoration:none;
+color:#ff0000;
+}
+
+a.homos:hover{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+text-decoration:none;
+color:#999999;
+}
+
+.titulo{
+background-color:#9c9c9e;
+color:#FFEF00;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:14px;
+text-align:center;
+vertical-align:middle;
+height:30px;
+}
+
+.subtitulo{
+color:#000000;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+font-weight:bold;
+}
+
+.subtitulo1{
+color:#000000;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:14px;
+font-weight:bold;
+}
+
+.texto-normal{
+color:#000000;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+padding-left: 8px;
+padding-right: 8px;
+}
+
+.fecha-evento{
+color:#000000;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+align: right;
+padding-left: 8px;
+padding-right: 8px;
+}
+
+.filaimpar{
+background-color:#999999;
+color:#000000;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+padding-left: 8px;
+padding-right: 8px;
+}
+
+.filapar{
+background-color:#FFFFFF;
+color:#000000;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+padding-left: 8px;
+padding-right: 8px;
+}

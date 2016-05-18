@@ -1,0 +1,462 @@
+<?php
+
+include_once("generic_class/class.PGDAO.php");
+
+class PropiedadPGDAO extends PGDAO {
+
+    //	protected $INSERT="INSERT INTO #dbName#.propiedad (id_zona,id_loca,calle,entre1,entre2,nro,descripcion,id_tipo_prop,subtipo_prop,intermediacion,id_inmo,operacion,comentario,video,piso,dpto,id_cliente,goglat,goglong,activa,id_sucursal,id_emp,nomedif, plano1, plano2, plano3, id_parcela, id_comercial, compartir,publicaprecio) values ('#id_zona#','#id_loca#','#calle#','#entre1#','#entre2#','#nro#','#descripcion#',#id_tipo_prop#,'#subtipo_prop#','#intermediacion#',#id_inmo#,'#operacion#','#comentario#','#video#','#piso#','#dpto#',#id_cliente#,#goglat#,#goglong#,#activa#,'#id_sucursal#',#id_emp#,'#nomedif#', '#plano1#', '#plano2#', '#plano3#', '#id_parcela#', '#id_comercial#', #compartir#,#publicaprecio#)";
+    protected $INSERT = "INSERT INTO #dbName#.propiedad (id_ubica,calle,entre1,entre2,nro,descripcion,id_tipo_prop,subtipo_prop,intermediacion,id_inmo,operacion,comentario,video,piso,dpto,id_cliente,goglat,goglong,activa,id_sucursal,id_emp,nomedif, plano1, plano2, plano3, id_parcela, id_comercial, compartir,publicaprecio,destacado,oportunidad,publicadir) values (#id_ubica#,'#calle#','#entre1#','#entre2#','#nro#','#descripcion#',#id_tipo_prop#,'#subtipo_prop#','#intermediacion#',#id_inmo#,'#operacion#','#comentario#','#video#','#piso#','#dpto#',#id_cliente#,#goglat#,#goglong#,#activa#,'#id_sucursal#',#id_emp#,'#nomedif#', '#plano1#', '#plano2#', '#plano3#', '#id_parcela#', '#id_comercial#', #compartir#,#publicaprecio#,#destacado#,#oportunidad#,#publicadir#)";
+    protected $DELETE = "DELETE FROM #dbName#.propiedad WHERE id_prop=#id_prop#";
+    //	protected $UPDATE="UPDATE #dbName#.propiedad SET id_zona='#id_zona#',id_loca='#id_loca#',calle='#calle#',entre1='#entre1#',entre2='#entre2#',nro='#nro#',descripcion='#descripcion#',id_tipo_prop=#id_tipo_prop#,subtipo_prop='#subtipo_prop#',intermediacion='#intermediacion#',id_inmo=#id_inmo#,operacion='#operacion#',comentario='#comentario#',video='#video#',piso='#piso#',dpto='#dpto#',id_cliente=#id_cliente#,goglat=#goglat#,goglong=#goglong#,activa=#activa#,id_sucursal='#id_sucursal#',id_emp=#id_emp#,nomedif='#nomedif#',plano1='#plano1#',plano2='#plano2#',plano3='#plano3#',id_parcela='#id_parcela#',id_comercial='#id_comercial#',compartir=#compartir#,publicaprecio=#publicaprecio# WHERE id_prop=#id_prop# ";
+    protected $UPDATE = "UPDATE #dbName#.propiedad SET id_ubica=#id_ubica#,calle='#calle#',entre1='#entre1#',entre2='#entre2#',nro='#nro#',descripcion='#descripcion#',id_tipo_prop=#id_tipo_prop#,subtipo_prop='#subtipo_prop#',intermediacion='#intermediacion#',id_inmo=#id_inmo#,operacion='#operacion#',comentario='#comentario#',video='#video#',piso='#piso#',dpto='#dpto#',id_cliente=#id_cliente#,goglat=#goglat#,goglong=#goglong#,activa=#activa#,id_sucursal='#id_sucursal#',id_emp=#id_emp#,nomedif='#nomedif#',plano1='#plano1#',plano2='#plano2#',plano3='#plano3#',id_parcela='#id_parcela#',id_comercial='#id_comercial#',compartir=#compartir#,publicaprecio=#publicaprecio#,destacado=#destacado#,oportunidad=#oportunidad#,publicadir=#publicadir# WHERE id_prop=#id_prop# ";
+    //	protected $FINDBYID="SELECT p.id_prop,p.id_zona,p.id_loca,p.calle,p.entre1,p.entre2,p.nro,p.descripcion,p.id_tipo_prop,p.subtipo_prop,p.intermediacion,p.id_inmo,p.operacion,p.comentario,p.video,p.piso,p.dpto,p.id_cliente,p.goglat,p.goglong,p.activa,p.id_sucursal,p.id_emp,p.nomedif,p.plano1,p.plano2,p.plano3,p.id_parcela,p.id_comercial,p.compartir,p.publicaprecio FROM #dbName#.propiedad as p  WHERE p.id_prop=#id_prop#";
+    protected $FINDBYID = "SELECT p.id_prop,p.id_ubica,p.calle,p.entre1,p.entre2,p.nro,p.descripcion,p.id_tipo_prop,p.subtipo_prop,p.intermediacion,p.id_inmo,p.operacion,p.comentario,p.video,p.piso,p.dpto,p.id_cliente,p.goglat,p.goglong,p.activa,p.id_sucursal,p.id_emp,p.nomedif,p.plano1,p.plano2,p.plano3,p.id_parcela,p.id_comercial,p.compartir,p.publicaprecio,p.destacado,p.oportunidad,p.publicadir FROM #dbName#.propiedad as p  WHERE p.id_prop=#id_prop#";
+    //	protected $FINDBYCLAVE="SELECT id_prop,id_zona,id_loca,calle,entre1,entre2,nro,descripcion,id_tipo_prop,subtipo_prop,intermediacion,id_inmo,operacion,comentario,video,piso,dpto,id_cliente,goglat,goglong,activa,id_sucursal,id_emp,nomedif,plano1,plano2,plano3,id_parcela,id_comercial,compartir,publicaprecio FROM #dbName#.propiedad WHERE calle LIKE  '#calle#' and nro='#nro#' and piso like '#piso#' and dpto like '#dpto#' and nomedif = '#nomedif#'" ;
+    protected $FINDBYCLAVE = "SELECT id_prop,id_ubica,calle,entre1,entre2,nro,descripcion,id_tipo_prop,subtipo_prop,intermediacion,id_inmo,operacion,comentario,video,piso,dpto,id_cliente,goglat,goglong,activa,id_sucursal,id_emp,nomedif,plano1,plano2,plano3,id_parcela,id_comercial,compartir,publicaprecio,destacado,oportunidad,publicadir FROM #dbName#.propiedad WHERE calle LIKE  '#calle#' and nro='#nro#' and piso like '#piso#' and dpto like '#dpto#' and nomedif = '#nomedif#'";
+    //	protected $COLECCION="SELECT id_prop,id_zona,id_loca,calle,entre1,entre2,nro,descripcion,id_tipo_prop,subtipo_prop,intermediacion,id_inmo,operacion,comentario,video,piso,dpto,id_cliente,goglat,goglong,activa,id_sucursal,id_emp,nomedif,plano1,plano2,plano3,id_parcela,id_comercial,compartir,publicaprecio  FROM #dbName#.propiedad ORDER BY id_zona,id_loca,calle,nro";
+    //protected $COLECCION = "SELECT id_prop,id_ubica,calle,entre1,entre2,nro,descripcion,id_tipo_prop,subtipo_prop,intermediacion,id_inmo,operacion,comentario,video,piso,dpto,id_cliente,goglat,goglong,activa,id_sucursal,id_emp,nomedif,plano1,plano2,plano3,id_parcela,id_comercial,compartir,publicaprecio,destacado,oportunidad,publicadir  FROM #dbName#.propiedad ORDER BY id_ubica,calle,nro";
+    protected $COLECCION = "SELECT id_prop,id_ubica,calle,entre1,entre2,nro,descripcion,id_tipo_prop,subtipo_prop,intermediacion,id_inmo,operacion,comentario,video,piso,dpto,id_cliente,goglat,goglong,activa,id_sucursal,id_emp,nomedif,plano1,plano2,plano3,id_parcela,id_comercial,compartir,publicaprecio,destacado,oportunidad,publicadir  FROM #dbName#.propiedad ORDER BY oportunidad DESC, destacado DESC, id_prop DESC";
+    protected $ACTIVAR = "UPDATE #dbName#.propiedad SET activa=1 WHERE id_prop=#id_prop#";
+    protected $DESACTIVAR = "UPDATE #dbName#.propiedad SET activa=0 WHERE id_prop=#id_prop#";
+    protected $PUBLICARPRECIO = "UPDATE #dbName#.propiedad SET publicaprecio=1 WHERE id_prop=#id_prop#";
+    protected $DESPUBLICARPRECIO = "UPDATE #dbName#.propiedad SET publicaprecio=0 WHERE id_prop=#id_prop#";
+    protected $DESTACAPROP = "UPDATE #dbName#.propiedad SET destacado=1 WHERE id_prop=#id_prop#";
+    protected $NORMALIZAPROP = "UPDATE #dbName#.propiedad SET destacado=0 WHERE id_prop=#id_prop#";
+    protected $OPORTUNIDAD = "UPDATE #dbName#.propiedad SET oportunidad=1 WHERE id_prop=#id_prop#";
+    protected $BAJAOPORTUNIDAD = "UPDATE #dbName#.propiedad SET oportunidad=0 WHERE id_prop=#id_prop#";
+    protected $CANTREGBASE = "SELECT COUNT(p.id_prop) as id_prop FROM #dbName#.propiedad as p ";
+    //	protected $COLECCIONBASE="SELECT p.id_prop,p.id_zona,p.id_loca,p.calle,p.entre1,p.entre2,p.nro,p.descripcion,p.id_tipo_prop,p.subtipo_prop,p.intermediacion,p.id_inmo,p.operacion,p.comentario,p.video,p.piso,p.dpto,p.id_cliente,p.goglat,p.goglong,p.activa,p.id_sucursal,p.id_emp,p.nomedif, p.plano1, p.plano2, p.plano3, p.id_parcela, p.id_comercial, p.compartir,p.publicaprecio FROM #dbName#.propiedad as p ";
+    protected $COLECCIONBASE = "SELECT p.id_prop,p.id_ubica,p.calle,p.entre1,p.entre2,p.nro,p.descripcion,p.id_tipo_prop,p.subtipo_prop,p.intermediacion,p.id_inmo,p.operacion,p.comentario,p.video,p.piso,p.dpto,p.id_cliente,p.goglat,p.goglong,p.activa,p.id_sucursal,p.id_emp,p.nomedif, p.plano1, p.plano2, p.plano3, p.id_parcela, p.id_comercial, p.compartir,p.publicaprecio,p.destacado,p.oportunidad,p.publicadir FROM #dbName#.propiedad as p ";
+    protected $JOIN = " INNER JOIN (SELECT q.id_prop,q.operacion FROM #dbName#.propiedad_operacion as q inner join ( select id_prop,max(fecha) as fecha from  #dbName#.propiedad_operacion group by id_prop) as j on (q.id_prop=j.id_prop and q.fecha=j.fecha)) as o ON p.id_prop=o.id_prop ";
+    protected $COLECCIONBASEBUSCADOR = "SELECT p.id_prop,p.id_ubica,p.calle,p.nro,p.id_tipo_prop,p.subtipo_prop,p.intermediacion,p.id_inmo,p.operacion,p.piso,p.dpto,p.id_cliente,p.activa,p.id_sucursal,p.id_emp, p.compartir,p.publicaprecio,p.destacado,p.oportunidad,p.publicadir,p.goglat,p.goglong,z.nombre_ubicacion,t.tipo_prop,st.suptot,sca.cantamb,smal.monalq,sal.valalq,smve.monven,sve.valven FROM (
+    SELECT id_prop,id_ubica,calle,nro,id_tipo_prop,subtipo_prop,intermediacion,id_inmo,operacion,piso,dpto,id_cliente,activa,id_sucursal,id_emp,compartir,publicaprecio,destacado,oportunidad,publicadir,goglat,goglong FROM #dbName#.propiedad ";
+    protected $JOINBUSCADOR = " INNER JOIN #dbName#.ubicacionpropiedad as z ON p.id_ubica = z.id_ubica INNER JOIN #dbName#.tipoprop as t ON p.id_tipo_prop = t.id_tipo_prop ";
+    protected $JOINCARAC = "  LEFT JOIN
+(SELECT id_prop,contenido as suptot FROM #dbName#.propiedad_caracteristicas WHERE id_carac=198) as st ON p.id_prop=st.id_prop 
+ LEFT JOIN 
+(SELECT id_prop,contenido as cantamb FROM #dbName#.propiedad_caracteristicas WHERE id_carac=208) as sca ON p.id_prop=sca.id_prop
+LEFT JOIN
+(SELECT id_prop,contenido as monalq FROM #dbName#.propiedad_caracteristicas WHERE id_carac=166) as smal ON p.id_prop=smal.id_prop
+LEFT JOIN
+(SELECT id_prop,contenido as valalq FROM #dbName#.propiedad_caracteristicas WHERE id_carac=164) as sal ON p.id_prop=sal.id_prop
+LEFT JOIN
+(SELECT id_prop,contenido as monven FROM #dbName#.propiedad_caracteristicas WHERE id_carac=165) as smve ON p.id_prop=smve.id_prop
+LEFT JOIN
+(SELECT id_prop,contenido as valven FROM #dbName#.propiedad_caracteristicas WHERE id_carac=161) as sve ON p.id_prop=sve.id_prop
+ ";
+    //    protected $ORDENBASE = " ORDER BY p.id_zona,p.id_loca,calle,nro";
+    //protected $ORDENBASE = " ORDER BY z.nombre_ubicacion,calle,nro";
+    protected $ORDENBASE = " ORDER BY oportunidad DESC, destacado DESC, id_prop DESC";
+    
+    protected $COLECCIONCOMBO ="SELECT p.id_prop,CONCAT('(',t.tipo_prop,' - ',p.operacion,')',p.calle,' ',p.nro,' ',p.piso,' ',p.dpto,' ',' - ',z.nombre_ubicacion) FROM #dbName#.propiedad as p INNER JOIN #dbName#.ubicacionpropiedad as z ON p.id_ubica = z.id_ubica INNER JOIN #dbName#.tipoprop as t ON p.id_tipo_prop = t.id_tipo_prop ORDER BY p.calle,p.nro";
+    
+
+    
+    public function coleccionCombo(){
+        $parametro = func_get_args();
+        $resultado = $this->execSql($this->COLECCIONCOMBO,$parametro);
+        if (!$resultado) {
+            $this->onError("COD_COLECCION", "COLECCION DE PROPIEDADES PARA EL COMBO " . $this->COLECCIONCOMBO);
+        }
+        return $resultado;
+        
+    }
+
+
+//	public function coleccionByFiltroBuscadorMapa($codigo,$calle,$zona,$localidad,$tipo_prop,$operacion,$id_emp,$in,$pagina=1,$registros=0,$campo='',$orden=0,$aux_vistaestado='',$aux_vistazona='',$publicadas=-1) {
+    public function coleccionByFiltroBuscadorMapa($codigo, $calle, $id_ubica, $tipo_prop, $operacion, $id_emp, $in, $pagina = 1, $registros = 0, $campo = '', $orden = 0, $aux_vistaestado = '', $aux_vistazona = '', $publicadas = -1) {
+        $parametro = func_get_args();
+        $auxwhere = '';
+        $where = '';
+
+        //		$ORDENLOCAL = " ORDER BY id_zona,id_loca,calle,nro ";
+        //$ORDENLOCAL = " ORDER BY destacado DESC,id_tipo_prop, id_ubica,calle,nro ";
+        $ORDENLOCAL = " ORDER BY oportunidad DESC, destacado DESC, id_prop DESC ";
+        if ($campo != '') {
+            $ORDENLOCAL = " ORDER BY " . $campo;
+            if ($orden != 0) {
+                $ORDENLOCAL .= " DESC ";
+            }
+        }
+
+        $FILTRO = array();
+        if ($codigo != 0) {
+            $FILTRO[] = "id_prop=$codigo";
+        } else {
+            if ($calle != '') {
+                $FILTRO[] = "calle LIKE '%$calle%'";
+            }
+            if ($id_emp != 0) {
+                $FILTRO[] = "id_emp in ($id_emp) ";
+                //        	$FILTRO[]="id_emp=#id_emp#";
+            }
+
+            if ($id_ubica != 0) {
+                $FILTRO[] = "id_ubica in ($id_ubica)";
+            }
+            /*
+              if($zona!=0) {
+              $FILTRO[]="id_zona='#id_zona#'";
+              }
+              if($localidad!=0) {
+              $FILTRO[]="id_loca in ($localidad)";
+              }
+             */
+            if ($tipo_prop != 0) {
+                $FILTRO[] = "id_tipo_prop in($tipo_prop)";
+            }
+            if ($operacion != '') {
+                $FILTRO[] = "operacion in (" . str_replace("\\\"", "'", $operacion) . ")";
+            } else {
+                if ($aux_vistaestado != '') {
+                    $FILTRO[] = "operacion in (" . $aux_vistaestado . ")";
+                }
+            }
+        }
+        if ($aux_vistazona != '') {
+            $FILTRO[] = "id_sucursal ='" . $aux_vistazona . "'";
+        }
+        if ($publicadas == 1 || $publicadas == 0) {
+            $FILTRO[] = " activa=" . $publicadas;
+        }
+
+        if (sizeof($FILTRO) > 0) {
+            for ($x = 0; $x < sizeof($FILTRO); $x++) {
+                if ($x > 0) {
+                    $auxwhere.=" AND ";
+                }
+                $auxwhere.= $FILTRO[$x];
+            }
+            $where .= (" WHERE " . $auxwhere);
+        }
+        if ($in != '' && $in != '0') {
+            if ($where != '') {
+                $where .= " AND ";
+            } else {
+                $where .= " WHERE ";
+            }
+            $where.="  id_prop IN ($in)";
+        }
+        //        echo
+        if ($registros > 0 && $pagina >= 0) {
+            if ($pagina > 0) {
+                $regin = ($pagina - 1) * $registros;
+            } else {
+                $regin = 0;
+            }
+            $limite = ' LIMIT ' . $regin . ',' . $registros;
+        } else {
+            $limite = '';
+        }
+//        echo $this->COLECCIONBASEBUSCADOR.$where." ) as p ".$this->JOINBUSCADOR.$this->JOINCARAC.$ORDENLOCAL . $limite."<br>";
+        $resultado = $this->execSql($this->COLECCIONBASEBUSCADOR . $where . " ) as p " . $this->JOINBUSCADOR . $this->JOINCARAC . $ORDENLOCAL . $limite, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_COLLECION", "PROPIEDADES FILTRADAS x BUSCADOR");
+        }
+        return $resultado;
+    }
+
+    //	public function cantRegistrosFiltroBuscador($codigo,$calle,$zona,$localidad,$tipo_prop,$operacion,$id_emp,$in) {
+    public function cantRegistrosFiltroBuscador($codigo, $calle, $id_ubica, $tipo_prop, $operacion, $id_emp, $in,$publicadas) {
+        $parametro = func_get_args();
+        $FILTRO = array();
+        $auxwhere='';
+
+        if ($codigo != 0) {
+            $FILTRO[] = "p.id_prop=$codigo";
+        } else {
+            if ($calle != '') {
+                $FILTRO[] = "p.calle LIKE '%$calle%'";
+            }
+            if ($id_emp != 0) {
+                $FILTRO[] = "p.id_emp=$id_emp";
+            }
+
+            if ($id_ubica != 0) {
+                $FILTRO[] = "p.id_ubica in ($id_ubica)";
+            }
+            /*
+              if($zona!=0) {
+              $FILTRO[]="p.id_zona=$zona";
+              }
+              if($localidad!=0) {
+              $FILTRO[]="p.id_loca in ($localidad)";
+              }
+             */
+            if ($tipo_prop != 0) {
+                $FILTRO[] = "p.id_tipo_prop in($tipo_prop)";
+            }
+            if ($operacion != '') {
+                $FILTRO[] = "p.operacion in (" . str_replace("\\", "", $operacion) . ")";
+            }
+        }
+        if ($publicadas == 1 || $publicadas == 0) {
+            $FILTRO[] = " p.activa=" . $publicadas;
+        }
+
+        if (sizeof($FILTRO) > 0) {
+            for ($x = 0; $x < sizeof($FILTRO); $x++) {
+                if ($x > 0) {
+                    $auxwhere.=" AND ";
+                }
+                $auxwhere.= $FILTRO[$x];
+            }
+            $where .= (" WHERE " . $auxwhere);
+        }
+        if ($in != '' && $in != '0') {
+            if ($where != '') {
+                $where .= " AND ";
+            } else {
+                $where = " WHERE ";
+            }
+            $where.="  p.id_prop IN ($in)";
+        }
+//        echo $this->CANTREGBASE . $where."<br>";
+        //        $resultado=$this->execSql($this->CANTREGBASE.$this->JOINBUSCADOR.$this->JOINCARAC.$where.$this->ORDENBASE,$parametro);
+        $resultado = $this->execSql($this->CANTREGBASE . $where, $parametro);
+        if (!$resultado) {
+            //			$resultado=0;
+            $this->onError("COD_COLLECION", "CANTIDAD DE PROPIEDADES FILTRADAS x BUSCADOR");
+        }
+        return $resultado;
+    }
+
+    public function coleccionOportunidad($tipo_prop, $operacion) {
+        $parametro = func_get_args();
+        $auxwhere = '';
+        $where = '';
+
+        //		$ORDENLOCAL = " ORDER BY id_zona,id_loca,calle,nro ";
+        $ORDENLOCAL = " ORDER BY id_tipo_prop";
+
+        $FILTRO = array();
+        if ($tipo_prop != 0) {
+            $FILTRO[] = "id_tipo_prop in($tipo_prop)";
+        }
+        if ($operacion != '') {
+            $FILTRO[] = "operacion in (" . $operacion . ")";
+        } else {
+            if ($aux_vistaestado != '') {
+                $FILTRO[] = "operacion in (" . $aux_vistaestado . ")";
+            }
+        }
+        $FILTRO[] = " activa=1";
+        $FILTRO[] = "oportunidad=1";
+
+        if (sizeof($FILTRO) > 0) {
+            for ($x = 0; $x < sizeof($FILTRO); $x++) {
+                if ($x > 0) {
+                    $auxwhere.=" AND ";
+                }
+                $auxwhere.= $FILTRO[$x];
+            }
+            $where .= (" WHERE " . $auxwhere);
+        }
+        $resultado = $this->execSql($this->COLECCIONBASEBUSCADOR . $where . " ) as p " . $this->JOINBUSCADOR . $this->JOINCARAC . $ORDENLOCAL, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_COLLECION", "PROPIEDADES FILTRADAS x OPORTUNIDAD");
+        }
+        return $resultado;
+    }
+
+    public function coleccionDestacado($tipo_prop, $operacion) {
+        $parametro = func_get_args();
+        $auxwhere = '';
+        $where = '';
+
+        //		$ORDENLOCAL = " ORDER BY id_zona,id_loca,calle,nro ";
+        $ORDENLOCAL = " ORDER BY id_tipo_prop";
+
+        $FILTRO = array();
+        if ($tipo_prop != 0) {
+            $FILTRO[] = "id_tipo_prop in($tipo_prop)";
+        }
+        if ($operacion != '') {
+            $FILTRO[] = "operacion in (" . $operacion . ")";
+        } else {
+            if ($aux_vistaestado != '') {
+                $FILTRO[] = "operacion in (" . $aux_vistaestado . ")";
+            }
+        }
+        $FILTRO[] = " activa=1";
+        $FILTRO[] = "destacado=1";
+
+        if (sizeof($FILTRO) > 0) {
+            for ($x = 0; $x < sizeof($FILTRO); $x++) {
+                if ($x > 0) {
+                    $auxwhere.=" AND ";
+                }
+                $auxwhere.= $FILTRO[$x];
+            }
+            $where .= (" WHERE " . $auxwhere);
+        }
+        $resultado = $this->execSql($this->COLECCIONBASEBUSCADOR . $where . " ) as p " . $this->JOINBUSCADOR . $this->JOINCARAC . $ORDENLOCAL, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_COLLECION", "PROPIEDADES FILTRADAS x OPORTUNIDAD");
+        }
+        return $resultado;
+    }
+
+    public function coleccionNovedades($fecha, $operacion) {
+
+//        $INOPER=" (select id_prop from #dbName#.propiedad_operacion where fecha > '$fecha' AND operacion in ($operacion) group by id_prop) ";
+        $INOPER = " ( select fo.id_prop from #dbName#.propiedad_operacion as fo inner join (select id_prop,max(fecha) as fecha,operacion from #dbName#.propiedad_operacion group by id_prop having fecha > '$fecha' AND operacion in ($operacion)) as op ON op.id_prop=fo.id_prop and op.fecha=fo.fecha  ) ";
+
+        $sqlStr = $this->COLECCIONBASEBUSCADOR . " WHERE id_prop in " . $INOPER . " ) as p " . $this->JOINBUSCADOR . $this->JOINCARAC . " ORDER BY p.id_tipo_prop, z.nombre_ubicacion";
+        $resultado = $this->execSql($sqlStr, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_COLLECION", "PROPIEDADES FILTRADAS x NOVEDAD");
+        }
+        return $resultado;
+    }
+
+    public function coleccionNovedadesPublicadas($fecha, $operacion) {
+
+//        $INOPER=" (select id_prop from #dbName#.propiedad_operacion where fecha > '$fecha' AND operacion in ($operacion) group by id_prop) ";
+        $INOPER = " ( select fo.id_prop from #dbName#.propiedad_operacion as fo inner join (select id_prop,max(fecha) as fecha,operacion from #dbName#.propiedad_operacion group by id_prop having fecha > '$fecha' AND operacion in ($operacion)) as op ON op.id_prop=fo.id_prop and op.fecha=fo.fecha  ) ";
+
+        $sqlStr = $this->COLECCIONBASEBUSCADOR . " WHERE operacion in (".$operacion.") AND activa = 1 AND id_prop in " . $INOPER . " ) as p " . $this->JOINBUSCADOR . $this->JOINCARAC . " ORDER BY p.id_tipo_prop, z.nombre_ubicacion";
+        $resultado = $this->execSql($sqlStr, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_COLLECION", "PROPIEDADES FILTRADAS x NOVEDAD");
+        }
+        return $resultado;
+    }
+    
+    /**
+     * Retorna un Resultset con los datos de las propiedades activaws en alquiler, en caso de pasar el parametro con datos
+     * se aplica un filtro del mismo sobre los campos calle y nro
+     * @param string $buscar
+     * @return resulset
+     */
+    public function coleccionAlquileres($buscar=''){
+        //$COLECCIONBASE
+        $parametro = func_get_args();
+        if($buscar!=''){
+            $filtro=" AND CONCAT(trim(calle),' ',trim(nro)) like '%".$buscar."%'";
+        }else{
+            $filtro='';
+        }
+        
+        $resultado = $this->execSql($this->COLECCIONBASE."WHERE trim(operacion)='Alquiler' ".$filtro." AND activa = 1", $parametro);
+        if (!$resultado) {
+            $this->onError("COD_COLECCION", "PROPIEDADES EN ALQUILER");
+        }
+        return $resultado;
+    }
+    
+    public function marcaAlquilado($alquilado=1) {
+        $parametro = func_get_args();
+        if($alquilado==1){
+            $strAlq='Alquilado';
+        }else{
+            $strAlq='Alquiler';
+        }
+        $MARCARALQ = "UPDATE #dbName#.propiedad SET operacion='$strAlq' WHERE id_prop=#id_prop#";
+        $resultado = $this->execSql($MARCARALQ, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_UPDATE", "Marca alquiler de propiedad");
+        }
+        return $resultado;
+    }
+
+    public function activar() {
+        $parametro = func_get_args();
+        $resultado = $this->execSql($this->ACTIVAR, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_UPDATE", "ACTIVACION de propiedad");
+        }
+        return $resultado;
+    }
+
+    public function desactivar() {
+        $parametro = func_get_args();
+        $resultado = $this->execSql($this->DESACTIVAR, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_UPDATE", "INACTIVACION de propiedad");
+        }
+        return $resultado;
+    }
+
+    public function publicarPrecio() {
+        $parametro = func_get_args();
+        $resultado = $this->execSql($this->PUBLICARPRECIO, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_UPDATE", "Publicacion de precio de propiedad");
+        }
+        return $resultado;
+    }
+
+    public function despublicarPrecio() {
+        $parametro = func_get_args();
+        $resultado = $this->execSql($this->DESPUBLICARPRECIO, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_UPDATE", "Despublicar precio de propiedad");
+        }
+        return $resultado;
+    }
+
+    public function destacaPropiedad() {
+        $parametro = func_get_args();
+        $resultado = $this->execSql($this->DESTACAPROP, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_UPDATE", "Destacar propiedad");
+        }
+        return $resultado;
+    }
+
+    public function normalizaPropiedad() {
+        $parametro = func_get_args();
+        $resultado = $this->execSql($this->NORMALIZAPROP, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_UPDATE", "Normalizar propiedad");
+        }
+        return $resultado;
+    }
+
+    public function activaOportunidad() {
+        $parametro = func_get_args();
+        $resultado = $this->execSql($this->OPORTUNIDAD, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_UPDATE", "Activa oportunidad propiedad");
+        }
+        return $resultado;
+    }
+
+    public function desactivaOportunidad() {
+        $parametro = func_get_args();
+        $resultado = $this->execSql($this->BAJAOPORTUNIDAD, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_UPDATE", "Normalizar oportunidad propiedad");
+        }
+        return $resultado;
+    }
+
+    public function coleccionZonasActivas($operacion = '', $activas = -1) {
+        $parametro = func_get_args();
+        $having = '';
+        $sqlStr = "SELECT distinct id_ubica,operacion,id_tipo_prop,activa,count(id_ubica) as id_prop FROM #dbName#.propiedad GROUP BY id_ubica,operacion,id_tipo_prop,activa";
+        //$order = " ORDER BY id_ubica,operacion,id_tipo_prop,activa ";
+        $order = " ORDER BY id_ubica,operacion,id_tipo_prop,activa ";
+        if ($operacion != '') {
+            $having = " having operacion in ($operacion) ";
+        }
+        if ($activas != -1) {
+            if ($having != '') {
+                $having.=' AND ';
+            } else {
+                $having = ' HAVING ';
+            }
+            $having.=' activa=$activas';
+        }
+        $resultado = $this->execSql($sqlStr . $having . $order, $parametro);
+        if (!$resultado) {
+            $this->onError("COD_COLLECION", "Coleccion de Ubicaciones Activas " . $sqlStr . $having . $order);
+        }
+        return $resultado;
+    }
+
+}
+
+// Fin clase DAO
+?>

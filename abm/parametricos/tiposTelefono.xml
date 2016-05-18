@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipoTelefono>
+    <dato id='Particular'>Particular</dato>
+    <dato id='Cel Particular'>Cel Particular</dato>
+    <dato id='Laboral'>Laboral</dato>
+    <dato id='Cel Laboral'>Cel Laboral</dato>
+    <dato id='Familiar'>Familiar</dato>
+    <dato id='Mensages'>Mensages</dato>
+    <dato id='Fax'>Fax</dato>
+</tipoTelefono>

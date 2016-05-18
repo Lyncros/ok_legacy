@@ -1,0 +1,69 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#jsddm {
+	margin: 0;
+	padding: 0
+}
+#jsddm li {
+	float: left;
+	list-style: none;
+}
+#jsddm li a {
+	display: block;
+	text-decoration: none;
+}
+#jsddm li a:hover {
+}
+#jsddm li ul {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	visibility: hidden;
+}
+#jsddm li ul li {
+	float: none;
+	display: inline;
+}
+#jsddm li ul li a {
+	width: auto;
+	min-width:120px;
+	background: #FFF;
+	color: #6d6e71;
+	padding:3px 5px;
+	border-bottom: solid thin #939598;
+	font-size:.91em;
+}
+#jsddm li ul li a:hover {
+	background: #f26322;
+	color:#FFF;
+}
+
+/*BANNERS TOP */
+#loop_top {
+	width: 760px;
+	height: 67px;
+}
+#loop_top ul li img {
+	max-width:760px;
+	max-height:67px;
+}
+/*---------- YOU MIGHT BREAK IT IF YOU CHANGE THIS STUFF -----------*/
+#loop_top {
+	position:relative;
+}
+#loop_top ul {
+	list-style:none;
+	padding:0;
+	position:relative;
+	margin:0;
+}
+#loop_top ul li {
+	display:none;
+	position:absolute;
+	text-align:center;
+	padding-left:40px;
+}
+#loop_top #bannerNav {
+	display:none;
+}

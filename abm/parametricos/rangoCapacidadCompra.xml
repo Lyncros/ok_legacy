@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<capacidadCompra>
+    <dato id='100000'>100.000 a 150.000</dato>
+    <dato id='150000'>150.000 a 200.000</dato>
+    <dato id='200000'>200.000 a 300.000</dato>
+    <dato id='300000'>300.000 a 450.000</dato>
+    <dato id='450000'>550.000 a 600.000</dato>
+    <dato id='600000'>600.000 a 800.000</dato>
+    <dato id='800000'>800.000 a 1.000.000</dato>
+    <dato id='1000000'>+ de 1.000.000</dato>
+</capacidadCompra>

@@ -1,0 +1,26 @@
+<form name='formCargaPeriodo' id='formCargaPeriodo' method='post'>
+    <div class='lista_titulo'>Monto de Alquiler del Periodo</div>
+
+    <table width='600' align='center' bgcolor='#FFFFFF'>
+
+        <tr>
+            <td class='cd_celda_texto' width='30%'>Monto<span class='obligatorio'>&nbsp;&bull;</span><br />
+                <input class='campos' type='text' name='MONTO' id='MONTO' value='{MONTO}' maxlength='10' size='80'>
+                <input class='campos' type='hidden' name='ID_PERIODO' id='ID_PERIODO' value='{ID_PERIODO}'>
+            </td>
+            <td class='cd_celda_texto' width='30%'>Fecha Inicio<span class='obligatorio'>&nbsp;&bull;</span><br />
+                <input class='campos' type='text' name='FEC_PERINI' id='FEC_PERINI' value='{FEC_PERINI}' maxlength='10' size='80'>
+            </td>
+            <td class='cd_celda_texto' width='15%'>Fecha Finalizacion<span class='obligatorio'>&nbsp;&bull;</span><br />
+                <input class='campos' type='text' name='FEC_PERFIN' id='FEC_PERFIN' value='{FEC_PERFIN}' maxlength='10' size='80'>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan='3' align='center'>
+                <input class='boton_form' type='button' value='Enviar' onclick="javascript:periodos.grabar('formCargaPeriodo');">
+                <input class='boton_form' type='button' value='Cancelar' onclick="javascript:periodos.cancelar();">
+            </td>
+        </tr>
+    </table>
+</form>

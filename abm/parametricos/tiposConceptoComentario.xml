@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tiposConceptoComentario>
+    <dato id='COMENTARIO'>Comentarios</dato>
+    <dato id='CARTEL'>Carteles</dato>
+    <dato id='OPERACION'>Operaciones</dato>
+    <dato id='TASACION'>Tasaciones</dato>
+    <dato id='AVISO'>Avisos</dato>
+</tiposConceptoComentario>

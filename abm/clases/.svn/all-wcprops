@@ -1,0 +1,809 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/okeefe/!svn/ver/128/clases
+END
+class.tasacion.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/okeefe/!svn/ver/1/clases/class.tasacion.php
+END
+class.fotoVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/okeefe/!svn/ver/122/clases/class.fotoVW.php
+END
+class.cartel.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/okeefe/!svn/ver/1/clases/class.cartel.php
+END
+class.cartelVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/okeefe/!svn/ver/122/clases/class.cartelVW.php
+END
+class.zonaBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/okeefe/!svn/ver/1/clases/class.zonaBSN.php
+END
+class.cliente.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/okeefe/!svn/ver/115/clases/class.cliente.php
+END
+class.contacto.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/okeefe/!svn/ver/115/clases/class.contacto.php
+END
+class.contactoVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/okeefe/!svn/ver/115/clases/class.contactoVW.php
+END
+class.loginPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/okeefe/!svn/ver/1/clases/class.loginPGDAO.php
+END
+class.localidadPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/1/clases/class.localidadPGDAO.php
+END
+class.telefonos.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/okeefe/!svn/ver/1/clases/class.telefonos.php
+END
+class.telefonosVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/okeefe/!svn/ver/46/clases/class.telefonosVW.php
+END
+class.perfileswebuserPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/okeefe/!svn/ver/50/clases/class.perfileswebuserPGDAO.php
+END
+class.logPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/okeefe/!svn/ver/1/clases/class.logPGDAO.php
+END
+class.fotoempPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/okeefe/!svn/ver/1/clases/class.fotoempPGDAO.php
+END
+class.loginwebuserVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/okeefe/!svn/ver/109/clases/class.loginwebuserVW.php
+END
+class.propiedadcontrato.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/okeefe/!svn/ver/83/clases/class.propiedadcontrato.php
+END
+class.logVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/okeefe/!svn/ver/1/clases/class.logVW.php
+END
+class.emprendimientoBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/okeefe/!svn/ver/1/clases/class.emprendimientoBSN.php
+END
+class.fotoempVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/okeefe/!svn/ver/29/clases/class.fotoempVW.php
+END
+class.crmbuscador.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/okeefe/!svn/ver/1/clases/class.crmbuscador.php
+END
+class.crmbuscadorVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/20/clases/class.crmbuscadorVW.php
+END
+class.impuestoPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/74/clases/class.impuestoPGDAO.php
+END
+class.impuestoBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/okeefe/!svn/ver/74/clases/class.impuestoBSN.php
+END
+class.clientePGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/129/clases/class.clientePGDAO.php
+END
+class.tiporelacionVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/okeefe/!svn/ver/57/clases/class.tiporelacionVW.php
+END
+class.tipo_prop.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/okeefe/!svn/ver/1/clases/class.tipo_prop.php
+END
+class.clienteBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/okeefe/!svn/ver/126/clases/class.clienteBSN.php
+END
+class.ubicacionesActivas.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/okeefe/!svn/ver/106/clases/class.ubicacionesActivas.php
+END
+class.ubicacionpropiedadPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/okeefe/!svn/ver/30/clases/class.ubicacionpropiedadPGDAO.php
+END
+class.tipoPropiedad.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/okeefe/!svn/ver/1/clases/class.tipoPropiedad.php
+END
+class.casoexito.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/okeefe/!svn/ver/94/clases/class.casoexito.php
+END
+class.fotoBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/okeefe/!svn/ver/1/clases/class.fotoBSN.php
+END
+class.PGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/okeefe/!svn/ver/1/clases/class.PGDAO.php
+END
+class.datosprop.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/okeefe/!svn/ver/1/clases/class.datosprop.php
+END
+class.crmbuscadorPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/okeefe/!svn/ver/1/clases/class.crmbuscadorPGDAO.php
+END
+class.caracteristicaempVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/okeefe/!svn/ver/57/clases/class.caracteristicaempVW.php
+END
+class.telefonosPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/8/clases/class.telefonosPGDAO.php
+END
+class.operacionPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/1/clases/class.operacionPGDAO.php
+END
+class.foto.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/okeefe/!svn/ver/1/clases/class.foto.php
+END
+class.caracteristicaBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/okeefe/!svn/ver/119/clases/class.caracteristicaBSN.php
+END
+class.clienteVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/okeefe/!svn/ver/129/clases/class.clienteVW.php
+END
+class.rubroVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/okeefe/!svn/ver/57/clases/class.rubroVW.php
+END
+class.loginBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/okeefe/!svn/ver/109/clases/class.loginBSN.php
+END
+class.localidadBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/okeefe/!svn/ver/1/clases/class.localidadBSN.php
+END
+class.fechas.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/okeefe/!svn/ver/1/clases/class.fechas.php
+END
+class.propiedadcontratoPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/okeefe/!svn/ver/94/clases/class.propiedadcontratoPGDAO.php
+END
+class.fotoemp.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/okeefe/!svn/ver/1/clases/class.fotoemp.php
+END
+class.perfileswebuserBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/okeefe/!svn/ver/50/clases/class.perfileswebuserBSN.php
+END
+class.log.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/okeefe/!svn/ver/1/clases/class.log.php
+END
+class.loginwebuserPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/okeefe/!svn/ver/6/clases/class.loginwebuserPGDAO.php
+END
+class.loginwebuserBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/okeefe/!svn/ver/109/clases/class.loginwebuserBSN.php
+END
+class.rubroBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/okeefe/!svn/ver/29/clases/class.rubroBSN.php
+END
+class.tipo_propVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/okeefe/!svn/ver/57/clases/class.tipo_propVW.php
+END
+class.ubicacionpropiedadBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/okeefe/!svn/ver/48/clases/class.ubicacionpropiedadBSN.php
+END
+class.caracteristicaVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/okeefe/!svn/ver/119/clases/class.caracteristicaVW.php
+END
+class.ubicacionpropiedadVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/okeefe/!svn/ver/57/clases/class.ubicacionpropiedadVW.php
+END
+class.tipo_carac.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/okeefe/!svn/ver/1/clases/class.tipo_carac.php
+END
+class.tipo_caracVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/okeefe/!svn/ver/57/clases/class.tipo_caracVW.php
+END
+class.operacionVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/okeefe/!svn/ver/122/clases/class.operacionVW.php
+END
+class.relacion.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/okeefe/!svn/ver/122/clases/class.relacion.php
+END
+class.tiporelacionPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/okeefe/!svn/ver/1/clases/class.tiporelacionPGDAO.php
+END
+class.datosempVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/okeefe/!svn/ver/12/clases/class.datosempVW.php
+END
+class.tasacionPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/94/clases/class.tasacionPGDAO.php
+END
+class.datospropVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/okeefe/!svn/ver/122/clases/class.datospropVW.php
+END
+class.caracteristicaemp.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/okeefe/!svn/ver/1/clases/class.caracteristicaemp.php
+END
+class.propiedadBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/127/clases/class.propiedadBSN.php
+END
+class.domicilio.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/okeefe/!svn/ver/1/clases/class.domicilio.php
+END
+class.perfileswebuserVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/okeefe/!svn/ver/50/clases/class.perfileswebuserVW.php
+END
+class.caracteristicaempPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/okeefe/!svn/ver/1/clases/class.caracteristicaempPGDAO.php
+END
+class.localidad.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/okeefe/!svn/ver/1/clases/class.localidad.php
+END
+class.datospropPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/1/clases/class.datospropPGDAO.php
+END
+class.login.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/okeefe/!svn/ver/109/clases/class.login.php
+END
+class.tipo_empVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/okeefe/!svn/ver/57/clases/class.tipo_empVW.php
+END
+class.datospropBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/okeefe/!svn/ver/1/clases/class.datospropBSN.php
+END
+class.contactoBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/okeefe/!svn/ver/115/clases/class.contactoBSN.php
+END
+class.zonaPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/okeefe/!svn/ver/1/clases/class.zonaPGDAO.php
+END
+class.cartelBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/okeefe/!svn/ver/1/clases/class.cartelBSN.php
+END
+class.tipo_propPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/1/clases/class.tipo_propPGDAO.php
+END
+class.tipo_propBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/okeefe/!svn/ver/1/clases/class.tipo_propBSN.php
+END
+class.rubro.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/okeefe/!svn/ver/8/clases/class.rubro.php
+END
+class.impuesto.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/okeefe/!svn/ver/74/clases/class.impuesto.php
+END
+class.tipo_empPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/okeefe/!svn/ver/1/clases/class.tipo_empPGDAO.php
+END
+class.domicilioPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/1/clases/class.domicilioPGDAO.php
+END
+class.emprendimientoPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/okeefe/!svn/ver/12/clases/class.emprendimientoPGDAO.php
+END
+class.logBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/okeefe/!svn/ver/1/clases/class.logBSN.php
+END
+class.emprendimientoVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/okeefe/!svn/ver/12/clases/class.emprendimientoVW.php
+END
+class.fotoempBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/okeefe/!svn/ver/1/clases/class.fotoempBSN.php
+END
+class.tiporelacion.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/okeefe/!svn/ver/1/clases/class.tiporelacion.php
+END
+class.datosempPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/okeefe/!svn/ver/1/clases/class.datosempPGDAO.php
+END
+class.tipo_caracBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/okeefe/!svn/ver/1/clases/class.tipo_caracBSN.php
+END
+class.caracteristica.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/okeefe/!svn/ver/119/clases/class.caracteristica.php
+END
+class.zonaVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/okeefe/!svn/ver/1/clases/class.zonaVW.php
+END
+class.fotoPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/okeefe/!svn/ver/1/clases/class.fotoPGDAO.php
+END
+class.operacion.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/okeefe/!svn/ver/1/clases/class.operacion.php
+END
+class.tiporelacionBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/okeefe/!svn/ver/20/clases/class.tiporelacionBSN.php
+END
+class.perfiles.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/okeefe/!svn/ver/1/clases/class.perfiles.php
+END
+class.propiedadVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/okeefe/!svn/ver/128/clases/class.propiedadVW.php
+END
+class.sucursal.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/okeefe/!svn/ver/1/clases/class.sucursal.php
+END
+class.contactoPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/okeefe/!svn/ver/115/clases/class.contactoPGDAO.php
+END
+class.tasacionVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/okeefe/!svn/ver/122/clases/class.tasacionVW.php
+END
+class.operacionBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/107/clases/class.operacionBSN.php
+END
+class.caracteristicaPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/okeefe/!svn/ver/119/clases/class.caracteristicaPGDAO.php
+END
+class.cartelPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/okeefe/!svn/ver/1/clases/class.cartelPGDAO.php
+END
+class.auxiliaresPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/okeefe/!svn/ver/1/clases/class.auxiliaresPGDAO.php
+END
+class.impuestoVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/okeefe/!svn/ver/74/clases/class.impuestoVW.php
+END
+class.tipo_empBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/okeefe/!svn/ver/1/clases/class.tipo_empBSN.php
+END
+class.loginwebuser.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/okeefe/!svn/ver/1/clases/class.loginwebuser.php
+END
+class.domicilioBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/115/clases/class.domicilioBSN.php
+END
+class.emprendimiento.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/1/clases/class.emprendimiento.php
+END
+class.propiedadcontratoVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/okeefe/!svn/ver/83/clases/class.propiedadcontratoVW.php
+END
+class.propiedadcontratoBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/okeefe/!svn/ver/94/clases/class.propiedadcontratoBSN.php
+END
+class.rubroPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/okeefe/!svn/ver/8/clases/class.rubroPGDAO.php
+END
+class.datosempBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/okeefe/!svn/ver/1/clases/class.datosempBSN.php
+END
+class.tipo_caracPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/okeefe/!svn/ver/1/clases/class.tipo_caracPGDAO.php
+END
+class.zona.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/okeefe/!svn/ver/1/clases/class.zona.php
+END
+class.ubicacionpropiedad.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/okeefe/!svn/ver/1/clases/class.ubicacionpropiedad.php
+END
+class.grupo_tipoprop.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/1/clases/class.grupo_tipoprop.php
+END
+class.datosemp.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/okeefe/!svn/ver/1/clases/class.datosemp.php
+END
+class.tasacionBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/okeefe/!svn/ver/94/clases/class.tasacionBSN.php
+END
+class.propiedadPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/okeefe/!svn/ver/128/clases/class.propiedadPGDAO.php
+END
+class.perfilesPGDAO.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/okeefe/!svn/ver/1/clases/class.perfilesPGDAO.php
+END
+class.crmbuscadorBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/1/clases/class.crmbuscadorBSN.php
+END
+class.perfilesBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/okeefe/!svn/ver/1/clases/class.perfilesBSN.php
+END
+class.perfileswebuser.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/okeefe/!svn/ver/20/clases/class.perfileswebuser.php
+END
+class.ubicacionpropiedadBSN.php_20111104
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/okeefe/!svn/ver/6/clases/class.ubicacionpropiedadBSN.php_20111104
+END
+class.domicilioVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/okeefe/!svn/ver/46/clases/class.domicilioVW.php
+END
+class.perfilesVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/okeefe/!svn/ver/20/clases/class.perfilesVW.php
+END
+class.propiedad.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/okeefe/!svn/ver/128/clases/class.propiedad.php
+END
+class.tipo_emp.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/okeefe/!svn/ver/1/clases/class.tipo_emp.php
+END
+class.caracteristicaempBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/okeefe/!svn/ver/1/clases/class.caracteristicaempBSN.php
+END
+class.telefonosBSN.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/okeefe/!svn/ver/115/clases/class.telefonosBSN.php
+END
+class.loginVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/okeefe/!svn/ver/20/clases/class.loginVW.php
+END
+class.localidadVW.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/okeefe/!svn/ver/1/clases/class.localidadVW.php
+END

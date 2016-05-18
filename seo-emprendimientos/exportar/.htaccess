@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "restricted area"
+AuthUserFile /home/okeefe/domains/okeefe.com.ar/private_html/.htpasswd
+require valid-user

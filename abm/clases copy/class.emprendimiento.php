@@ -1,0 +1,194 @@
+<?php
+
+class Emprendimiento {
+
+/*
+  id_emp int(10) unsigned NOT NULL auto_increment,
+  nombre
+  id_tipo_emp int(10) unsigned default NULL,
+  id_zona int(10) unsigned NOT NULL default '0',
+  id_loca int(10) unsigned NOT NULL default '0',
+  ubcacion varchar(500) NOT NULL,
+  descripcion varchar(5000) NOT NULL,
+  logo varchar(500) NOT NULL,
+  foto varchar(500) NOT NULL,
+  comentario varchar(1000) default NULL,
+  goglat double default NULL,
+  goglong double default NULL,
+
+*/
+ 
+	private $id_tipo_emp;
+	private $nombre;
+	private $id_emp;
+	private $id_zona;
+	private $id_loca;
+	private $ubicacion;
+	private $descripcion;
+	private $logo;
+	private $foto;
+	private $comentario;
+	private $goglat;
+	private $goglong;
+	private $activa;
+	
+	
+	public function __construct(
+								$id_emp=0,
+								$nombre='',
+								$id_zona=0,
+								$id_loca=0,
+								$ubicacion='',
+								$descripcion='',
+								$id_tipo_emp=0,
+								$logo='',
+								$foto='',
+								$comentario='',
+								$goglat=0,
+								$goglong=0,
+								$activa=0
+								){
+								
+		Emprendimiento::setId_tipo_emp($id_tipo_emp);
+		Emprendimiento::setNombre($nombre);
+		Emprendimiento::setId_emp($id_emp);
+		Emprendimiento::setId_zona($id_zona);
+		Emprendimiento::setId_loca($id_loca);
+		Emprendimiento::setUbicacion($ubicacion);
+		Emprendimiento::setDescripcion($descripcion);
+		Emprendimiento::setLogo($logo);
+		Emprendimiento::setComentario($comentario);
+		Emprendimiento::setFoto($foto);
+		Emprendimiento::setGoglat($goglat);
+		Emprendimiento::setGoglong($goglong);
+		Emprendimiento::setActiva($activa);
+	}
+
+	
+	public function seteaEmprendimiento($_tipo_emp){
+		$this->setId_tipo_emp($_tipo_emp->getId_tipo_emp());
+		$this->setNombre($_tipo_emp->getNombre());
+		$this->setId_emp($_tipo_emp->getId_emp());
+		$this->setId_zona($_tipo_emp->getId_zona());
+		$this->setId_loca($_tipo_emp->getId_loca());
+		$this->setUbicacion($_tipo_emp->getUbicacion());
+		$this->setDescripcion($_tipo_emp->getDescripcion());
+		$this->setLogo($_tipo_emp->getLogo());
+		$this->setComentario($_tipo_emp->getComentario());
+		$this->setFoto($_tipo_emp->getFoto());
+		$this->setGoglat($_tipo_emp->getGoglat());
+		$this->setGoglong($_tipo_emp->getGoglong());
+		$this->setActiva($_tipo_emp->getActiva());
+	}
+	
+	
+	public function setActiva($activa){
+		$this->activa = $activa;
+	}
+
+	public function getActiva(){
+		return $this->activa;
+	}
+	
+	public function setId_tipo_emp($_id_tipo_emp){
+		$this->id_tipo_emp = $_id_tipo_emp;
+	}
+	
+	public function setNombre($nombre){
+		$this->nombre=$nombre;
+	}
+	
+	public function setId_emp($id_emp){
+		$this->id_emp = $id_emp;
+	}
+	
+	public function setId_zona($id_zona){
+		$this->id_zona=$id_zona;
+	}
+	
+	public function setId_loca($id_loca){
+		$this->id_loca=$id_loca;
+	}
+
+	public function setGoglat($lat){
+		$this->goglat=$lat;
+	}
+	
+	public function setGoglong($long){
+		$this->goglong=$long;
+	}
+	
+	public function setUbicacion($ubicacion){
+		$this->ubicacion=$ubicacion;
+	}
+	
+	public function setDescripcion($descripcion){
+		$this->descripcion=$descripcion;
+	}
+
+	public function setLogo($logo){
+		$this->logo=$logo;
+	}
+	
+	public function setComentario($comen){
+		$this->comentario=$comen;
+	}
+	
+	public function setFoto($foto){
+		$this->foto=$foto;
+	}
+	
+	public function getNombre(){
+		return $this->nombre;
+	}
+	
+	public function getGoglat(){
+		return $this->goglat;
+	}
+	
+	public function getGoglong(){
+		return $this->goglong;
+	}
+	
+	
+	public function getId_emp(){
+		return $this->id_emp;
+	}
+	
+	public function getId_zona(){
+		return $this->id_zona;		
+	}
+	
+	public function getId_loca(){
+		return $this->id_loca;		
+	}
+	
+	public function getUbicacion(){
+		return $this->ubicacion;		
+	}
+	
+	public function getDescripcion(){
+		return $this->descripcion;		
+	}
+
+	
+	public function getId_tipo_emp(){
+		return $this->id_tipo_emp;
+	}
+	
+	public function getLogo(){
+		return  $this->logo;
+	}
+
+	public function getComentario(){
+		return $this->comentario;
+	}
+	
+	public function getFoto(){
+		return $this->foto;
+	}
+	
+	
+}
+
+?>

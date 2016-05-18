@@ -1,0 +1,284 @@
+<?php
+/**
+ * Clase base para el manejo del login de usuarios externos y de administracion
+ * Con Validez=0 la password no caduca
+ */
+
+include_once("clases/class.fechas.php");
+include_once("generic_class/class.cargaConfiguracion.php");
+
+class Login {
+
+	private $maxfallos=3;
+	private $id_user;
+	private $usuario;
+	private $clave;
+	private $validez=90;
+	private $fecha_base;
+	private $errores;
+	private $nueva_clave;
+	private $fecha_nueva;
+	private $validez_nueva=15;
+	
+
+	public function __construct($id_user=0,$usuario="",$clave="",$fecha_base="",$errores=0,$nueva_clave="",$fecha_nueva="",$maxfallos=4,$validez=90, $validez_nueva=15){
+		Login::setId_user($id_user);
+		Login::setUsuario($usuario);
+		Login::setClave($clave);
+		Login::setValidez($validez);
+		Login::setFecha_base($fecha_base);
+		Login::setErrores($errores);
+		Login::setNueva_clave($nueva_clave);
+		Login::setFecha_nueva($fecha_nueva);
+		Login::setMaxfallos($maxfallos);
+		Login::setValidez_nueva($validez_nueva);
+
+	}
+
+/**
+ * Valida que la clave pasada como parametro coincida con la clave Original o la Modificada
+ * por pedido expreso a travez del sitio.
+ *
+ * @param string de $_clave
+ * @return valores validos de aceptaci�n o rechazo
+ * -3 	clave bloqueada por exceso de intentos fallidos
+ * -2 	clave expirada por fecha
+ * -1 	error de ingreso
+ *  0	ingreso valido con clave original
+ *  1 	ingreso valido con clave modificada
+ */
+	public function validaLogin($_clave){
+		if ($this->errores < $this->maxfallos){
+			$retorno=$this->validaClave($_clave);
+			if ($retorno != 0){
+				$retornoNC=$this->validaNueva_clave($_clave);
+				if ($retornoNC==0){
+					$retorno=1; // Clave nueva por pedido de cambio de clave
+				}
+			}
+			switch ($retorno) {
+				case 0:
+					$this->limpiaFallidos();
+					$this->limpiaNuevaClave();
+					break;
+				case 1:
+					$this->limpiaFallidos();
+					$this->mueveNClave2Clave();
+					$this->limpiaNuevaClave();
+					break;
+				case -1:
+					$this->sumaError();
+					break;
+			}
+		} else {
+			$retorno=-3;
+		}
+		return $retorno;
+	}
+	
+	
+	private function validaClave($_clave){
+		$retornoCVC=$this->controlValorClave($_clave);
+		$retornoCFC=$this->controlFechaCaducidad($this->fecha_base,$this->validez);	
+		if ($retornoCFC!=0){
+			$retorno=$retornoCFC;
+		} else {
+			$retorno=$retornoCVC;
+		}
+		return $retorno;		
+	}
+
+	
+	private function validaNueva_clave($_clave){
+		$retornoCVC=$this->controlValorNuevaClave($_clave);
+		$retornoCFC=$this->controlFechaCaducidad($this->fecha_nueva,$this->validez_nueva);	
+		if ($retornoCFC!=0){
+			$retorno=$retornoCFC;
+		} else {
+			$retorno=$retornoCVC;
+		}
+		return $retorno;		
+	}
+	
+	
+/**
+ * Controla la validez de la clave respecto a la fecha de caducidad
+ * en el caso que la validez sea 0, indica que no caduca por fecha
+ *
+ * @return int resultado de la validacion
+ * 				-2 	-> Fecha caduca
+ * 				 0	-> En rango de fecha
+ */
+	private function controlFechaCaducidad($fecha,$validez){
+		$retorno=-1;
+		if  ($validez!=0){
+			$ofecha=new Fechas("-");
+			$comp=$ofecha->fecha_dif($fecha);
+			if ( (-1*$comp) > $validez ){
+				$retorno=-2; 
+			} else {
+				$retorno=0;
+			}
+		} else {
+			$retorno=0;
+		}
+		return $retorno;
+	}
+	
+	
+/**
+ * Valida internamente que la clave ingresada se corresponda:
+ * 		con la existente en registro para la clave original
+ *
+ * @param string $_clave
+ * @return int
+ */
+	private function controlValorClave($_clave){
+		$retorno=-1;
+		if ($this->clave == $_clave){
+			$retorno=0;
+		}
+		return $retorno;
+	}
+	
+	
+/**
+ * Valida internamente que la clave ingresada se corresponda:
+ * 		con la existente en registro para la clave nueva
+ *
+ * @param string $_clave
+ * @return int 
+ */
+	private function controlValorNuevaClave($_clave){
+		$retorno=-1;
+		if ($this->nueva_clave == $_clave){
+			$retorno=0;
+		}
+		return $retorno;
+	}
+
+	
+	public function limpiaFallidos(){
+		$this->errores=0;
+	}
+	
+	
+	public function mueveNClave2Clave(){
+		$this->clave=$this->nueva_clave;
+		$this->fecha_base=$this->fecha_nueva;
+	}
+
+	
+	public function limpiaNuevaClave(){
+                $conf = CargaConfiguracion::getInstance();
+                $timezone = $conf->leeParametro('timezone');
+                date_default_timezone_set($timezone);
+
+		$this->nueva_clave="";
+		$this->fecha_nueva=date("d-m-Y");
+	}
+	
+	
+	private function sumaError(){
+		$this->errores++;
+	}
+	
+	public function getId_user(){
+		return $this->id_user;
+	}
+	
+	public function getUsuario(){
+		return $this->usuario;
+	}
+	
+	public function  getClave(){
+		return $this->clave;
+	}
+	
+	public  function  getValidez(){
+		return $this->validez;
+	}
+
+	public  function  getValidez_nueva(){
+		return $this->validez_nueva;
+	}
+
+	public  function getFecha_base(){
+		return $this->fecha_base;
+	}
+	
+	public function  getErrores(){
+		return $this->errores;
+	}
+	
+	public function  getNueva_clave(){
+		return $this->nueva_clave;
+	}
+	
+	public function  getFecha_nueva(){
+		return $this->fecha_nueva;
+	}
+
+	public function getMaxfallos(){
+		return $this->maxfallos;
+	}
+
+	public function setId_user($_id){
+		$this->id_user=$_id;
+	}
+	
+	public function  setUsuario($_usuario){
+		$this->usuario=$_usuario;
+	}
+	
+	public function setClave($_clave){
+		$this->clave=$_clave;
+	}
+	
+	public function  setValidez($_validez){
+		$this->validez=$_validez;
+	}
+
+	public function  setValidez_nueva($_validez){
+		$this->validez_nueva=$_validez;
+	}
+
+	public  function setFecha_base($_fecha_base){
+                $conf = CargaConfiguracion::getInstance();
+                $timezone = $conf->leeParametro('timezone');
+                date_default_timezone_set($timezone);
+
+		if($_fecha_base==""){
+			$_fecha_base=date("d-m-Y");
+		}
+
+		$this->fecha_base=$_fecha_base;
+	}
+	
+	public  function setErrores($_errores){
+		$this->errores=$_errores;
+	}
+	
+	public  function setNueva_clave($_nueva_clave){
+		$this->nueva_clave=$_nueva_clave;		
+	}
+
+	public function  setFecha_nueva($_fecha_nueva){
+                $conf = CargaConfiguracion::getInstance();
+                $timezone = $conf->leeParametro('timezone');
+                date_default_timezone_set($timezone);
+
+		if($_fecha_nueva==""){
+			$_fecha_nueva=date("d-m-Y");
+		}
+		$this->fecha_nueva=$_fecha_nueva;
+	}
+
+	public function setMaxfallos($_maxfallos){
+		$this->maxfallos=$_maxfallos;
+	}
+	
+} //Fin Clase Login
+
+
+?>

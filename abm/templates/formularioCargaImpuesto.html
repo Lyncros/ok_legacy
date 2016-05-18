@@ -1,0 +1,28 @@
+<form action="javascript: impuestos.grabar('formCargaImpuesto');" name='formCargaImpuesto' id='formCargaImpuesto' method='post'>
+    <table width='90%' align='center' bgcolor='#FFFFFF'>
+        <tr>
+            <td class='cd_celda_titulo'>Carga de Tipos de Impuestos de Propiedades</td>
+        </tr>
+        <tr>
+            <td align='center'>
+                <table width='700' align='center' bgcolor='#FFFFFF'>
+                    <tr>
+                        <td class='cd_celda_texto' width='15%'>Denominacion<span class='obligatorio'>&nbsp;&bull;</span></td>
+                        <td width='85%'><input class='campos' type='text' name='DENOMINACION' id='DENOMINACION' value='{DENOMINACION}' maxlength='250' size='80'></td>
+                    </tr>
+                    <tr>
+                        <td class='cd_celda_texto' width='15%'>Detalle</td>
+                        <td width='85%'><input class='campos' type='text' name='DETALLE' id='DETALLE' value='{DETALLE}' maxlength='1000' size='80'></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align='right'>
+                            <input class='boton_form' type='submit' value='Enviar'><br /><br />
+                            <input type='hidden' name='ID_IMPUESTO' id='ID_IMPUESTO' value='{ID_IMPUESTO}' >
+                            <span class='obligatorio'>Los campos marcados con &bull; son obligatorios</span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</form>

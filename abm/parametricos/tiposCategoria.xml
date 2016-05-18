@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipoCategoria>
+    <dato id='99'>Sin categoria</dato>
+    <dato id='1'>Bronce</dato>
+    <dato id='2'>Plata</dato>
+    <dato id='3'>Oro</dato>
+    <dato id='4'>Platino</dato>
+</tipoCategoria>

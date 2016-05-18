@@ -1,0 +1,180 @@
+<?
+
+class Propiedad {
+
+/*	CREATE TABLE  `achaval`.`propiedad` (
+  `id_prop` int(10) unsigned NOT NULL auto_increment,
+  `provincia` varchar(100) NOT NULL,
+  `localidad` varchar(100) NOT NULL,
+  `calle` varchar(150) NOT NULL,
+  `entre1` varchar(150) NOT NULL,
+  `entre2` varchar(150) NOT NULL,
+  `nro` varchar(45) NOT NULL,
+  `descripcion` varchar(500) NOT NULL,
+  `id_tipo_prop` int(10) unsigned default NULL,
+*/
+ 
+	private $id_tipo_prop;
+	private $id_prop;
+	private $provincia;
+	private $localidad;
+	private $calle;
+	private $entre1;
+	private $entre2;
+	private $nro;
+	private $descripcion;
+	private $intermediacion;
+	private $id_inmo;
+	private $operacion;
+	
+	
+	public function __construct(
+								$id_prop=0,
+								$provincia='',
+								$localidad='',
+								$calle='',
+								$entre1='',
+								$entre2='',
+								$nro='',
+								$descripcion='',
+								$id_tipo_prop='',
+								$intermediacion='',
+								$id_inmo=0,
+								$operacion=''
+								){
+								
+		Propiedad::setId_tipo_prop($id_tipo_prop);
+		Propiedad::setId_prop($id_prop);
+		Propiedad::setProvincia($provincia);
+		Propiedad::setLocalidad($localidad);
+		Propiedad::setCalle($calle);
+		Propiedad::setEntre1($entre1);
+		Propiedad::setEntre2($entre2);
+		Propiedad::setNro($nro);
+		Propiedad::setDescripcion($descripcion);
+		Propiedad::setIntermediacion($intermediacion);
+		Propiedad::setId_inmo($id_inmo);
+		Propiedad::setOperacion($operacion);
+	}
+
+	
+	public function seteaPropiedad($_tipo_prop){
+		$this->setId_tipo_prop($_tipo_prop->getId_tipo_prop());
+		$this->setId_prop($_tipo_prop->getId_prop());
+		$this->setProvincia($_tipo_prop->getProvincia());
+		$this->setLocalidad($_tipo_prop->getLocalidad());
+		$this->setCalle($_tipo_prop->getCalle());
+		$this->setEntre1($_tipo_prop->getEntre1());
+		$this->setEntre2($_tipo_prop->getEntre2());
+		$this->setNro($_tipo_prop->getNro());
+		$this->setDescripcion($_tipo_prop->getDescripcion());
+		$this->setIntermediacion($_tipo_prop->getIntermediacion());
+		$this->setId_inmo($_tipo_prop->getId_inmo());
+		$this->setOperacion($_tipo_prop->getOperacion());
+	}
+	
+	
+	public function setId_tipo_prop($_id_tipo_prop){
+		$this->id_tipo_prop = $_id_tipo_prop;
+	}
+	
+	public function setId_prop($id_prop){
+		$this->id_prop = $id_prop;
+	}
+	
+	public function setProvincia($provincia){
+		$this->provincia=$provincia;
+	}
+	
+	public function setLocalidad($localidad){
+		$this->localidad=$localidad;
+	}
+	
+	public function setCalle($calle){
+		$this->calle=$calle;
+	}
+	
+	public function setEntre1($entre1){
+		$this->entre1=$entre1;
+	}
+	
+	public function setEntre2($entre2){
+		$this->entre2=$entre2;
+	}
+	
+	public function setNro($nro){
+		$this->nro=$nro;
+	}
+	
+	public function setDescripcion($descripcion){
+		$this->descripcion=$descripcion;
+	}
+
+	public function setIntermediacion($interme){
+		$this->intermediacion=$interme;
+	}
+	
+	public function setId_inmo($id_inmo){
+		$this->id_inmo=$id_inmo;
+	}
+	
+	public function setOperacion($oper){
+		$this->operacion=$oper;
+	}
+	
+	
+	
+	public function getId_prop(){
+		return $this->id_prop;
+	}
+	
+	public function getProvincia(){
+		return $this->provincia;		
+	}
+	
+	public function getLocalidad(){
+		return $this->localidad;		
+	}
+	
+	public function getCalle(){
+		return $this->calle;		
+	}
+	
+	public function getEntre1(){
+		return $this->entre1;		
+	}
+	
+	public function getEntre2(){
+		return $this->entre2;		
+	}
+	
+	public function getNro(){
+		return $this->nro;		
+	}
+	
+	public function getDescripcion(){
+		return $this->descripcion;		
+	}
+
+	
+	public function getId_tipo_prop(){
+		return $this->id_tipo_prop;
+	}
+	
+	public function getIntermediacion(){
+		return $this->intermediacion;
+	}
+	
+	public function getId_inmo(){
+		return  $this->id_inmo;
+	}
+	
+	public function getOperacion(){
+		return $this->operacion;
+	}
+	
+
+	
+}
+
+?>

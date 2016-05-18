@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipos_eventos>
+    <dato id='1'>Reunion</dato>
+    <dato id='2'>Tasacion</dato>
+    <dato id='3'>Visita</dato>
+    <dato id='4'>Firma Contrato</dato>
+    <dato id='5'>Firma Escritura</dato>
+    <dato id='6'>Llamada</dato>
+    <dato id='7'>Tarea Programada</dato>
+    <dato id='8'>Busqueda Informacion</dato>
+    <dato id='9'>Envio Mail</dato>
+    <dato id='10'>Muestra Ficha</dato>
+    <dato id='11'>Impresion Ficha</dato>
+    <dato id='94'>Rehabilitacion Propiedad</dato>
+    <dato id='95'>Revision Busqueda</dato>
+    <dato id='96'>Descarte Propiedad</dato>
+    <dato id='97'>Personal</dato>
+    <dato id='98'>Otro</dato>
+    <dato id='99'>Sin definir</dato>
+</tipos_eventos>

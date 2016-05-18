@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formas_ingreso>
+    <dato id='1'>Publicidad</dato>
+    <dato id='2'>Empleado</dato>
+    <dato id='3'>Cliente</dato>
+    <dato id='4'>Vidriera</dato>
+    <dato id='5'>Web</dato>
+</formas_ingreso>

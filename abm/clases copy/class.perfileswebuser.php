@@ -1,0 +1,53 @@
+<?php
+
+class Perfileswebuser {
+
+	private $perfil;
+	private $id_user;
+	private $usuario;
+	
+	public function __construct($perfil='',
+								$id_user='',
+								$usuario=''
+								){
+								
+		Perfileswebuser::setPerfil($perfil);
+		Perfileswebuser::setId_user($id_user);
+		Perfileswebuser::setUsuario($usuario);
+	}
+	
+	public function seteaPerfilesWebUser($_perfil){
+		$this->setPerfil($_perfil->getPerfil());
+		$this->setId_user($_perfil->getId_user());
+		$this->setUsuario($_perfil->getUsuario());
+		
+	}
+	
+	public function setUsuario($_usuario){
+		$this->usuario=$_usuario;
+	}
+	
+	public function setPerfil($_perfil){
+		$this->perfil = $_perfil;
+	}
+	
+	public function setId_user($_desc){
+		$this->id_user = $_desc;
+	}
+
+	public function getUsuario(){
+		return $this->usuario;
+	}
+	
+	public function getPerfil(){
+		return $this->perfil;
+	}
+	
+	public function getId_user(){
+		return $this->id_user;
+	}
+
+	
+}
+
+?>

@@ -1,0 +1,115 @@
+<div class="top">
+    Filtrar por
+</div>
+<div class="buscador-form">
+    <form id='buscador' style="height: 100%;">
+        <div>
+            <label for='buscaProp' class='cd_celda_texto'>Buscador r&aacute;pido</label><br />  
+
+            <input type='text' size='30' class="ui-autocomplete-input" name='buscaProp' id='buscaProp' value="Ingrese para buscar Zona, calle, numero..." onfocus="if (this.value == this.defaultValue) {
+                            this.value = '';
+                            this.style.color = '#333';
+                            this.style.fontStyle = 'normal';
+                        }" onblur="if (this.value == '') {
+                                    this.value = this.defaultValue;
+                                    this.style.color = '#CCC';
+                                    this.style.fontStyle = 'italic';
+                                }" />
+            <br /><br />
+        </div>
+        <input type='hidden' name='aux_prop' id='aux_prop' > 
+        <table class='cd_tabla' width='100%'>
+            <tr>
+                <td class='cd_celda_texto'>
+                    <label for="tipo_prop">Tipo de Propiedad</label><br />
+                    <input type='button' class='boton_form' value="Seleccione Tipo" id='tipo_prop' name='ver' onclick="javascript: popupTipoprop('div_selTipoprop', 'aux_Tprop', 'aux_selTprop');"><br />             
+                    <span id='div_selTipoprop' class='buscado'></span>     
+                    <input class='campos' name='aux_Tprop' id='aux_Tprop' type='hidden' value='0'>
+                    <input class='campos' name='aux_selTprop' id='aux_selTprop' type='hidden' value=''>
+                </td>
+            </tr>
+            <tr>
+                <td class='cd_celda_texto'>
+                    <label for="tipo_oper">Tipo de Operacion</label><br />
+                    <input type='button' class='boton_form' value="Seleccione Operaci&oacute;n" id='tipo_oper' name='tipo_oper' onclick="javascript: popupOperacion('div_selOperacion', 'aux_operacion', 'aux_seloperacion');"><br  />
+                    <span id='div_selOperacion' class='buscado'></span>
+                    <input class='campos' name='aux_operacion' id='aux_operacion' type='hidden' value=''>
+                    <input class='campos' name='aux_seloperacion' id='aux_seloperacion' type='hidden' value=''>
+                </td>
+            </tr>
+            <tr>
+                <td class='cd_celda_filtro2'>
+                    <label for="ID_UBICAPRINCIPAL">Zona</label><br />
+                    <div class="celda_div_25 div_select">
+                        <select name='ID_UBICAPRINCIPAL' id='ID_UBICAPRINCIPAL' onblur="javascript: document.getElementById('fid_ubica').value = document.getElementById('ID_UBICAPRINCIPAL').value;
+                                        document.getElementById('txtUbica').innerHTML = '';" onchange="javascript: document.getElementById('fid_ubica').value = document.getElementById('ID_UBICAPRINCIPAL').value;
+                                                document.getElementById('txtUbica').innerHTML = '';">
+                            <option value='0' SELECTED >Todas</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class='cd_celda_texto'>
+                    <label for='fid_ubica'>Localidad</label><br />
+                    <input class='campos' name='fid_ubica' id='fid_ubica' type='hidden' value='0'>
+                    <input type='button' class='boton_form' value='Seleccione Subzonas' onclick="window.open('seleccionaZona2.php?v=' + document.getElementById('fid_ubica').value + '&z=' + document.getElementById('ID_UBICAPRINCIPAL').value + '&ncu=fid_ubica', 'ventanaEmp', 'menubar=1,resizable=1,width=700,height=550');"><br />
+                    <span id='txtUbica'></span>
+                </td>
+            </tr>
+            <tr>
+                <td class='cd_celda_texto'>
+                    <label for="emprend">Emprendimientos</label><br />
+                    <input type='button' class='boton_form' value="Seleccione Emprendimiento" id='emprend' name='emprend' onclick="popupEmprendimiento('div_selEmprendimiento', 'aux_emp', 'aux_selemp', 'fid_ubica');"><br />
+                    <span id='div_selEmprendimiento' class='buscado'></span>
+                    <input class='campos' name='aux_emp' id='aux_emp' type='hidden' value='0'>
+                    <input class='campos' name='aux_selemp' id='aux_selemp' type='hidden' value=''>
+                </td>
+            </tr>
+            <tr>
+
+                <td  class='cd_celda_filtro2'>
+                    <label for="DORMITORIOS">Dormitorios</label><br />
+                    <div class="celda_div_min div_select">
+                        <select id="DORMITORIOS" name="DORMITORIOS">
+                            <option value="0">Sin definir</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 o mas</option>
+                        </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: right;">
+                    <!--                        <input class="boton_derecha" type='button' value='BUSCAR' id="bt_buscador" name="bt_buscador" onclick='javascript:buscadorCRM("buscador");'/>  -->
+                    <input class="boton_derecha" type='button' value='BUSCAR' id="bt_buscador" name="bt_buscador" onclick="javascript: cargaListaPropiedades();"/>
+                    <input class="boton_derecha" type='button' value='GRABAR FILTRO' id="bt_grabarbuscador" name="bt_grabarbuscador" onclick="javascript: buscadorCRM('buscador',1);"/>
+                </td>
+            </tr>
+        </table>
+
+        <input type='hidden' name='opcion' id='opcion' value='' />
+        <input type='hidden' name='id_cli' id='id_cli' value='' />
+        <input type='hidden' name='id_crm' id='id_crm' value='' />
+        <input type='hidden' name='activa' id='activa' value='' />
+        <input type='hidden' name='cpo' id='cpo' value='' />    
+        
+        <input type='hidden' name='fid_tipo_prop' id='fid_tipo_prop' value='' />
+        <input type='hidden' name='fid_seltipo_prop' id='fid_seltipo_prop' value='' />
+        <input type='hidden' name='fid_codigo' id='fid_codigo' value='0' />
+        <input type='hidden' name='fid_calle' id='fid_calle' value='' />
+        <input type='hidden' name='fid_selloca' id='fid_selloca' value='' />
+        <input type='hidden' name='fid_emp' id='fid_emp' value='' />
+        <input type='hidden' name='fid_selemp' id='fid_selemp' value='' />
+        <input type='hidden' name='foperacion' id='foperacion' value='' />
+        <input type='hidden' name='seloperacion' id='seloperacion' value='' />
+
+        <input type='hidden' name='vistasel' id='vistasel' value='0' />
+        <input type='hidden' name='pagina' id='pagina' value='1' />
+        <input type='hidden' name='aux_id_prop' id='aux_id_prop' value='1' />
+        
+        
+    </form>
+</div>

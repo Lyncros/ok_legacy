@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tipos_contratos>
+    <dato id='dni'>DNI</dato>
+    <dato id='ci'>Cedula Identidad</dato>
+    <dato id='pasport'>Pasaporte</dato>
+    <dato id='lcle'>LC - LE</dato>
+</tipos_contratos>
